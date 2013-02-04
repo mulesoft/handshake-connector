@@ -9,8 +9,7 @@
         http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
         http://www.mulesoft.org/schema/mule/handshake http://www.mulesoft.org/schema/mule/handshake/1.0-SNAPSHOT/mule-handshake.xsd">
 
-    <handshake:config myProperty="Some string"
-            username="xxx" password="yyy"/>
+    <handshake:config apiKey="xxx"/>
 
     <flow name="testFlow">
         <handshake:my-processor content="Another string"/>
