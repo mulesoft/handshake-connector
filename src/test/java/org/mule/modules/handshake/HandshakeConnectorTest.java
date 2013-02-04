@@ -19,8 +19,7 @@ import org.mule.tck.FunctionalTestCase;
 
 public class HandshakeConnectorTest extends FunctionalTestCase {
     @Override
-    protected String getConfigResources()
-    {
+    protected String getConfigResources() {
         return "mule-config.xml";
     }
 
