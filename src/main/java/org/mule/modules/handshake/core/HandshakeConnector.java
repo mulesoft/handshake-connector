@@ -92,6 +92,20 @@ public class HandshakeConnector {
         return getCustomersClient().getCustomers();
     }
 
+    /**
+     * Get a {@link org.mule.modules.handshake.core.Customer}, given its id
+     * 
+     * @param id of the Customer to get
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer}
+     *
+     * @return the customer with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public Customer getCustomer(final String id) {
+        return getCustomersClient().getCustomer(id);
+    }
+
     private OrdersClient getOrdersClient() {
         if (ordersClient == null) {
             ordersClient = new OrdersClientImpl(apiKey);

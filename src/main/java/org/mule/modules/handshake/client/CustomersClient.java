@@ -14,5 +14,16 @@ import java.util.List;
 import org.mule.modules.handshake.core.Customer;
 
 public interface CustomersClient {
+
+    /**
+     * Get all customers for a given account
+     */
     List<Customer> getCustomers();
+
+    /**
+     * Get a customer by id
+     * @param id of the Customer to get
+     * @return a Customer, or null
+     */
+    Customer getCustomer(String id);
 }

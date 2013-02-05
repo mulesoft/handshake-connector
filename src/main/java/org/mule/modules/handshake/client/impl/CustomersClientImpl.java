@@ -9,9 +9,10 @@
 
 package org.mule.modules.handshake.client.impl;
 
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.List;
 
-import java.lang.reflect.Type;
 import org.mule.modules.handshake.client.CustomersClient;
 import org.mule.modules.handshake.core.Customer;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
@@ -33,6 +34,18 @@ public class CustomersClientImpl extends AbstractHandshakeClient implements Cust
         final Builder builder = getBuilder(apiKey, getBaseURL(), null);
         final HandshakeAPIResponse<Customer> response = this.get(builder, GET_RESPONSE_TYPE);
         return response.getObjects();
+    }
+
+    @Override
+    @SuppressWarnings("serial")
+    public Customer getCustomer(final String id) {
+        final Builder builder = getBuilder(apiKey, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
+        final HandshakeAPIResponse<Customer> response = this.get(builder, GET_RESPONSE_TYPE);
+        if (!response.getObjects().isEmpty()) {
+            return response.getObjects().get(0);
+        } else {
+            return null;
+        }
     }
 
     @Override
