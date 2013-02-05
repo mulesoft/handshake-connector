@@ -10,6 +10,7 @@
 package org.mule.modules.handshake.client;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mule.modules.handshake.core.Order;
 
@@ -17,7 +18,13 @@ public interface OrdersClient {
 
 	/**
 	 * Get the orders
-	 * @return all the Orders matching the given filter
+	 * @return all the Orders
 	 */
 	List<Order> getOrders();
+
+	/**
+     * Get the orders
+     * @return all the Orders matching the given filter
+     */
+    List<Order> getOrders(Map<String, String> filters);
 }

@@ -11,6 +11,7 @@ package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Map;
 
 import org.mule.modules.handshake.client.OrdersClient;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
@@ -30,7 +31,12 @@ public class OrdersClientImpl extends AbstractHandshakeClient implements OrdersC
 
     @Override
     public List<Order> getOrders() {
-        final Builder builder = getBuilder(apiKey, getBaseURL(), null);
+        return getOrders(null);
+    }
+
+    @Override
+    public List<Order> getOrders(final Map<String, String> filters) {
+        final Builder builder = getBuilder(apiKey, getBaseURL(), filters);
         final HandshakeAPIResponse<Order> response = this.get(builder, GET_RESPONSE_TYPE);
         return response.getObjects();
     }
@@ -39,4 +45,5 @@ public class OrdersClientImpl extends AbstractHandshakeClient implements OrdersC
     protected String extendGetBaseUrl(String baseUrl) {
         return baseUrl + "orders/";
     }
+
 }

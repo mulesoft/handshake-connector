@@ -4,3 +4,9 @@
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
     <handshake:get-customer id="1" />
 <!-- END_INCLUDE(handshake:get-customer) -->
+<!-- BEGIN_INCLUDE(handshake:get-orders) -->
+    <handshake:get-orders />
+<!-- END_INCLUDE(handshake:get-orders) -->
+<!-- BEGIN_INCLUDE(handshake:get-orders) -->
+    <handshake:get-orders filters="#[['customerID':'C1000']]"/>
+<!-- END_INCLUDE(handshake:get-orders) -->

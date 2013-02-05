@@ -12,6 +12,7 @@
 package org.mule.modules.handshake.core;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mule.api.ConnectionException;
 import org.mule.api.annotations.Connect;
@@ -21,6 +22,7 @@ import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.param.ConnectionKey;
+import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.CustomersClient;
 import org.mule.modules.handshake.client.OrdersClient;
 import org.mule.modules.handshake.client.impl.CustomersClientImpl;
@@ -76,8 +78,19 @@ public class HandshakeConnector {
         return apiKey;
     }
 
-    public List<Order> getOrders() {
-        return getOrdersClient().getOrders();
+    /**
+     * Get Sales Orders for the connected account
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders}
+     *
+     *
+     * @param filters allowed values are: "category", "userGroup", "customerID", "status" and "ctime" (for creation time, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
+     *
+     * @return The list of Sales Orders matching the filters
+     */
+    @Processor
+    public List<Order> getOrders(@Optional final Map<String, String> filters) {
+        return getOrdersClient().getOrders(filters);
     }
 
     /**
