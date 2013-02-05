@@ -20,12 +20,10 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.mule.modules.handshake.core.Customer;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonParseException;
-import com.google.gson.reflect.TypeToken;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
