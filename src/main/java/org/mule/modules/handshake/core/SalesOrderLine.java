@@ -21,7 +21,7 @@ public class SalesOrderLine {
     private String vsku;
     private String sku;
     private String barcode;
-    private Item item;
+    private String item;
     private String description;
     private int qty;
     private double unitPrice;
@@ -55,10 +55,10 @@ public class SalesOrderLine {
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
-    public Item getItem() {
+    public String getItem() {
         return item;
     }
-    public void setItem(Item item) {
+    public void setItem(String item) {
         this.item = item;
     }
     public String getDescription() {

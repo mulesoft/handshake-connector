@@ -24,8 +24,8 @@ public class Order {
     private Address billTo;
     private Address shipTo;
     private CreditCard creditCard;
-    private UserGroup userGroup;
-    private OrderCategory category;
+    private String userGroup;
+    private String category;
     private List<SalesOrderLine> lines;
     private Date lastEdited;
     private String manufacturerIds;
@@ -80,16 +80,16 @@ public class Order {
     public void setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
     }
-    public UserGroup getUserGroup() {
+    public String getUserGroup() {
         return userGroup;
     }
-    public void setUserGroup(UserGroup userGroup) {
+    public void setUserGroup(String userGroup) {
         this.userGroup = userGroup;
     }
-    public OrderCategory getCategory() {
+    public String getCategory() {
         return category;
     }
-    public void setCategory(OrderCategory category) {
+    public void setCategory(String category) {
         this.category = category;
     }
     public List<SalesOrderLine> getLines() {

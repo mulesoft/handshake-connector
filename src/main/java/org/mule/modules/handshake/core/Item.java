@@ -31,7 +31,7 @@ public class Item {
     private List<Variant> variants;
     private Map<String, List<String>> dimensions;
     private Map<String, String> additionalPrices;
-    private Manufacturer manufacturer;
+    private String manufacturer;
     private List<String> imageURLs;
     private List<String> thumbnailURLs;
     private String thumbnailURL;
@@ -108,10 +108,10 @@ public class Item {
     public void setAdditionalPrices(Map<String, String> additionalPrices) {
         this.additionalPrices = additionalPrices;
     }
-    public Manufacturer getManufacturer() {
+    public String getManufacturer() {
         return manufacturer;
     }
-    public void setManufacturer(Manufacturer manufacturer) {
+    public void setManufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
     }
     public List<String> getImageURLs() {

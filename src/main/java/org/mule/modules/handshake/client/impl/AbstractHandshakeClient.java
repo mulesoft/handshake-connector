@@ -102,12 +102,17 @@ public abstract class AbstractHandshakeClient {
             client = Client.create(clientConfig);
         }
 
+        //TODO: May need to add token for Credit Cards
         client.addFilter(getBasicAuthenticationFilter(user, ""));
 
         WebResource wr = client.resource(url);
 
         MultivaluedMap<String, String> actualQueryParameters = mapToMultivaluedMap(queryParameters);
 
+        // We want all request to return whole objects where possible, instead of just references
+        if (!actualQueryParameters.containsKey("full")) {
+            actualQueryParameters.putSingle("full", "true");
+        }
         if (actualQueryParameters.isEmpty()) {
             return wr.type(MediaType.APPLICATION_JSON_TYPE);
         } else {
@@ -133,6 +138,7 @@ public abstract class AbstractHandshakeClient {
         }
         
     }
+
     /**
      * This method is called by getBuilder before the creation of the
      * {@link Client}. The {@link ClientConfig} is used to create the
@@ -143,7 +149,6 @@ public abstract class AbstractHandshakeClient {
     protected ClientConfig getJerseyClientConfiguration() {
         return null;
     }
-
 
     /**
      * Creates a {@link HTTPBasicAuthFilter} for HTTP basic authentication.
