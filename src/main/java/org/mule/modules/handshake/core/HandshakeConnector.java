@@ -84,7 +84,7 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders}
      *
      *
-     * @param filters allowed values are: "category", "userGroup", "customerID", "status" and "ctime" (for creation time, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
+     * @param filters allowed values are: "customerID", "status" and "ctime" (for creation time, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      *
      * @return The list of Sales Orders matching the filters
      */
