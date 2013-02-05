@@ -11,8 +11,8 @@
 
     <handshake:config apiKey="xxx"/>
 
-    <flow name="testFlow">
-        <handshake:my-processor content="Another string"/>
+    <flow name="customers">
+        <handshake:get-customers />
     </flow>
 
 </mule>

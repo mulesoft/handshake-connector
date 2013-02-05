@@ -1,0 +1,3 @@
+<!-- BEGIN_INCLUDE(handshake:get-customers) -->
+    <handshake:get-customers />
+<!-- END_INCLUDE(handshake:get-customers) -->

@@ -1,3 +1,0 @@
-<!-- BEGIN_INCLUDE(handshake:my-processor) -->
-    <handshake:my-processor content="#[map-payload:content]" />
-<!-- END_INCLUDE(handshake:my-processor) -->

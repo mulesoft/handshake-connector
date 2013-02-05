@@ -76,26 +76,18 @@ public class HandshakeConnector {
         return apiKey;
     }
 
-    /**
-     * Custom processor
-     *
-     * {@sample.xml ../../../doc/Handshake-connector.xml.sample handshake:my-processor}
-     *
-     * @param content Content to be processed
-     * @return Some string
-     */
-    @Processor
-    public String myProcessor(String content) {
-        /*
-         * MESSAGE PROCESSOR CODE GOES HERE
-         */
-        return content;
-    }
-
     public List<Order> getOrders() {
         return getOrdersClient().getOrders();
     }
 
+    /**
+     * Get all customers for the connected account
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
+     *
+     * @return The list of customers for the connected account
+     */
+    @Processor
     public List<Customer> getCustomers() {
         return getCustomersClient().getCustomers();
     }
