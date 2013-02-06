@@ -9,6 +9,7 @@
 
 package org.mule.modules.handshake.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,12 +24,12 @@ public class Item {
     private String name;
     private String longDesc;
     private String barcode;
-    private double unitPrice;
+    private String unitPrice;
     private int minQty;
     private int multQty;
     private Category category;
     private int categoryPosition;
-    private List<Variant> variants;
+    private List<Variant> variants = new ArrayList<Variant>();
     private Map<String, List<String>> dimensions;
     private Map<String, String> additionalPrices;
     private String manufacturer;
@@ -60,10 +61,10 @@ public class Item {
     public void setBarcode(String barcode) {
         this.barcode = barcode;
     }
-    public double getUnitPrice() {
+    public String getUnitPrice() {
         return unitPrice;
     }
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(String unitPrice) {
         this.unitPrice = unitPrice;
     }
     public int getMinQty() {

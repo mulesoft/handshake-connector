@@ -90,10 +90,9 @@ public abstract class AbstractHandshakeClient {
      *            a map containing all the query parameters
      * @return the builder.
      */
-    protected WebResource.Builder getBuilder(String user, String url,
-            Map<String, String> queryParameters) {
+    protected WebResource.Builder getBuilder(String user, String url, Map<String, String> queryParameters) {
 
-        ClientConfig clientConfig = getJerseyClientConfiguration();
+        final ClientConfig clientConfig = getJerseyClientConfiguration();
 
         Client client = null;
         if (clientConfig == null) {
@@ -105,29 +104,23 @@ public abstract class AbstractHandshakeClient {
         //TODO: May need to add token for Credit Cards
         client.addFilter(getBasicAuthenticationFilter(user, ""));
 
-        WebResource wr = client.resource(url);
-
-        MultivaluedMap<String, String> actualQueryParameters = mapToMultivaluedMap(queryParameters);
+        final WebResource wr = client.resource(url);
+        final MultivaluedMap<String, String> actualQueryParameters = mapToMultivaluedMap(queryParameters);
 
         // We want all request to return whole objects where possible, instead of just references
         if (!actualQueryParameters.containsKey("full")) {
             actualQueryParameters.putSingle("full", "true");
         }
-        if (actualQueryParameters.isEmpty()) {
-            return wr.type(MediaType.APPLICATION_JSON_TYPE);
-        } else {
-            return wr.queryParams(actualQueryParameters).type(MediaType.APPLICATION_JSON_TYPE);
-        }
+        return wr.queryParams(actualQueryParameters).type(MediaType.APPLICATION_JSON_TYPE);
     }
 
     protected <T> HandshakeAPIResponse<T> get(final WebResource.Builder resourceBuilder, final Type type) {
-        ClientResponse clientResponse = resourceBuilder.get(ClientResponse.class);
+        final ClientResponse clientResponse = resourceBuilder.get(ClientResponse.class);
 
-        String response = readResponseFromClientResponse(clientResponse);
+        final String response = readResponseFromClientResponse(clientResponse);
         if (clientResponse.getStatus() >= 400) {
             // TODO: Handle
             throw new RuntimeException(response);
-            //return Arrays.asList(response);
         }
 
         try {
@@ -136,7 +129,24 @@ public abstract class AbstractHandshakeClient {
             // TODO: Handle
             throw new RuntimeException(e);
         }
-        
+    }
+
+    protected <T> T post(final WebResource.Builder resourceBuilder, final Type requestType, final Type responseType, final Object params) {
+        final String paramsString = gson.toJson(params, requestType);
+        final ClientResponse clientResponse = resourceBuilder.post(ClientResponse.class, paramsString);
+
+        final String response = readResponseFromClientResponse(clientResponse);
+        if (clientResponse.getStatus() >= 400) {
+            // TODO: Handle
+            throw new RuntimeException(response);
+        }
+
+        try {
+            return parseJson(response, responseType);
+        } catch (IOException e) {
+            // TODO: Handle
+            throw new RuntimeException(e);
+        }
     }
 
     /**

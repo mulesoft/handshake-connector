@@ -11,6 +11,7 @@
  */
 package org.mule.modules.handshake.core;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,10 +24,8 @@ import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Optional;
-import org.mule.modules.handshake.client.CustomersClient;
-import org.mule.modules.handshake.client.OrdersClient;
-import org.mule.modules.handshake.client.impl.CustomersClientImpl;
-import org.mule.modules.handshake.client.impl.OrdersClientImpl;
+import org.mule.modules.handshake.client.HandshakeClientProvider;
+import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
 
 /**
  * Cloud Connector
@@ -37,9 +36,7 @@ import org.mule.modules.handshake.client.impl.OrdersClientImpl;
 public class HandshakeConnector {
 
     private String apiKey;
-
-    private OrdersClient ordersClient;
-    private CustomersClient customersClient;
+    private HandshakeClientProvider clientProvider;
 
     /**
      * Connect
@@ -66,8 +63,7 @@ public class HandshakeConnector {
      */
     @ValidateConnection
     public boolean isConnected() {
-        // TODO: Use a factory and determine based on that?
-        return true;
+        return clientProvider != null;
     }
 
     /**
@@ -90,7 +86,7 @@ public class HandshakeConnector {
      */
     @Processor
     public List<Order> getOrders(@Optional final Map<String, String> filters) {
-        return getOrdersClient().getOrders(filters);
+        return getClientProvider().getOrdersClient().getOrders(filters);
     }
 
     /**
@@ -102,7 +98,7 @@ public class HandshakeConnector {
      */
     @Processor
     public List<Customer> getCustomers() {
-        return getCustomersClient().getCustomers();
+        return getClientProvider().getCustomersClient().getCustomers();
     }
 
     /**
@@ -116,20 +112,13 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer getCustomer(final String id) {
-        return getCustomersClient().getCustomer(id);
+        return getClientProvider().getCustomersClient().getCustomer(id);
     }
 
-    private OrdersClient getOrdersClient() {
-        if (ordersClient == null) {
-            ordersClient = new OrdersClientImpl(apiKey);
+    public HandshakeClientProvider getClientProvider() {
+        if (clientProvider == null) {
+            clientProvider = new HandshakeClientProviderImpl(apiKey);
         }
-        return ordersClient;
-    }
-
-    private CustomersClient getCustomersClient() {
-        if (customersClient == null) {
-            customersClient = new CustomersClientImpl(apiKey);
-        }
-        return customersClient;
+        return clientProvider;
     }
 }

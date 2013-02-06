@@ -9,26 +9,21 @@
 
 package org.mule.modules.handshake.client;
 
-import java.util.List;
+import org.mule.modules.handshake.core.Item;
 
-import org.mule.modules.handshake.core.Customer;
 
 /**
- * Client for the Customer resource: http://www.handshake-app.com/help/kb/api/customer-resource
+ * Client for the Item resource: http://www.handshake-app.com/help/kb/api/item-resource
  * @author marianosimone
  *
  */
-public interface CustomersClient {
+public interface ItemsClient {
 
     /**
-     * Get all customers for a given account
+     * Create the given item on Handshake for the connected account
+     * @param item to be created
+     * @return the created item
      */
-    List<Customer> getCustomers();
+    Item createItem(final Item item);
 
-    /**
-     * Get a customer by id
-     * @param id of the Customer to get
-     * @return a Customer, or null
-     */
-    Customer getCustomer(String id);
 }

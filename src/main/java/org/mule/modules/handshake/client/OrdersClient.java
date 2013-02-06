@@ -14,6 +14,11 @@ import java.util.Map;
 
 import org.mule.modules.handshake.core.Order;
 
+/**
+ * Client for the Order resource: http://www.handshake-app.com/help/kb/api/order-resource
+ * @author marianosimone
+ *
+ */
 public interface OrdersClient {
 
 	/**
