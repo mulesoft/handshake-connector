@@ -115,6 +115,38 @@ public class HandshakeConnector {
         return getClientProvider().getCustomersClient().getCustomer(id);
     }
 
+    /**
+     * Creates a {@link org.mule.modules.handshake.core.Item} on handshake
+     * 
+     * @param item to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-item}
+     *
+     * @return the created item
+     */
+    @Processor
+    public Item createItem(Item item) {
+        return getClientProvider().getItemsClient().createItem(item);
+    }
+
+    /**
+     * Creates {@link org.mule.modules.handshake.core.Item}s on handshake
+     * 
+     * @param items to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-items}
+     *
+     * @return a list of the items created (if everything is ok, it should match the provided list)
+     */
+    @Processor
+    public List<Item> createItems(final List<Item> items) {
+        final List<Item> createdItems = new ArrayList<Item>(items.size());
+        for (final Item item: items) {
+            createdItems.add(this.createItem(item));
+        }
+        return createdItems;
+    }
+
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
             clientProvider = new HandshakeClientProviderImpl(apiKey);
