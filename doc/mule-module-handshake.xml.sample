@@ -19,3 +19,6 @@
 <!-- BEGIN_INCLUDE(handshake:create-category) -->
     <handshake:create-category />
 <!-- END_INCLUDE(handshake:create-category) -->
+<!-- BEGIN_INCLUDE(handshake:create-order) -->
+    <handshake:create-order />
+<!-- END_INCLUDE(handshake:create-order) -->

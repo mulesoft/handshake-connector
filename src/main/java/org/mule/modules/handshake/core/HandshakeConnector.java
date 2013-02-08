@@ -124,6 +124,7 @@ public class HandshakeConnector {
      *
      * @return the created item
      */
+    //TODO: Keep or remove and let people create a list for one element?
     //@Processor
     public Item createItem(final Item item) {
         return getClientProvider().getItemsClient().create(item);
@@ -159,6 +160,20 @@ public class HandshakeConnector {
     //@Processor
     public Category createCategory(final Category category) {
         return getClientProvider().getCategoriesClient().create(category);
+    }
+
+    /**
+     * Creates a {@link org.mule.modules.handshake.core.Order} on handshake
+     *
+     * @param order to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-order}
+     *
+     * @return the created order
+     */
+    //@Processor
+    public Order createOrder(final Order order) {
+        return getClientProvider().getOrdersClient().create(order);
     }
 
     public HandshakeClientProvider getClientProvider() {
