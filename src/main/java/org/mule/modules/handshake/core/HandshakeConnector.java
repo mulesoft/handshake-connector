@@ -116,6 +116,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Creates a {@link org.mule.modules.handshake.core.Customer} on handshake
+     * 
+     * @param customer to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-customer}
+     *
+     * @return the created customer
+     */
+    @Processor
+    public Customer createCustomer(final Customer customer) {
+        return getClientProvider().getCustomersClient().create(customer);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Item} on handshake
      * 
      * @param item to create

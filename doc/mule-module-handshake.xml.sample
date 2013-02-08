@@ -22,3 +22,6 @@
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
     <handshake:create-order />
 <!-- END_INCLUDE(handshake:create-order) -->
+<!-- BEGIN_INCLUDE(handshake:create-customer) -->
+    <handshake:create-customer />
+<!-- END_INCLUDE(handshake:create-customer) -->
