@@ -124,8 +124,8 @@ public class HandshakeConnector {
      *
      * @return the created item
      */
-    @Processor
-    public Item createItem(Item item) {
+    //@Processor
+    public Item createItem(final Item item) {
         return getClientProvider().getItemsClient().createItem(item);
     }
 
@@ -138,7 +138,7 @@ public class HandshakeConnector {
      *
      * @return a list of the items created (if everything is ok, it should match the provided list)
      */
-    @Processor
+    //@Processor
     public List<Item> createItems(final List<Item> items) {
         final List<Item> createdItems = new ArrayList<Item>(items.size());
         for (final Item item: items) {

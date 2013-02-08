@@ -10,3 +10,9 @@
 <!-- BEGIN_INCLUDE(handshake:get-orders) -->
     <handshake:get-orders filters="#[['customerID':'C1000']]"/>
 <!-- END_INCLUDE(handshake:get-orders) -->
+<!-- BEGIN_INCLUDE(handshake:create-item) -->
+    <handshake:create-item />
+<!-- END_INCLUDE(handshake:create-item) -->
+<!-- BEGIN_INCLUDE(handshake:create-items) -->
+    <handshake:create-items />
+<!-- END_INCLUDE(handshake:create-items) -->
