@@ -147,10 +147,25 @@ public class HandshakeConnector {
         return createdItems;
     }
 
+    /**
+     * Creates a {@link org.mule.modules.handshake.core.Category} on handshake
+     * 
+     * @param category to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-category}
+     *
+     * @return the created category
+     */
+    //@Processor
+    public Category createCategory(final Category category) {
+        return getClientProvider().getCategoriesClient().create(category);
+    }
+
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
             clientProvider = new HandshakeClientProviderImpl(apiKey);
         }
         return clientProvider;
     }
+
 }

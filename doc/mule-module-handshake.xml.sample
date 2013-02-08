@@ -16,3 +16,6 @@
 <!-- BEGIN_INCLUDE(handshake:create-items) -->
     <handshake:create-items />
 <!-- END_INCLUDE(handshake:create-items) -->
+<!-- BEGIN_INCLUDE(handshake:create-category) -->
+    <handshake:create-category />
+<!-- END_INCLUDE(handshake:create-category) -->

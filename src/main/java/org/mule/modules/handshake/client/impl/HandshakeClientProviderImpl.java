@@ -13,6 +13,9 @@ import org.mule.modules.handshake.client.CustomersClient;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.ItemsClient;
 import org.mule.modules.handshake.client.OrdersClient;
+import org.mule.modules.handshake.core.Category;
+
+import com.google.gson.reflect.TypeToken;
 
 public class HandshakeClientProviderImpl implements HandshakeClientProvider {
 
@@ -20,6 +23,7 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
     private CustomersClient customersClient;
     private OrdersClient ordersClient;
     private ItemsClient itemsClient;
+    private GenericHandshakeClientImpl<Category> categoriesClient;
 
     public HandshakeClientProviderImpl(final String apiKey) {
         this.apiKey = apiKey;
@@ -45,4 +49,13 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
         }
         return itemsClient;
     }
+
+    @Override
+    public GenericHandshakeClientImpl<Category> getCategoriesClient() {
+        if (categoriesClient == null) {
+            categoriesClient = new GenericHandshakeClientImpl<Category>(apiKey, "categories", new TypeToken<Category>() {}.getType());
+        }
+        return categoriesClient;
+    }
+
 }
