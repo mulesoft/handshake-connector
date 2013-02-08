@@ -1,8 +1,12 @@
 package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.mule.modules.handshake.client.GenericHandshakeClient;
+import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 import com.sun.jersey.api.client.WebResource.Builder;
 
@@ -11,11 +15,13 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     private final String apiKey;
     private final String resourcePath;
     private final Type elementType;
+    private final Type responseElementType;
 
-    public GenericHandshakeClientImpl(final String apiKey, final String resourcePath, final Type elementType) {
+    public GenericHandshakeClientImpl(final String apiKey, final String resourcePath, final Type elementType, final Type responseElementType) {
         this.apiKey = apiKey;
         this.resourcePath = resourcePath;
         this.elementType = elementType;
+        this.responseElementType = responseElementType;
     }
 
     @Override
@@ -27,6 +33,25 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     public T create(final T t) {
         final Builder builder = getBuilder(apiKey, getBaseURL(), null);
         return this.post(builder, elementType, elementType, t);
+    }
+
+    @Override
+    public List<T> getAll(final Map<String, String> filters) {
+        final Builder builder = getBuilder(apiKey, getBaseURL(), filters);
+        final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
+        return response.getObjects();
+    }
+
+    @Override
+    public T getById(final String id) {
+        @SuppressWarnings("serial")
+        final Builder builder = getBuilder(apiKey, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
+        final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
+        if (!response.getObjects().isEmpty()) {
+            return response.getObjects().get(0);
+        } else {
+            return null;
+        }
     }
 
 }

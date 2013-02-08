@@ -86,7 +86,7 @@ public class HandshakeConnector {
      */
     @Processor
     public List<Order> getOrders(@Optional final Map<String, String> filters) {
-        return getClientProvider().getOrdersClient().getOrders(filters);
+        return getClientProvider().getOrdersClient().getAll(filters);
     }
 
     /**
@@ -98,7 +98,7 @@ public class HandshakeConnector {
      */
     @Processor
     public List<Customer> getCustomers() {
-        return getClientProvider().getCustomersClient().getCustomers();
+        return getClientProvider().getCustomersClient().getAll(null);
     }
 
     /**
@@ -112,7 +112,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer getCustomer(final String id) {
-        return getClientProvider().getCustomersClient().getCustomer(id);
+        return getClientProvider().getCustomersClient().getById(id);
     }
 
     /**
@@ -126,7 +126,7 @@ public class HandshakeConnector {
      */
     //@Processor
     public Item createItem(final Item item) {
-        return getClientProvider().getItemsClient().createItem(item);
+        return getClientProvider().getItemsClient().create(item);
     }
 
     /**

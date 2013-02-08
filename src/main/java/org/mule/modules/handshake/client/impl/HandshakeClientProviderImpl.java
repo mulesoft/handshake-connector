@@ -9,51 +9,53 @@
 
 package org.mule.modules.handshake.client.impl;
 
-import org.mule.modules.handshake.client.CustomersClient;
+import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
-import org.mule.modules.handshake.client.ItemsClient;
-import org.mule.modules.handshake.client.OrdersClient;
 import org.mule.modules.handshake.core.Category;
+import org.mule.modules.handshake.core.Customer;
+import org.mule.modules.handshake.core.HandshakeAPIResponse;
+import org.mule.modules.handshake.core.Item;
+import org.mule.modules.handshake.core.Order;
 
 import com.google.gson.reflect.TypeToken;
 
 public class HandshakeClientProviderImpl implements HandshakeClientProvider {
 
     private final String apiKey;
-    private CustomersClient customersClient;
-    private OrdersClient ordersClient;
-    private ItemsClient itemsClient;
-    private GenericHandshakeClientImpl<Category> categoriesClient;
+    private GenericHandshakeClient<Customer> customersClient;
+    private GenericHandshakeClient<Order> ordersClient;
+    private GenericHandshakeClient<Item> itemsClient;
+    private GenericHandshakeClient<Category> categoriesClient;
 
     public HandshakeClientProviderImpl(final String apiKey) {
         this.apiKey = apiKey;
     }
 
-    public OrdersClient getOrdersClient() {
+    public GenericHandshakeClient<Order> getOrdersClient() {
         if (ordersClient == null) {
-            ordersClient = new OrdersClientImpl(apiKey);
+            ordersClient = new GenericHandshakeClientImpl<Order>(apiKey, "orders", new TypeToken<Order>() {}.getType(), new TypeToken<HandshakeAPIResponse<Order>>() {}.getType());
         }
         return ordersClient;
     }
 
-    public CustomersClient getCustomersClient() {
+    public GenericHandshakeClient<Customer> getCustomersClient() {
         if (customersClient == null) {
-            customersClient = new CustomersClientImpl(apiKey);
+            customersClient = new GenericHandshakeClientImpl<Customer>(apiKey, "customers", new TypeToken<Customer>() {}.getType(), new TypeToken<HandshakeAPIResponse<Customer>>() {}.getType());
         }
         return customersClient;
     }
 
-    public ItemsClient getItemsClient() {
+    public GenericHandshakeClient<Item> getItemsClient() {
         if (itemsClient == null) {
-            itemsClient = new ItemsClientImpl(apiKey);
+            itemsClient = new GenericHandshakeClientImpl<Item>(apiKey, "items", new TypeToken<Item>() {}.getType(), new TypeToken<HandshakeAPIResponse<Item>>() {}.getType());
         }
         return itemsClient;
     }
 
     @Override
-    public GenericHandshakeClientImpl<Category> getCategoriesClient() {
+    public GenericHandshakeClient<Category> getCategoriesClient() {
         if (categoriesClient == null) {
-            categoriesClient = new GenericHandshakeClientImpl<Category>(apiKey, "categories", new TypeToken<Category>() {}.getType());
+            categoriesClient = new GenericHandshakeClientImpl<Category>(apiKey, "categories", new TypeToken<Category>() {}.getType(), new TypeToken<HandshakeAPIResponse<Category>>() {}.getType());
         }
         return categoriesClient;
     }
