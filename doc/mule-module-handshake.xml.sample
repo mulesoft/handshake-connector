@@ -23,7 +23,7 @@
 <!-- END_INCLUDE(handshake:create-items) -->
 <!-- BEGIN_INCLUDE(handshake:create-category) -->
     <handshake:create-category>
-        <handshake:category />
+        <handshake:category name="Some category" categoryPosition="0" id="CAT" />
     </handshake:create-category>
 <!-- END_INCLUDE(handshake:create-category) -->
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
