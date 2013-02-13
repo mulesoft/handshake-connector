@@ -27,7 +27,6 @@ public class Customer {
     private List<Address> shipTos;
     private String defaultShipTo;
     private List<CreditCard> creditCards;
-    private List<Order> salesOrders;
     private UserGroup userGroup;
     private CustomerGroup customerGroup;
     private String shippingMethod;
@@ -88,12 +87,6 @@ public class Customer {
     }
     public void setCreditCards(List<CreditCard> creditCards) {
         this.creditCards = creditCards;
-    }
-    public List<Order> getSalesOrders() {
-        return salesOrders;
-    }
-    public void setSalesOrders(List<Order> salesOrders) {
-        this.salesOrders = salesOrders;
     }
     public UserGroup getUserGroup() {
         return userGroup;
