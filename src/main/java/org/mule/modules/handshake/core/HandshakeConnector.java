@@ -142,7 +142,7 @@ public class HandshakeConnector {
      *
      * @return the created item
      */
-    //@Processor
+    @Processor
     public Item createItem(final Item item) {
         return getClientProvider().getItemsClient().create(item);
     }

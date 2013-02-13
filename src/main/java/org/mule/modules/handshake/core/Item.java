@@ -30,7 +30,6 @@ public class Item {
     private Category category;
     private int categoryPosition;
     private List<Variant> variants = new ArrayList<Variant>();
-    private Map<String, List<String>> dimensions;
     private Map<String, String> additionalPrices;
     private String manufacturer;
     private List<String> imageURLs;
@@ -96,12 +95,6 @@ public class Item {
     }
     public void setVariants(List<Variant> variants) {
         this.variants = variants;
-    }
-    public Map<String, List<String>> getDimensions() {
-        return dimensions;
-    }
-    public void setDimensions(Map<String, List<String>> dimensions) {
-        this.dimensions = dimensions;
     }
     public Map<String, String> getAdditionalPrices() {
         return additionalPrices;
