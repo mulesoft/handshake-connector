@@ -22,6 +22,7 @@ import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
+import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
@@ -85,7 +86,7 @@ public class HandshakeConnector {
      * @return The list of Sales Orders matching the filters
      */
     @Processor
-    public List<Order> getOrders(@Optional final Map<String, String> filters) {
+    public List<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
         return getClientProvider().getOrdersClient().getAll(filters);
     }
 
@@ -101,7 +102,7 @@ public class HandshakeConnector {
      * @return The list of customers for the connected account
      */
     @Processor
-    public List<Customer> getCustomers(@Optional final Map<String, String> filters) {
+    public List<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
         return getClientProvider().getCustomersClient().getAll(filters);
     }
 
