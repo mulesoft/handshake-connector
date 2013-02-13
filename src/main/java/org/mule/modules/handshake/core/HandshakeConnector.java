@@ -96,6 +96,8 @@ public class HandshakeConnector {
      * 
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * 
+     * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
+     * 
      * @return The list of customers for the connected account
      */
     @Processor
