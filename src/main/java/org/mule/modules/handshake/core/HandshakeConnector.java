@@ -80,7 +80,7 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders}
      *
      *
-     * @param filters allowed values are: "customerID", "status" and "ctime" (for creation time, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
+     * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      *
      * @return The list of Sales Orders matching the filters
      */
@@ -93,12 +93,14 @@ public class HandshakeConnector {
      * Get all customers for the connected account
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
-     *
+     * 
+     * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
+     * 
      * @return The list of customers for the connected account
      */
     @Processor
-    public List<Customer> getCustomers() {
-        return getClientProvider().getCustomersClient().getAll(null);
+    public List<Customer> getCustomers(@Optional final Map<String, String> filters) {
+        return getClientProvider().getCustomersClient().getAll(filters);
     }
 
     /**
