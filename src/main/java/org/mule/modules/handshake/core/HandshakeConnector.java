@@ -140,7 +140,6 @@ public class HandshakeConnector {
      *
      * @return the created item
      */
-    //TODO: Keep or remove and let people create a list for one element?
     //@Processor
     public Item createItem(final Item item) {
         return getClientProvider().getItemsClient().create(item);
@@ -155,7 +154,7 @@ public class HandshakeConnector {
      *
      * @return a list of the items created (if everything is ok, it should match the provided list)
      */
-    //@Processor
+    @Processor
     public List<Item> createItems(final List<Item> items) {
         final List<Item> createdItems = new ArrayList<Item>(items.size());
         for (final Item item: items) {

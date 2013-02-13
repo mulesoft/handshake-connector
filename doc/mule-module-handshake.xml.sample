@@ -20,8 +20,10 @@
 <!-- END_INCLUDE(handshake:create-item) -->
 <!-- BEGIN_INCLUDE(handshake:create-items) -->
     <handshake:create-items>
-        <handshake:item />
-        <handshake:item />
+        <handshake:items>
+            <handshake:item />
+            <handshake:item />
+        </handshake:items>
     </handshake:create-items>
 <!-- END_INCLUDE(handshake:create-items) -->
 <!-- BEGIN_INCLUDE(handshake:create-category) -->
