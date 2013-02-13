@@ -30,12 +30,6 @@ public class Order {
     private Date lastEdited;
     private String manufacturerIds;
     private String manufacturerNames;
-    private List<String> manufacturerBreakdown;//FIXME
-//    id is the manufacturer ID
-//    name is the manufacturer name
-//    total is the total amount of all the lines for this manufacturer
-//    lines is a collection of the line items for this manufacturer
-//    order.lastExported (server-only datetime)
     private String status;
     private String shippingMethod;
     private String paymentTerms;
@@ -115,12 +109,6 @@ public class Order {
     }
     public void setManufacturerNames(String manufacturerNames) {
         this.manufacturerNames = manufacturerNames;
-    }
-    public List<String> getManufacturerBreakdown() {
-        return manufacturerBreakdown;
-    }
-    public void setManufacturerBreakdown(List<String> manufacturerBreakdown) {
-        this.manufacturerBreakdown = manufacturerBreakdown;
     }
     public String getStatus() {
         return status;
