@@ -21,8 +21,8 @@ public class UserGroup {
     private String name;
     private String id;
     private boolean isMaster;
-    private UserGroup parent;
-    private List<UserGroup> categories;
+    private String parent;
+    private List<String> categories;
 
     public String getName() {
         return name;
@@ -42,16 +42,16 @@ public class UserGroup {
     public void setMaster(boolean isMaster) {
         this.isMaster = isMaster;
     }
-    public UserGroup getParent() {
+    public String getParent() {
         return parent;
     }
-    public void setParent(UserGroup parent) {
+    public void setParent(String parent) {
         this.parent = parent;
     }
-    public List<UserGroup> getCategories() {
+    public List<String> getCategories() {
         return categories;
     }
-    public void setCategories(List<UserGroup> categories) {
+    public void setCategories(List<String> categories) {
         this.categories = categories;
     }
 }
