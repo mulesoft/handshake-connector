@@ -15,14 +15,14 @@
 <!-- END_INCLUDE(handshake:get-orders) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
-        <handshake:item />
+        <handshake:item sku="SOME_PROD" />
     </handshake:create-item>
 <!-- END_INCLUDE(handshake:create-item) -->
 <!-- BEGIN_INCLUDE(handshake:create-items) -->
     <handshake:create-items>
         <handshake:items>
-            <handshake:item />
-            <handshake:item />
+            <handshake:item sku="SOME_PROD" />
+            <handshake:item sku="SOME_OTHER_PROD" />
         </handshake:items>
     </handshake:create-items>
 <!-- END_INCLUDE(handshake:create-items) -->
