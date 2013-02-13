@@ -2,7 +2,7 @@
     <handshake:get-customers />
 <!-- END_INCLUDE(handshake:get-customers) -->
 <!-- BEGIN_INCLUDE(handshake:get-customers) -->
-    <handshake:get-customers filters="#[['customerGroup':'4']]"/>
+    <handshake:get-customers filters="#['customerGroup':'4']"/>
 <!-- END_INCLUDE(handshake:get-customers) -->
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
     <handshake:get-customer id="1" />
@@ -11,7 +11,7 @@
     <handshake:get-orders />
 <!-- END_INCLUDE(handshake:get-orders) -->
 <!-- BEGIN_INCLUDE(handshake:get-orders) -->
-    <handshake:get-orders filters="#[['customerID':'C1000']]"/>
+    <handshake:get-orders filters="#['customerID':'C1000']"/>
 <!-- END_INCLUDE(handshake:get-orders) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
