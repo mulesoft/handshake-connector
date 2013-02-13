@@ -21,8 +21,8 @@ public class Category {
     private String name;
     private String id;
     private int categoryPosition;
-    private Category parent;
-    private List<Category> subcategories;
+    private String parent;
+    private List<String> subcategories;
 
     public String getName() {
         return name;
@@ -42,16 +42,16 @@ public class Category {
     public void setCategoryPosition(int categoryPosition) {
         this.categoryPosition = categoryPosition;
     }
-    public Category getParent() {
+    public String getParent() {
         return parent;
     }
-    public void setParent(Category parent) {
+    public void setParent(String parent) {
         this.parent = parent;
     }
-    public List<Category> getSubcategories() {
+    public List<String> getSubcategories() {
         return subcategories;
     }
-    public void setSubcategories(List<Category> subcategories) {
+    public void setSubcategories(List<String> subcategories) {
         this.subcategories = subcategories;
     }
 }

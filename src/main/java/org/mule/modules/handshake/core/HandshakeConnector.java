@@ -171,7 +171,7 @@ public class HandshakeConnector {
      *
      * @return the created category
      */
-    //@Processor
+    @Processor
     public Category createCategory(final Category category) {
         return getClientProvider().getCategoriesClient().create(category);
     }

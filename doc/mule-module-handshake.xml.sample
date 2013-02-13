@@ -11,17 +11,28 @@
     <handshake:get-orders filters="#[['customerID':'C1000']]"/>
 <!-- END_INCLUDE(handshake:get-orders) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
-    <handshake:create-item />
+    <handshake:create-item>
+        <handshake:item />
+    </handshake:create-item>
 <!-- END_INCLUDE(handshake:create-item) -->
 <!-- BEGIN_INCLUDE(handshake:create-items) -->
-    <handshake:create-items />
+    <handshake:create-items>
+        <handshake:item />
+        <handshake:item />
+    </handshake:create-items>
 <!-- END_INCLUDE(handshake:create-items) -->
 <!-- BEGIN_INCLUDE(handshake:create-category) -->
-    <handshake:create-category />
+    <handshake:create-category>
+        <handshake:category />
+    </handshake:create-category>
 <!-- END_INCLUDE(handshake:create-category) -->
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
-    <handshake:create-order />
+    <handshake:create-order>
+        <handshake:order />
+    </handshake:create-order>
 <!-- END_INCLUDE(handshake:create-order) -->
 <!-- BEGIN_INCLUDE(handshake:create-customer) -->
-    <handshake:create-customer />
+    <handshake:create-customer>
+        <handshake:customer />
+    </handshake:create-customer>
 <!-- END_INCLUDE(handshake:create-customer) -->
