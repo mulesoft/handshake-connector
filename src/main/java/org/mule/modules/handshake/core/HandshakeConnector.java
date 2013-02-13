@@ -187,7 +187,7 @@ public class HandshakeConnector {
      *
      * @return the created order
      */
-    //@Processor
+    @Processor
     public Order createOrder(final Order order) {
         return getClientProvider().getOrdersClient().create(order);
     }
