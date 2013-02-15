@@ -26,20 +26,24 @@ import com.google.gson.JsonSerializer;
  */
 public class HandshakeOrderSerializer implements JsonSerializer<Order> {
 
-    private static final Gson gson = new Gson();
-
     @Override
     public JsonElement serialize(final Order src, final Type typeOfSrc, final JsonSerializationContext context) {
         try {
             @SuppressWarnings("unchecked")
             Map<String, Object> mappedOrder = BeanUtils.describe(src);
-            if (src.getCustomer().getResourceUri() != null) {
-                mappedOrder.put("customer", src.getCustomer().getResourceUri());
+            if (src.getCustomer() != null) {
+                mappedOrder.put("customer", src.getCustomer().getResourceUri() != null ? src.getCustomer().getResourceUri() : src.getCustomer());
             }
-            if (src.getBillTo().getResourceUri() != null) {
-                mappedOrder.put("billTo", src.getBillTo().getResourceUri());
+            if (src.getBillTo() != null) {
+                mappedOrder.put("billTo", src.getBillTo().getResourceUri() != null ? src.getBillTo().getResourceUri() : src.getBillTo());
             }
-            return gson.toJsonTree(mappedOrder);
+            if (src.getShipTo() != null) {
+                mappedOrder.put("shipTo", src.getShipTo().getResourceUri() != null ? src.getShipTo().getResourceUri() : src.getShipTo());
+            }
+            if (src.getCreditCard() != null) {
+                mappedOrder.put("creditCard", src.getCreditCard().getResourceUri() != null ? src.getCreditCard().getResourceUri() : src.getCreditCard());
+            }
+            return context.serialize(mappedOrder);
         } catch (final Exception e) {
             throw new RuntimeException("This won't happen, rigth?");
         }

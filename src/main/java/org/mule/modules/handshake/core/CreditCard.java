@@ -15,7 +15,7 @@ package org.mule.modules.handshake.core;
  * 
  * @author marianosimone
  */
-public class CreditCard {
+public class CreditCard extends HandshakeObject {
     private String type;
     private String lastFour;
     private String month;
