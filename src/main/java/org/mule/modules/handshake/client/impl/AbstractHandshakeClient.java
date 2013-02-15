@@ -21,8 +21,10 @@ import javax.ws.rs.core.MultivaluedMap;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
+import org.mule.modules.handshake.core.Order;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -48,7 +50,13 @@ public abstract class AbstractHandshakeClient {
 
     private String baseUrl = "";
 
-    protected Gson gson = new Gson();
+    protected final Gson gson;
+
+    public AbstractHandshakeClient() {
+        final GsonBuilder builder = new GsonBuilder();
+        builder.registerTypeAdapter(Order.class, new HandshakeOrderSerializer());
+        this.gson = builder.create();
+    }
 
     public void setBaseUrl(String baseUrl) {
         this.baseUrl = baseUrl;

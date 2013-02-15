@@ -17,7 +17,7 @@ import java.util.List;
  * 
  * @author marianosimone
  */
-public class Customer {
+public class Customer extends HandshakeObject {
     private String contact;
     private String id;
     private String name;

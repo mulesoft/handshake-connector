@@ -15,7 +15,7 @@ package org.mule.modules.handshake.core;
  * 
  * @author marianosimone
  */
-public class Address {
+public class Address extends HandshakeObject {
     private String id;
     private String name;
     private String street;
