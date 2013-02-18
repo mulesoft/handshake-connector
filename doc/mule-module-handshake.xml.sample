@@ -38,6 +38,8 @@
 <!-- END_INCLUDE(handshake:create-order) -->
 <!-- BEGIN_INCLUDE(handshake:create-customer) -->
     <handshake:create-customer>
-        <handshake:customer />
+        <handshake:customer id="EXAMPLE_ID" name="Some Customer">
+            <handshake:bill-to city="Springfield" street="742 Evergreen Terrace"/>
+        </handshake:customer>
     </handshake:create-customer>
 <!-- END_INCLUDE(handshake:create-customer) -->
