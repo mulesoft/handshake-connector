@@ -42,6 +42,10 @@ public class HandshakeOrderSerializer implements JsonSerializer<Order> {
             if (src.getCreditCard() != null) {
                 mappedOrder.put("creditCard", src.getCreditCard().getResourceUri() != null ? src.getCreditCard().getResourceUri() : src.getCreditCard());
             }
+            if (src.getLines() != null) {
+                mappedOrder.put("lines", src.getLines());
+            }
+            mappedOrder.remove("class");
             return context.serialize(mappedOrder);
         } catch (final Exception e) {
             throw new RuntimeException("This won't happen, rigth?");

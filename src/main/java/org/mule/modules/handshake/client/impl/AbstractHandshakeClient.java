@@ -12,6 +12,7 @@ package org.mule.modules.handshake.client.impl;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.security.KeyStore.Builder;
 import java.util.Map;
 
@@ -55,6 +56,7 @@ public abstract class AbstractHandshakeClient {
     public AbstractHandshakeClient() {
         final GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Order.class, new HandshakeOrderSerializer());
+        builder.registerTypeAdapter(BigDecimal.class, new BigDecimalAsStringSerializer());
         this.gson = builder.create();
     }
 

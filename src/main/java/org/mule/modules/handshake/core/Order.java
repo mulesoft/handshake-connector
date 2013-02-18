@@ -9,6 +9,7 @@
 
 package org.mule.modules.handshake.core;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
@@ -33,7 +34,7 @@ public class Order {
     private String status;
     private String shippingMethod;
     private String paymentTerms;
-    private double total;
+    private BigDecimal total;
     private String notes;
     private String customerPO;
     private boolean emailSent;
@@ -128,10 +129,10 @@ public class Order {
     public void setPaymentTerms(String paymentTerms) {
         this.paymentTerms = paymentTerms;
     }
-    public double getTotal() {
+    public BigDecimal getTotal() {
         return total;
     }
-    public void setTotal(double total) {
+    public void setTotal(BigDecimal total) {
         this.total = total;
     }
     public String getNotes() {

@@ -9,6 +9,8 @@
 
 package org.mule.modules.handshake.core;
 
+import java.math.BigDecimal;
+
 /**
  * Representation of a Sales Order Line resource in Handshake
  * http://www.handshake-app.com/help/kb/api/salesorderline-objects
@@ -24,9 +26,8 @@ public class SalesOrderLine {
     private String item;
     private String description;
     private int qty;
-    private double unitPrice;
+    private BigDecimal unitPrice = BigDecimal.ZERO;
     private String notes;
-    private double total;
     private String listPrice;
     private String discount;
     private String percentageDiscount;
@@ -73,10 +74,10 @@ public class SalesOrderLine {
     public void setQty(int qty) {
         this.qty = qty;
     }
-    public double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
     public String getNotes() {
@@ -84,12 +85,6 @@ public class SalesOrderLine {
     }
     public void setNotes(String notes) {
         this.notes = notes;
-    }
-    public double getTotal() {
-        return total;
-    }
-    public void setTotal(double total) {
-        this.total = total;
     }
     public String getListPrice() {
         return listPrice;
