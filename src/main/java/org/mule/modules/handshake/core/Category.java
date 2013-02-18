@@ -11,6 +11,8 @@ package org.mule.modules.handshake.core;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a Category resource in Handshake
  * http://www.handshake-app.com/help/kb/api/category-resource
@@ -23,6 +25,8 @@ public class Category {
     private int categoryPosition;
     private String parent;
     private List<String> subcategories;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getName() {
         return name;
@@ -53,5 +57,11 @@ public class Category {
     }
     public void setSubcategories(List<String> subcategories) {
         this.subcategories = subcategories;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

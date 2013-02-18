@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of an Item resource in Handshake
  * http://www.handshake-app.com/help/kb/api/item-resource
@@ -35,6 +37,8 @@ public class Item {
     private List<String> imageURLs;
     private List<String> thumbnailURLs;
     private String thumbnailURL;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getSku() {
         return sku;
@@ -125,5 +129,11 @@ public class Item {
     }
     public void setThumbnailURL(String thumbnailURL) {
         this.thumbnailURL = thumbnailURL;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

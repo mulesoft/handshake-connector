@@ -9,6 +9,8 @@
 
 package org.mule.modules.handshake.core;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a Customer Group resource in Handshake
  * http://www.handshake-app.com/help/kb/api/customer-group-resource
@@ -19,6 +21,8 @@ public class CustomerGroup {
     private String name;
     private String id;
     private String currency;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getName() {
         return name;
@@ -37,5 +41,11 @@ public class CustomerGroup {
     }
     public void setCurrency(String currency) {
         this.currency = currency;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

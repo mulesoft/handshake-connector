@@ -11,6 +11,8 @@ package org.mule.modules.handshake.core;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a User Group resource in Handshake
  * http://www.handshake-app.com/help/kb/api/user-group-resource
@@ -23,6 +25,8 @@ public class UserGroup {
     private boolean isMaster;
     private String parent;
     private List<String> categories;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getName() {
         return name;
@@ -53,5 +57,11 @@ public class UserGroup {
     }
     public void setCategories(List<String> categories) {
         this.categories = categories;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

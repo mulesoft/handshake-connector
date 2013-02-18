@@ -12,6 +12,8 @@ package org.mule.modules.handshake.core;
 import java.util.Date;
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a Sales Order resource in Handshake
  * http://www.handshake-app.com/help/kb/api/order-resource
@@ -42,6 +44,8 @@ public class Order {
     private boolean shipPartial;
     private String signatureURL;
     private List<String> photoURLs;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getId() {
         return id;
@@ -180,5 +184,11 @@ public class Order {
     }
     public void setPhotoURLs(List<String> photoURLs) {
         this.photoURLs = photoURLs;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

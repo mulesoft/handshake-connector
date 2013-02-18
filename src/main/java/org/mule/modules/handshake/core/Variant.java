@@ -9,6 +9,22 @@
 
 package org.mule.modules.handshake.core;
 
-public class Variant {
+import com.google.gson.annotations.SerializedName;
 
+/**
+ * Representation of an Item's Variant resource in Handshake
+ * http://www.handshake-app.com/help/kb/api/variant-resource
+ * 
+ * @author marianosimone
+ */
+public class Variant {
+    @SerializedName("resource_uri")
+    private String resourceUri;
+
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
+    }
 }
