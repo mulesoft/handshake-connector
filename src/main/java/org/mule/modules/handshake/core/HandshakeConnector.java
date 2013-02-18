@@ -29,7 +29,29 @@ import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
 
 /**
- * Cloud Connector
+ * Handshake Cloud Connector
+ * 
+ * Note on creation of resources and references
+ * Some creation methods allow to specify nested objects either as new or references to existing.
+ * Whenever you want to create a object that references an existing one (for example, a new Order for an existing Customer), you just have to specify the resourceUri of the nested object.
+ * <pre>
+ * &lt;handshake:create-order&gt;
+ *     &lt;handshake:order&gt;
+ *         &lt;handshake:customer resourceUri="/api/v2/customers/1"/&gt;
+ *     &lt;/handshake:create-order&gt;
+ * &lt;/handshake:order&gt;
+ * </pre>
+ * However, you can also create a nested object alongside the master one.
+ * <pre>
+ * &lt;handshake:create-order&gt;
+ *     &lt;handshake:order&gt;
+ *         &lt;handshake:customer id="SOME_ID" name="Some Customer"&gt;
+ *             &lt;handshake:bill-to city="Springfiled" stree="742 Evergreen Terrace"/&gt;
+ *         &lt;/handshake:customer&gt;
+ *     &lt;/handshake:create-order&gt;
+ * &lt;/handshake:order&gt;
+ * </pre>
+ * When you create a new object through the API, the returned value will always contain a resourceUri attribute, which should be stored in your external system for future use as a reference.
  *
  * @author marianosimone
  */
@@ -79,7 +101,8 @@ public class HandshakeConnector {
      * Get Sales Orders for the connected account
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders}
-     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders-with-filters}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders-with-filters-by-date}
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      *
@@ -94,7 +117,7 @@ public class HandshakeConnector {
      * Get all customers for the connected account
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
-     * 
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers-with-filters}
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * 
      * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
@@ -186,6 +209,7 @@ public class HandshakeConnector {
      * @param order to create
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-order}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-order-with-new-customer}
      *
      * @return the created order
      */

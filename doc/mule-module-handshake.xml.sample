@@ -1,18 +1,21 @@
 <!-- BEGIN_INCLUDE(handshake:get-customers) -->
     <handshake:get-customers />
 <!-- END_INCLUDE(handshake:get-customers) -->
-<!-- BEGIN_INCLUDE(handshake:get-customers) -->
+<!-- BEGIN_INCLUDE(handshake:get-customers-with-filters) -->
     <handshake:get-customers filters="#['customerGroup':'4']"/>
-<!-- END_INCLUDE(handshake:get-customers) -->
+<!-- END_INCLUDE(handshake:get-customers-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
     <handshake:get-customer id="1" />
 <!-- END_INCLUDE(handshake:get-customer) -->
 <!-- BEGIN_INCLUDE(handshake:get-orders) -->
     <handshake:get-orders />
 <!-- END_INCLUDE(handshake:get-orders) -->
-<!-- BEGIN_INCLUDE(handshake:get-orders) -->
+<!-- BEGIN_INCLUDE(handshake:get-orders-with-filters) -->
     <handshake:get-orders filters="#['customerID':'C1000']"/>
-<!-- END_INCLUDE(handshake:get-orders) -->
+<!-- END_INCLUDE(handshake:get-orders-with-filters) -->
+<!-- BEGIN_INCLUDE(handshake:get-orders-with-filters-by-date) -->
+    <handshake:get-orders filters="#['ctime__gte:'2011-10-12T22:39:04Z']"/>
+<!-- END_INCLUDE(handshake:get-orders-with-filters-by-date) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
         <handshake:item sku="SOME_PROD" />
@@ -43,6 +46,20 @@
         </handshake:order>
     </handshake:create-order>
 <!-- END_INCLUDE(handshake:create-order) -->
+<!-- BEGIN_INCLUDE(handshake:create-order-with-new-customer) -->
+    <handshake:create-order>
+        <handshake:order>
+            <handshake:customer id="SOME_ID" name="Some Customer">
+                <handshake:bill-to city="Springfiled" stree="742 Evergreen Terrace"/>
+            </handshake:customer>
+            <handshake:bill-to resourceUri="/api/v2/addresses/2"/>
+            <handshake:lines>
+                <handshake:line item="/api/v2/items/3" qty="1" unitPrice="2.0"/>
+                <handshake:line item="/api/v2/items/4" qty="3" unitPrice="1.0"/>
+            </handshake:lines>
+        </handshake:order>
+    </handshake:create-order>
+<!-- END_INCLUDE(handshake:create-order-with-new-customer) -->
 <!-- BEGIN_INCLUDE(handshake:create-customer) -->
     <handshake:create-customer>
         <handshake:customer id="EXAMPLE_ID" name="Some Customer">
