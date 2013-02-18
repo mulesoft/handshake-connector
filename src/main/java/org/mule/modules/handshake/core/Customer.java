@@ -11,13 +11,15 @@ package org.mule.modules.handshake.core;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a Customer resource in Handshake
  * http://www.handshake-app.com/help/kb/api/customer-resource
  * 
  * @author marianosimone
  */
-public class Customer extends HandshakeObject {
+public class Customer {
     private String contact;
     private String id;
     private String name;
@@ -33,6 +35,8 @@ public class Customer extends HandshakeObject {
     private String paymentTerms;
     private String currency;
     private String locale;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getContact() {
         return contact;
@@ -124,5 +128,10 @@ public class Customer extends HandshakeObject {
     public void setLocale(String locale) {
         this.locale = locale;
     }
-
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
+    }
 }

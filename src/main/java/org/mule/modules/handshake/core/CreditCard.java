@@ -9,13 +9,15 @@
 
 package org.mule.modules.handshake.core;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of a Credit Card resource in Handshake
  * http://www.handshake-app.com/help/kb/api/credit-card-resource
  * 
  * @author marianosimone
  */
-public class CreditCard extends HandshakeObject {
+public class CreditCard {
     private String type;
     private String lastFour;
     private String month;
@@ -24,6 +26,8 @@ public class CreditCard extends HandshakeObject {
     private String name;
     private String number;
     private String cvv;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getType() {
         return type;
@@ -72,5 +76,11 @@ public class CreditCard extends HandshakeObject {
     }
     public void setCvv(String cvv) {
         this.cvv = cvv;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }

@@ -33,7 +33,14 @@
 <!-- END_INCLUDE(handshake:create-category) -->
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
     <handshake:create-order>
-        <handshake:order />
+        <handshake:order>
+            <handshake:customer resourceUri="/api/v2/customers/1"/>
+            <handshake:bill-to resourceUri="/api/v2/addresses/2"/>
+            <handshake:lines>
+                <handshake:line item="/api/v2/items/3" qty="1" unitPrice="2.0"/>
+                <handshake:line item="/api/v2/items/4" qty="3" unitPrice="1.0"/>
+            </handshake:lines>
+        </handshake:order>
     </handshake:create-order>
 <!-- END_INCLUDE(handshake:create-order) -->
 <!-- BEGIN_INCLUDE(handshake:create-customer) -->

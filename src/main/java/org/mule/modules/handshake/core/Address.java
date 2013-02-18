@@ -9,13 +9,15 @@
 
 package org.mule.modules.handshake.core;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Representation of an Address resource in Handshake
  * http://www.handshake-app.com/help/kb/api/address-resource
  * 
  * @author marianosimone
  */
-public class Address extends HandshakeObject {
+public class Address {
     private String id;
     private String name;
     private String street;
@@ -27,6 +29,8 @@ public class Address extends HandshakeObject {
     private String phone;
     private String fax;
     private String multiLineStr;
+    @SerializedName("resource_uri")
+    private String resourceUri;
 
     public String getId() {
         return id;
@@ -93,5 +97,11 @@ public class Address extends HandshakeObject {
     }
     public void setMultiLineStr(String multiLineStr) {
         this.multiLineStr = multiLineStr;
+    }
+    public void setResourceUri(final String resourceUri) {
+        this.resourceUri = resourceUri;
+    }
+    public String getResourceUri() {
+        return this.resourceUri;
     }
 }
