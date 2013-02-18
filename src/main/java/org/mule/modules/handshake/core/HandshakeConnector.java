@@ -123,7 +123,7 @@ public class HandshakeConnector {
     /**
      * Creates a {@link org.mule.modules.handshake.core.Customer} on handshake
      * 
-     * @param customer to create
+     * @param customer to create. Mandatory fields are ID, name and billTo (which has to be a new Address, and not a reference)
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-customer}
      *
