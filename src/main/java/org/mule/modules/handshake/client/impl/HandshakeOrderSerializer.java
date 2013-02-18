@@ -15,7 +15,6 @@ import java.util.Map;
 import org.apache.commons.beanutils.BeanUtils;
 import org.mule.modules.handshake.core.Order;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
