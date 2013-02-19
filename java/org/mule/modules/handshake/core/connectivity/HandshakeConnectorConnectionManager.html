@@ -717,7 +717,7 @@ org.mule.api.lifecycle.Initialisable
             
             
             
-            <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a></nobr>
+            <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#acquireConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey)">acquireConnection</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key)</nobr>
@@ -736,7 +736,7 @@ org.mule.api.lifecycle.Initialisable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#destroyConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter)">destroyConnection</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a> connection)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#destroyConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorLicenseChecker)">destroyConnection</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a> connection)</nobr>
         
   </td></tr>
 
@@ -909,7 +909,7 @@ org.mule.api.lifecycle.Initialisable
             
             
             &lt;P&gt;
-            ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a>&gt;</nobr>
+            ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#getProcessTemplate()">getProcessTemplate</a></span>()</nobr>
@@ -984,7 +984,7 @@ org.mule.api.lifecycle.Initialisable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#releaseConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter)">releaseConnection</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a> connection)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionManager.html#releaseConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorLicenseChecker)">releaseConnection</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a> connection)</nobr>
         
   </td></tr>
 
@@ -2137,7 +2137,7 @@ From interface
          
          
          
-        <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a>
+        <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a>
       </span>
       <span class="sympad">acquireConnection</span>
       <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key)</span>
@@ -2176,7 +2176,7 @@ From interface
 </div>
 
 
-<A NAME="destroyConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter)"></A>
+<A NAME="destroyConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorLicenseChecker)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2189,7 +2189,7 @@ From interface
         void
       </span>
       <span class="sympad">destroyConnection</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a> connection)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a> connection)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2526,7 +2526,7 @@ From interface
          
          
          
-        ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a>&gt;
+        ProcessTemplate&lt;P,&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a>&gt;
       </span>
       <span class="sympad">getProcessTemplate</span>
       <span class="normal">()</span>
@@ -2653,7 +2653,7 @@ From interface
 </div>
 
 
-<A NAME="releaseConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter)"></A>
+<A NAME="releaseConnection(org.mule.modules.handshake.core.connectivity.HandshakeConnectorConnectionKey, org.mule.modules.handshake.core.adapters.HandshakeConnectorLicenseChecker)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2666,7 +2666,7 @@ From interface
         void
       </span>
       <span class="sympad">releaseConnection</span>
-      <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a> connection)</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/connectivity/HandshakeConnectorConnectionKey.html">HandshakeConnectorConnectionKey</a> key, <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a> connection)</span>
     </h4>
       <div class="api-level">
         <div>

@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  HandshakeConnectorConnectionIdentifierAdapter
+  HandshakeConnectorLicenseChecker
 
 
 | Mule Handshake Connector
@@ -236,8 +236,8 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorCapabilitiesAdapter.html">HandshakeConnectorCapabilitiesAdapter</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLifecycleAdapter.html">HandshakeConnectorLifecycleAdapter</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorMetadataAdapater.html">HandshakeConnectorMetadataAdapater</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">HandshakeConnectorProcessAdapter</a></li>
@@ -283,6 +283,13 @@
 <div id="api-info-block">
 
 
+
+  
+   
+  
+  
+  
+  
 
   
    
@@ -448,7 +455,7 @@ Summary:
      
     
     class
-<h1>HandshakeConnectorConnectionIdentifierAdapter</h1>
+<h1>HandshakeConnectorLicenseChecker</h1>
 
 
 
@@ -473,7 +480,11 @@ Summary:
   
 
   
-    extends <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">HandshakeConnectorProcessAdapter</a><br/>
+  
+  
+
+  
+    extends <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a><br/>
   
   
   
@@ -482,7 +493,7 @@ Summary:
   
       implements 
       
-        Connection 
+        Initialisable 
       
   
   
@@ -498,7 +509,7 @@ Summary:
 
     <tr>
         
-        <td colspan="7" class="jd-inheritance-class-cell">java.lang.Object</td>
+        <td colspan="8" class="jd-inheritance-class-cell">java.lang.Object</td>
     </tr>
     
 
@@ -506,7 +517,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="6" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">org.mule.modules.handshake.core.HandshakeConnector</a></td>
+        <td colspan="7" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">org.mule.modules.handshake.core.HandshakeConnector</a></td>
     </tr>
     
 
@@ -516,19 +527,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorCapabilitiesAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorCapabilitiesAdapter</a></td>
-    </tr>
-    
-
-    <tr>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
-            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
-        
-        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorMetadataAdapater.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorMetadataAdapater</a></td>
+        <td colspan="6" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorCapabilitiesAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorCapabilitiesAdapter</a></td>
     </tr>
     
 
@@ -538,11 +537,9 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLifecycleAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorLifecycleAdapter</a></td>
+        <td colspan="5" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorMetadataAdapater.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorMetadataAdapater</a></td>
     </tr>
     
 
@@ -554,11 +551,9 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
-            <td class="jd-inheritance-space">&nbsp;</td>
-        
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorProcessAdapter</a></td>
+        <td colspan="4" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLifecycleAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorLifecycleAdapter</a></td>
     </tr>
     
 
@@ -572,11 +567,47 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;</td>
         
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="3" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorProcessAdapter</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
             <td class="jd-inheritance-space">&nbsp;</td>
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter</td>
+        <td colspan="2" class="jd-inheritance-class-cell"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter</a></td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;</td>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.adapters.HandshakeConnectorLicenseChecker</td>
     </tr>
     
 
@@ -585,47 +616,11 @@ Summary:
 
 
 
-<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
-          ><img id="subclasses-direct-trigger"
-          src="../../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
-
-  <div id="subclasses-direct">
-      <div id="subclasses-direct-list"
-              class="jd-inheritedlinks"
-              
-              >
-          
-            
-              <a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a>
-            
-          
-      </div>
-      <div id="subclasses-direct-summary"
-              style="display: none;"
-              >
-  <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html">HandshakeConnectorLicenseChecker</a></td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-  </table>
-      </div>
-  </div>
-</td></tr></table>
-
 
 
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>A <code>HandshakeConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that implements org.mule.api.Connection interface.
- 
-</p>
 
 
 
@@ -672,6 +667,8 @@ Summary:
 <table id="inhconstants" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Constants</div></th></tr>
+
+
 
 
 
@@ -889,6 +886,8 @@ org.mule.api.lifecycle.Stoppable
 
 
 
+
+
 <tr class="api apilevel-" >
 <td colspan="12">
 
@@ -973,7 +972,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html#HandshakeConnectorConnectionIdentifierAdapter()">HandshakeConnectorConnectionIdentifierAdapter</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html#HandshakeConnectorLicenseChecker()">HandshakeConnectorLicenseChecker</a></span>()</nobr>
         
   </td></tr>
 
@@ -999,10 +998,10 @@ org.mule.api.lifecycle.Stoppable
             
             
             
-            String</nobr>
+            void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html#getConnectionIdentifier()">getConnectionIdentifier</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorLicenseChecker.html#initialise()">initialise</a></span>()</nobr>
         
   </td></tr>
 
@@ -1020,6 +1019,48 @@ org.mule.api.lifecycle.Stoppable
 <table id="inhmethods" class="jd-sumtable"><tr><th>
   <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
   <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter-trigger"
+          src="../../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  <a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter</a>
+
+<div id="inherited-methods-org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter">
+  <div id="inherited-methods-org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-org.mule.modules.handshake.core.adapters.HandshakeConnectorConnectionIdentifierAdapter-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html#getConnectionIdentifier()">getConnectionIdentifier</a></span>()</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
 
 
 <tr class="api apilevel-" >
@@ -2219,7 +2260,7 @@ From interface
 
 
 
-<A NAME="HandshakeConnectorConnectionIdentifierAdapter()"></A>
+<A NAME="HandshakeConnectorLicenseChecker()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2231,7 +2272,7 @@ From interface
          
         
       </span>
-      <span class="sympad">HandshakeConnectorConnectionIdentifierAdapter</span>
+      <span class="sympad">HandshakeConnectorLicenseChecker</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2265,7 +2306,7 @@ From interface
 
 
 
-<A NAME="getConnectionIdentifier()"></A>
+<A NAME="initialise()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2275,9 +2316,9 @@ From interface
          
          
          
-        String
+        void
       </span>
-      <span class="sympad">getConnectionIdentifier</span>
+      <span class="sympad">initialise</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2291,6 +2332,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>InitialisationException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
