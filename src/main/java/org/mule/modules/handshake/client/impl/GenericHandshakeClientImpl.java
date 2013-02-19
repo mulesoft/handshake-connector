@@ -13,6 +13,8 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
@@ -25,6 +27,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     private final String resourcePath;
     private final Type elementType;
     private final Type responseElementType;
+    private static Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v2/.*/(\\d+)$");
 
     public GenericHandshakeClientImpl(final String apiKey, final String resourcePath, final Type elementType, final Type responseElementType) {
         this.apiKey = apiKey;
@@ -63,4 +66,14 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
         }
     }
 
+    @Override
+    public T getByResourceUri(final String resourceUri) {
+        Matcher matcher = RESOURCE_PATTERN.matcher(resourceUri);
+        if (matcher.matches()) {
+            final Builder builder = getBuilder(apiKey, getBaseURL() + "/" + matcher.group(1), null);
+            return this.singleGet(builder, elementType);
+        } else {
+            throw new IllegalArgumentException("The given resourceUri is not valid: " + resourceUri);
+        }
+    }
 }

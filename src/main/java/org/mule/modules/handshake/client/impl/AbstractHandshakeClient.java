@@ -129,6 +129,11 @@ public abstract class AbstractHandshakeClient {
         return processResponse(clientResponse, type);
     }
 
+    protected <T> T singleGet(final WebResource.Builder resourceBuilder, final Type type) {
+        final ClientResponse clientResponse = resourceBuilder.get(ClientResponse.class);
+        return processResponse(clientResponse, type);
+    }
+
     protected <T> T post(final WebResource.Builder resourceBuilder, final Type requestType, final Type responseType, final Object params) {
         final String paramsString = gson.toJson(params, requestType);
         final ClientResponse clientResponse = resourceBuilder.post(ClientResponse.class, paramsString);
@@ -140,15 +145,15 @@ public abstract class AbstractHandshakeClient {
      * @param responseType of the expected response
      * @return the response, or an Exception if something bad happened
      */
-    private <T> T processResponse(final ClientResponse clientResponse, Type responseType) {
+    private <T> T processResponse(final ClientResponse clientResponse, final Type responseType) {
         final String response = readResponseFromClientResponse(clientResponse);
         if (clientResponse.getStatus() >= 400) {
-            throw new RuntimeException(response);
+            throw new HandshakeAPIException(response);
         }
 
         try {
             return parseJson(response, responseType);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e);
         }
     }

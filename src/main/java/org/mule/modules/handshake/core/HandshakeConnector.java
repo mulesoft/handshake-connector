@@ -26,6 +26,7 @@ import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
+import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
 
 /**
@@ -114,6 +115,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.Order}, given its id
+     * 
+     * @param resourceUri of the Order to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-order}
+     *
+     * @return the order with the given id or a {@link HandshakeAPIException}, if the Order doesn't exist
+     */
+    @Processor
+    public Order getOrder(final String resourceUri) {
+        return getClientProvider().getOrdersClient().getByResourceUri(resourceUri);
+    }
+
+    /**
      * Get all customers for the connected account
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
@@ -132,7 +147,7 @@ public class HandshakeConnector {
     /**
      * Get a {@link org.mule.modules.handshake.core.Customer}, given its id
      * 
-     * @param id of the Customer to get
+     * @param id of the Customer to get. The id is the one specified on creation, and not Handshake's uid
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer}
      *

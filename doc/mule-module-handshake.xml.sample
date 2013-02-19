@@ -16,6 +16,9 @@
 <!-- BEGIN_INCLUDE(handshake:get-orders-with-filters-by-date) -->
     <handshake:get-orders filters="#['ctime__gte:'2011-10-12T22:39:04Z']"/>
 <!-- END_INCLUDE(handshake:get-orders-with-filters-by-date) -->
+<!-- BEGIN_INCLUDE(handshake:get-order) -->
+    <handshake:get-order resourceUri="/api/v2/orders/1" />
+<!-- END_INCLUDE(handshake:get-order) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
         <handshake:item sku="SOME_PROD" />
