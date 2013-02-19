@@ -161,6 +161,9 @@ public class HandshakeConnector {
     /**
      * Creates a {@link org.mule.modules.handshake.core.Customer} on Handshake
      * 
+     * Take into account than neither the {@link CustomerGroup} nor the {@link UserGroup} can be created alongside the {@link Customer}
+     * You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one
+     * 
      * @param customer to create. Mandatory fields are ID, name and billTo (which has to be a new Address, and not a reference)
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-customer}
@@ -174,6 +177,9 @@ public class HandshakeConnector {
 
     /**
      * Edits a {@link org.mule.modules.handshake.core.Customer} on Handshake, given her resourceUri
+     * 
+     * Take into account than neither the {@link CustomerGroup} nor the {@link UserGroup} can be created alongside the {@link Customer}
+     * You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one
      * 
      * @param resourceUri of the Customer to edit
      * @param edited Customer. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
