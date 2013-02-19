@@ -138,6 +138,12 @@ public abstract class AbstractHandshakeClient {
         return processResponse(clientResponse, responseType);
     }
 
+    protected <T> T update(final WebResource.Builder resourceBuilder, final Type objectType, final T edited) {
+        final String paramsString = gson.toJson(edited, objectType);
+        final ClientResponse clientResponse = resourceBuilder.put(ClientResponse.class, paramsString);
+        return processResponse(clientResponse, objectType);
+    }
+
     /**
      * @param clientResponse returned by the invocation
      * @param responseType of the expected response

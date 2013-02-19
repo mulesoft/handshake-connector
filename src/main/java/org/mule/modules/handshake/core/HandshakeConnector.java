@@ -159,7 +159,7 @@ public class HandshakeConnector {
     }
 
     /**
-     * Creates a {@link org.mule.modules.handshake.core.Customer} on handshake
+     * Creates a {@link org.mule.modules.handshake.core.Customer} on Handshake
      * 
      * @param customer to create. Mandatory fields are ID, name and billTo (which has to be a new Address, and not a reference)
      *
@@ -170,6 +170,21 @@ public class HandshakeConnector {
     @Processor
     public Customer createCustomer(final Customer customer) {
         return getClientProvider().getCustomersClient().create(customer);
+    }
+
+    /**
+     * Edits a {@link org.mule.modules.handshake.core.Customer} on Handshake, given her resourceUri
+     * 
+     * @param resourceUri of the Customer to edit
+     * @param edited Customer. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:edit-customer}
+     *
+     * @return the edited customer
+     */
+    @Processor
+    public Customer editCustomer(final String resourceUri, final Customer edited) {
+        return getClientProvider().getCustomersClient().edit(resourceUri, edited);
     }
 
     /**
@@ -239,5 +254,6 @@ public class HandshakeConnector {
         }
         return clientProvider;
     }
+
 
 }

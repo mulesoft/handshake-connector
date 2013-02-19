@@ -24,6 +24,15 @@ public interface GenericHandshakeClient<T> {
     T create(final T t);
 
     /**
+     * Edit an existing element on Handshake, by providing its resourceUri and an object with the fields to edit.
+     * Because of the way Handshake references work, you should not include fields that you don't want updated, specially if they are nested objects, and should either leave them blank or include the corresponding resourceUri
+     * @param resourceUri of the element to edit
+     * @param edited object with the fields to be edited
+     * @return the edited element
+     */
+    T edit(final String resourceUri, final T  edited);
+
+    /**
      * Get all the the elements that match the given filters
      * @return all the Orders matching the given filters
      */
@@ -45,4 +54,5 @@ public interface GenericHandshakeClient<T> {
      * @throws HandshakeAPIException if the element doesn't exist in Handshake
      */
     T getByResourceUri(final String resourceUri);
+
 }

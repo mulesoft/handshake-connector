@@ -48,6 +48,12 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     }
 
     @Override
+    public T edit(final String resourceUri, final T edited) {
+        final Builder builder = getBuilder(apiKey, this.detailUrl(resourceUri), null);
+        return this.update(builder, elementType, edited);
+    }
+
+    @Override
     public List<T> getAll(final Map<String, String> filters) {
         final Builder builder = getBuilder(apiKey, getBaseURL(), filters);
         final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
@@ -68,13 +74,26 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
 
     @Override
     public T getByResourceUri(final String resourceUri) {
+        final Builder builder = getBuilder(apiKey, this.detailUrl(resourceUri), null);
+        return this.singleGet(builder, elementType);
+    }
+
+    /**
+     * Extracts the resource id from a resourceUri
+     * @param resourceUri from which to extract the resource ID
+     * @throws IllegalArgumentException if the resourceUri is not well formed
+     * @return the id
+     */
+    protected static String extractIdFromResourceUri(final String resourceUri) {
         Matcher matcher = RESOURCE_PATTERN.matcher(resourceUri);
         if (matcher.matches()) {
-            final String url = new StringBuilder(getBaseURL()).append("/").append(matcher.group(1)).toString();
-            final Builder builder = getBuilder(apiKey, url, null);
-            return this.singleGet(builder, elementType);
+            return matcher.group(1);
         } else {
             throw new IllegalArgumentException("The given resourceUri is not valid: " + resourceUri);
         }
+    }
+
+    private String detailUrl(final String resourceUri) {
+        return new StringBuilder(getBaseURL()).append("/").append(extractIdFromResourceUri(resourceUri)).toString();
     }
 }
