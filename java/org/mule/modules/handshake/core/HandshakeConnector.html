@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <meta name="description" content="Documentation for Mule Handshake Connector." />
+
+<link rel="shortcut icon" type="image/x-icon" href="../../../../../../favicon.ico" />
+<title>
+
+  HandshakeConnector
+
+
+| Mule Handshake Connector
+
+</title>
+<link href="../../../../../../assets/mule-developer-docs.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/mule-developer-prettify.css" rel="stylesheet" type="text/css" />
+<link href="../../../../../../assets/customizations.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300' rel='stylesheet' type='text/css'>
+<script src="../../../../../../assets/search_autocomplete.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-resizable.min.js" type="text/javascript"></script>
+<script src="../../../../../../assets/jquery-toc.js" type="text/javascript"></script>
+<script src="../../../../../../assets/mule-developer-docs.js" type="text/javascript"></script>
+<script src="../../../../../../assets/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  setToRoot("../../../../../../", "../../../../../../assets/");
+</script>
+<script src="../../../../../../assets/mule-developer-reference.js" type="text/javascript"></script>
+<script src="../../../../../../assets/navtree_data.js" type="text/javascript"></script>
+<script src="../../../../../../assets/customizations.js" type="text/javascript"></script>
+<noscript>
+  <style type="text/css">
+    html,body{overflow:auto;}
+    #body-content{position:relative; top:0;}
+    #doc-content{overflow:visible;border-left:3px solid #666;}
+    #side-nav{padding:0;}
+    #side-nav .toggle-list ul {display:block;}
+    #resize-packages-nav{border-bottom:3px solid #666;}
+  </style>
+</noscript>
+<script type="text/javascript" charset="utf-8">
+  var is_ssl = ("https:" == document.location.protocol);
+  var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+  document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
+<script type="text/javascript" charset="utf-8">
+  var feedback_widget_options = {};
+
+  feedback_widget_options.display = "overlay";
+  feedback_widget_options.company = "mulesoft";
+  feedback_widget_options.placement = "right";
+  feedback_widget_options.color = "#2F74AE";
+  feedback_widget_options.style = "question";
+
+  feedback_widget_options.tag = "Mule Handshake Connector";
+
+  feedback_widget_options.limit = "3";
+
+  var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+</script>
+</head>
+
+<body class="">
+
+<div id="header">
+    <div id="headerLeft">
+    
+      <span id="masthead-title">Mule Handshake Connector</span>
+    
+    <ul id="header-tabs" class="">
+    
+    	<li id="guide"><a href="../../../../../../guide/install.html">
+	    	<span class="en">Install Guide</span>
+    	</a></li>
+    
+    	<li id="java"><a href="../../../../../../java/packages.html">
+	    	<span class="en">Java API Reference</span>
+    	</a></li>
+    
+    	<li id="mule"><a href="../../../../../../mule/modules.html">
+	    	<span class="en">Mule API Reference</span>
+    	</a></li>
+    
+    </ul>
+    </div>
+    <div id="headerRight">
+      <a href="http://www.mulesoft.com" tabindex="-1">
+      <img src="../../../../../../assets//images/mulesoft-logo-final.gif" alt="MuleSoft" border="0" id="mulesoftlogo"></a><br/>
+      
+  <div id="search" >
+      <div id="searchForm">
+          <form accept-charset="utf-8" class="gsc-search-box" 
+                onsubmit="return submit_search()">
+            <table class="gsc-search-box" cellpadding="0" cellspacing="0"><tbody>
+                <tr>
+                  <td class="gsc-input">
+                    <input id="search_autocomplete" class="gsc-input" type="text" size="33" autocomplete="off"
+                      title="search developer docs" name="q"
+                      value="search developer docs"
+                      onFocus="search_focus_changed(this, true)"
+                      onBlur="search_focus_changed(this, false)"
+                      onkeydown="return search_changed(event, true, '../../../../../../')"
+                      onkeyup="return search_changed(event, false, '../../../../../../')" />
+                  <div id="search_filtered_div" class="no-display">
+                      <table id="search_filtered" cellspacing=0>
+                      </table>
+                  </div>
+                  </td>
+                  <td class="gsc-search-button">
+                    <input type="submit" value="Search" title="search" id="search-button" class="gsc-search-button" />
+                  </td>
+                  <td class="gsc-clear-button">
+                    <div title="clear results" class="gsc-clear-button">&nbsp;</div>
+                  </td>
+                </tr></tbody>
+              </table>
+          </form>
+      </div><!-- searchForm -->
+  </div><!-- search -->
+      
+    </div>
+</div><!-- header -->
+
+
+  <div class="g-section g-tpl-240" id="body-content">
+    <div class="g-unit g-first side-nav-resizable" id="side-nav">
+      <div id="swapper">
+        <div id="nav-panels">
+          <div id="resize-packages-nav">
+            <div id="packages-nav">
+              <div id="index-links">
+                <a href="../../../../../../java/packages.html"  >Package Index</a> |
+                <a href="../../../../../../java/classes.html" >Class Index</a>
+              </div>
+              <ul>
+                
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/client/package-summary.html">org.mule.modules.handshake.client</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/client/impl/package-summary.html">org.mule.modules.handshake.client.impl</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/client/serialization/package-summary.html">org.mule.modules.handshake.client.serialization</a></li>
+    <li class="selected api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/package-summary.html">org.mule.modules.handshake.core</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/package-summary.html">org.mule.modules.handshake.core.adapters</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/agents/package-summary.html">org.mule.modules.handshake.core.agents</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/config/package-summary.html">org.mule.modules.handshake.core.config</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/connectivity/package-summary.html">org.mule.modules.handshake.core.connectivity</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/holders/package-summary.html">org.mule.modules.handshake.core.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/process/package-summary.html">org.mule.modules.handshake.core.process</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/processors/package-summary.html">org.mule.modules.handshake.core.processors</a></li>
+    <li class="api apilevel-">
+  <a href="../../../../../../java/org/mule/modules/handshake/core/transformers/package-summary.html">org.mule.modules.handshake.core.transformers</a></li>
+              </ul><br/>
+            </div> <!-- end packages -->
+          </div> <!-- end resize-packages -->
+          <div id="classes-nav">
+            <ul>
+              
+              
+    <li><h2>Classes</h2>
+      <ul>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Address.html">Address</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/CreditCard.html">CreditCard</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.HandshakeAPIResponseMetadata.html">HandshakeAPIResponse.HandshakeAPIResponseMetadata</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">HandshakeObject</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/SalesOrderLine.html">SalesOrderLine</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></li>
+          <li class="api apilevel-"><a href="../../../../../../java/org/mule/modules/handshake/core/Variant.html">Variant</a></li>
+      </ul>
+    </li>
+              
+              
+              
+              
+            </ul><br/>
+          </div><!-- end classes -->
+        </div><!-- end nav-panels -->
+        <div id="nav-tree" style="display:none">
+          <div id="index-links">
+            <a href="../../../../../../packages.html"  >Package Index</a> | 
+            <a href="../../../../../../classes.html" >Class Index</a>
+          </div>
+        </div><!-- end nav-tree -->
+      </div><!-- end swapper -->
+    </div> <!-- end side-nav -->
+    <script>
+      if (!isMobile) {
+        $("<a href='#' id='nav-swap' onclick='swapNav();return false;' style='font-size:10px;line-height:9px;margin-left:1em;text-decoration:none;'><span id='tree-link'>Use Tree Navigation</span><span id='panel-link' style='display:none'>Use Panel Navigation</span></a>").appendTo("#side-nav");
+        chooseDefaultNav();
+        if ($("#nav-tree").is(':visible')) {
+          init_default_navtree("../../../../../../");
+        } else {
+          addLoadEvent(function() {
+            scrollIntoView("packages-nav");
+            scrollIntoView("classes-nav");
+          });
+        }
+        $("#swapper").css({borderBottom:"2px solid #aaa"});
+      } else {
+        swapNav(); // tree view should be used on mobile
+      }
+    </script>
+
+
+
+<div class="g-unit" id="doc-content">
+
+<div id="api-info-block">
+
+
+
+  
+   
+  
+  
+  
+  
+
+
+<div class="sum-details-links">
+
+
+Summary:
+
+
+
+
+
+
+
+  <a href="#lfields">Fields</a>
+  
+
+
+
+  &#124; <a href="#pubctors">Ctors</a>
+  
+
+
+
+  &#124; <a href="#pubmethods">Methods</a>
+  
+
+
+
+  &#124; <a href="#inhmethods">Inherited Methods</a>
+
+&#124; <a href="#" onclick="return toggleAllClassInherited()" id="toggleAllClassInherited">[Expand All]</a>
+
+</div><!-- end sum-details-links -->
+<div class="api-level">
+  
+
+
+  
+  
+
+</div>
+</div><!-- end api-info-block -->
+
+
+<!-- ======== START OF CLASS DATA ======== -->
+
+<div id="jd-header">
+    public
+     
+     
+    
+    class
+<h1>HandshakeConnector</h1>
+
+
+
+  
+    extends Object<br/>
+  
+  
+  
+
+  
+  
+  
+
+
+</div><!-- end header -->
+
+<div id="naMessage"></div>
+
+<div id="jd-content" class="api apilevel-">
+<table class="jd-inheritance-table">
+
+
+    <tr>
+        
+        <td colspan="2" class="jd-inheritance-class-cell">java.lang.Object</td>
+    </tr>
+    
+
+    <tr>
+        
+            <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
+        
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.HandshakeConnector</td>
+    </tr>
+    
+
+</table>
+
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
+          ><img id="subclasses-direct-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
+
+  <div id="subclasses-direct">
+      <div id="subclasses-direct-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorCapabilitiesAdapter.html">HandshakeConnectorCapabilitiesAdapter</a>
+            
+          
+      </div>
+      <div id="subclasses-direct-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorCapabilitiesAdapter.html">HandshakeConnectorCapabilitiesAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorCapabilitiesAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that implements org.mule.api.Capabilities interface.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+
+<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
+
+  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-indirect" class="jd-expando-trigger closed"
+          ><img id="subclasses-indirect-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>Known Indirect Subclasses
+
+  <div id="subclasses-indirect">
+      <div id="subclasses-indirect-list"
+              class="jd-inheritedlinks"
+              
+              >
+          
+            
+              <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a>,
+            
+              <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLifecycleAdapter.html">HandshakeConnectorLifecycleAdapter</a>,
+            
+              <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorMetadataAdapater.html">HandshakeConnectorMetadataAdapater</a>,
+            
+              <a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">HandshakeConnectorProcessAdapter</a>
+            
+          
+      </div>
+      <div id="subclasses-indirect-summary"
+              style="display: none;"
+              >
+  <table class="jd-sumtable-expando">
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that implements org.mule.api.Connection interface.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorLifecycleAdapter.html">HandshakeConnectorLifecycleAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorLifecycleAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that adds lifecycle methods to the pojo.&nbsp;</td>
+          </tr>
+        <tr class="alt-color api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorMetadataAdapater.html">HandshakeConnectorMetadataAdapater</a></td>
+              <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorMetadataAdapater</code> is a wrapper around <code><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that adds support for querying metadata about the extension.&nbsp;</td>
+          </tr>
+        <tr class=" api apilevel-" >
+              <td class="jd-linkcol"><a href="../../../../../../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorProcessAdapter.html">HandshakeConnectorProcessAdapter</a></td>
+              <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorProcessAdapter</code> is a wrapper around <code><a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that enables custom processing strategies.&nbsp;</td>
+          </tr>
+  </table>
+      </div>
+  </div>
+</td></tr></table>
+
+
+<div class="jd-descr">
+
+
+<h2>Class Overview</h2>
+<p>Handshake Cloud Connector
+ 
+ Note on creation of resources and references
+ Some creation methods allow to specify nested objects either as new or references to existing.
+ Whenever you want to create a object that references an existing one (for example, a new Order for an existing Customer), you just have to specify the resourceUri of the nested object.
+ <pre>
+ &lt;handshake:create-order&gt;
+     &lt;handshake:order&gt;
+         &lt;handshake:customer resourceUri="/api/v2/customers/1"/&gt;
+     &lt;/handshake:create-order&gt;
+ &lt;/handshake:order&gt;
+ </pre>
+ However, you can also create a nested object alongside the master one.
+ <pre>
+ &lt;handshake:create-order&gt;
+     &lt;handshake:order&gt;
+         &lt;handshake:customer id="SOME_ID" name="Some Customer"&gt;
+             &lt;handshake:bill-to city="Springfiled" stree="742 Evergreen Terrace"/&gt;
+         &lt;/handshake:customer&gt;
+     &lt;/handshake:create-order&gt;
+ &lt;/handshake:order&gt;
+ </pre>
+ When you create a new object through the API, the returned value will always contain a resourceUri attribute, which should be stored in your external system for future use as a reference.</p>
+
+
+
+
+
+</div><!-- jd-descr -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="jd-descr">
+
+
+<h2>Summary</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- =========== FIELD SUMMARY =========== -->
+<table id="lfields" class="jd-sumtable"><tr><th colspan="12">Fields</th></tr>
+
+
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#apiKey">apiKey</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          <a href="../../../../../../java/org/mule/modules/handshake/client/HandshakeClientProvider.html">HandshakeClientProvider</a></nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#clientProvider">clientProvider</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+
+</table>
+
+
+
+
+
+
+
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<table id="pubctors" class="jd-sumtable"><tr><th colspan="12">Public Constructors</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            </nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#HandshakeConnector()">HandshakeConnector</a></span>()</nobr>
+        
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="pubmethods" class="jd-sumtable"><tr><th colspan="12">Public Methods</th></tr>
+
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#connect(java.lang.String)">connect</a></span>(String apiKey)</nobr>
+        
+        <div class="jd-descrdiv">Connect</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#connectionId()">connectionId</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">The key to identify the connection
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#createCategory(org.mule.modules.handshake.core.Category)">createCategory</a></span>(<a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a> category)</nobr>
+        
+        <div class="jd-descrdiv">Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></code> on handshake</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#createCustomer(org.mule.modules.handshake.core.Customer)">createCustomer</a></span>(<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a> customer)</nobr>
+        
+        <div class="jd-descrdiv">Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake
+ 
+ Take into account than neither the <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#createItem(org.mule.modules.handshake.core.Item)">createItem</a></span>(<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a> item)</nobr>
+        
+        <div class="jd-descrdiv">Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></code> on handshake</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#createItems(java.util.List<org.mule.modules.handshake.core.Item>)">createItems</a></span>(List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt; items)</nobr>
+        
+        <div class="jd-descrdiv">Creates <code><a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></code>s on handshake</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#createOrder(org.mule.modules.handshake.core.Order)">createOrder</a></span>(<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a> order)</nobr>
+        
+        <div class="jd-descrdiv">Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></code> on handshake</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#disconnect()">disconnect</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Disconnect
+</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#editCustomer(java.lang.String, org.mule.modules.handshake.core.Customer)">editCustomer</a></span>(String resourceUri, <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a> edited)</nobr>
+        
+        <div class="jd-descrdiv">Edits a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
+ 
+ Take into account than neither the <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/client/HandshakeClientProvider.html">HandshakeClientProvider</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getClientProvider()">getClientProvider</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomer(java.lang.String)">getCustomer</a></span>(String id)</nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomers(java.util.Map<java.lang.String, java.lang.String>)">getCustomers</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        
+        <div class="jd-descrdiv">Get all customers for the connected account
+
+ 
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getOrder(java.lang.String)">getOrder</a></span>(String resourceUri)</nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></code>, given its id</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getOrders(java.util.Map<java.lang.String, java.lang.String>)">getOrders</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        
+        <div class="jd-descrdiv">Get Sales Orders for the connected account
+
+ 
+ 
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#isConnected()">isConnected</a></span>()</nobr>
+        
+        <div class="jd-descrdiv">Are we connected
+</div>
+  
+  </td></tr>
+
+
+
+</table>
+
+
+
+
+
+
+
+<!-- ========== METHOD SUMMARY =========== -->
+<table id="inhmethods" class="jd-sumtable"><tr><th>
+  <a href="#" class="toggle-all" onclick="return toggleAllInherited(this, null)">[Expand]</a>
+  <div style="clear:left;">Inherited Methods</div></th></tr>
+
+
+<tr class="api apilevel-" >
+<td colspan="12">
+  <a href="#" onclick="return toggleInherited(this, null)" id="inherited-methods-java.lang.Object" class="jd-expando-trigger closed"
+          ><img id="inherited-methods-java.lang.Object-trigger"
+          src="../../../../../../assets/images/triangle-closed.png"
+          class="jd-expando-trigger-img" /></a>
+From class
+
+  java.lang.Object
+
+<div id="inherited-methods-java.lang.Object">
+  <div id="inherited-methods-java.lang.Object-list"
+        class="jd-inheritedlinks">
+  </div>
+  <div id="inherited-methods-java.lang.Object-summary" style="display: none;">
+    <table class="jd-sumtable-expando">
+    
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Object</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">clone</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            boolean</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">equals</span>(Object arg0)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">finalize</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            Class&lt;?&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">getClass</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            int</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">hashCode</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notify</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">notifyAll</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            String</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">toString</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0, int arg1)</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            final
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad">wait</span>(long arg0)</nobr>
+        
+  </td></tr>
+
+
+</table>
+  </div>
+</div>
+</td></tr>
+
+
+</table>
+
+
+</div><!-- jd-descr (summary) -->
+
+<!-- Details -->
+
+
+
+
+
+
+
+
+<!-- XML Attributes -->
+
+
+<!-- Enum Values -->
+
+
+<!-- Constants -->
+
+
+<!-- Fields -->
+
+
+<!-- ========= FIELD DETAIL ======== -->
+<h2>Fields</h2>
+
+
+
+
+<A NAME="apiKey"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        apiKey
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="clientProvider"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/client/HandshakeClientProvider.html">HandshakeClientProvider</a>
+      </span>
+        clientProvider
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+
+<!-- Public ctors -->
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<h2>Public Constructors</h2>
+
+
+
+<A NAME="HandshakeConnector()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        
+      </span>
+      <span class="sympad">HandshakeConnector</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<!-- Protected ctors -->
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+<!-- Public methdos -->
+
+<h2>Public Methods</h2>
+
+
+
+<A NAME="connect(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">connect</span>
+      <span class="normal">(String apiKey)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Connect</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>apiKey</td>
+          <td>The API key for the user</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Throws</h5>
+      <table class="jd-tagtable">  
+        <tr>
+            <th>ConnectionException</td>
+            <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="connectionId()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        String
+      </span>
+      <span class="sympad">connectionId</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>The key to identify the connection
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="createCategory(org.mule.modules.handshake.core.Category)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a>
+      </span>
+      <span class="sympad">createCategory</span>
+      <span class="normal">(<a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a> category)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></code> on handshake</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>category</td>
+          <td>To create
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the created category
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createCustomer(org.mule.modules.handshake.core.Customer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>
+      </span>
+      <span class="sympad">createCustomer</span>
+      <span class="normal">(<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a> customer)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake
+ 
+ Take into account than neither the <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>customer</td>
+          <td>To create. Mandatory fields are ID, name and billTo (which has to be a new Address, and not a reference)
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the created customer
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createItem(org.mule.modules.handshake.core.Item)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>
+      </span>
+      <span class="sympad">createItem</span>
+      <span class="normal">(<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a> item)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></code> on handshake</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>item</td>
+          <td>To create
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the created item
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createItems(java.util.List<org.mule.modules.handshake.core.Item>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
+      </span>
+      <span class="sympad">createItems</span>
+      <span class="normal">(List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt; items)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates <code><a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a></code>s on handshake</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>items</td>
+          <td>To create
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>a list of the items created (if everything is ok, it should match the provided list)
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="createOrder(org.mule.modules.handshake.core.Order)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>
+      </span>
+      <span class="sympad">createOrder</span>
+      <span class="normal">(<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a> order)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Creates a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></code> on handshake</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>order</td>
+          <td>To create
+
+ 
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the created order
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="disconnect()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">disconnect</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Disconnect
+</p></div>
+
+    </div>
+</div>
+
+
+<A NAME="editCustomer(java.lang.String, org.mule.modules.handshake.core.Customer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>
+      </span>
+      <span class="sympad">editCustomer</span>
+      <span class="normal">(String resourceUri, <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a> edited)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Edits a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
+ 
+ Take into account than neither the <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>resourceUri</td>
+          <td>Of the Customer to edit</td>
+        </tr>
+        <tr>
+          <th>edited</td>
+          <td>Customer. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the edited customer
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getClientProvider()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/client/HandshakeClientProvider.html">HandshakeClientProvider</a>
+      </span>
+      <span class="sympad">getClientProvider</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getCustomer(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>
+      </span>
+      <span class="sympad">getCustomer</span>
+      <span class="normal">(String id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>id</td>
+          <td>Of the Customer to get. The id is the one specified on creation, and not Handshake's uid
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the customer with the given id, or null if it doesn't exist
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getCustomers(java.util.Map<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;
+      </span>
+      <span class="sympad">getCustomers</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get all customers for the connected account
+
+ 
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filters</td>
+          <td>Allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
+ 
+ NOTE: filter values refer to the user-defined IDs, and not to the HandShake id </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The list of customers for the connected account
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrder(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>
+      </span>
+      <span class="sympad">getOrder</span>
+      <span class="normal">(String resourceUri)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>resourceUri</td>
+          <td>Of the Order to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the order with the given id or a <code><a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeAPIException.html">HandshakeAPIException</a></code>, if the Order doesn't exist
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getOrders(java.util.Map<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;
+      </span>
+      <span class="sympad">getOrders</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get Sales Orders for the connected account
+
+ 
+ 
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filters</td>
+          <td>Allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The list of Sales Orders matching the filters
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="isConnected()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        boolean
+      </span>
+      <span class="sympad">isConnected</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Are we connected
+</p></div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- ========= METHOD DETAIL ======== -->
+
+
+
+<!-- ========= END OF CLASS DATA ========= -->
+<A NAME="navbar_top"></A>
+
+<div id="footer">
+Generated by <a href="http://www.mulesoft.com/devkit">Mule DevKit</a>. Document generation technology based on <a href="http://code.google.com/p/doclava/">Google's Doclava</a>.
+</div> <!-- end footer -->
+
+</div> <!-- jd-content -->
+
+</div><!-- end doc-content -->
+
+</div> <!-- end body-content --> 
+
+<script type="text/javascript">
+init(); /* initialize mule-developer-docs.js */
+</script>
+
+</body>
+</html>
