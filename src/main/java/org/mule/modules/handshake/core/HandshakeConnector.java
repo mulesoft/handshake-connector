@@ -23,6 +23,7 @@ import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.Placement;
+import org.mule.api.annotations.licensing.RequiresEnterpriseLicense;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
@@ -56,6 +57,7 @@ import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
  *
  * @author marianosimone
  */
+@RequiresEnterpriseLicense
 @Connector(name="handshake", schemaVersion="1.0-SNAPSHOT")
 public class HandshakeConnector {
 
