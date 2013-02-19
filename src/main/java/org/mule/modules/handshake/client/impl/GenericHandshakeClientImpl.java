@@ -37,8 +37,8 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     }
 
     @Override
-    protected String extendGetBaseUrl(final String baseUrl) {
-        return baseUrl + this.resourcePath + "/";
+    protected StringBuilder extendGetBaseUrl(final StringBuilder baseUrl) {
+        return baseUrl.append(this.resourcePath);
     }
 
     @Override
@@ -70,7 +70,8 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     public T getByResourceUri(final String resourceUri) {
         Matcher matcher = RESOURCE_PATTERN.matcher(resourceUri);
         if (matcher.matches()) {
-            final Builder builder = getBuilder(apiKey, getBaseURL() + "/" + matcher.group(1), null);
+            final String url = new StringBuilder(getBaseURL()).append("/").append(matcher.group(1)).toString();
+            final Builder builder = getBuilder(apiKey, url, null);
             return this.singleGet(builder, elementType);
         } else {
             throw new IllegalArgumentException("The given resourceUri is not valid: " + resourceUri);

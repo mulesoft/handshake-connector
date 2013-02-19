@@ -10,7 +10,6 @@
 package org.mule.modules.handshake.client.impl;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.security.KeyStore.Builder;
@@ -70,7 +69,7 @@ public abstract class AbstractHandshakeClient {
      * @return the base URL with no final "/".
      */
     protected String getBaseURL() {
-        final StringBuilder baseUrlBuilder = new StringBuilder(100);
+        final StringBuilder baseUrlBuilder = new StringBuilder();
 
         if (StringUtils.isNotEmpty(baseUrl)) {
             baseUrlBuilder.append(this.baseUrl);
@@ -78,18 +77,17 @@ public abstract class AbstractHandshakeClient {
             baseUrlBuilder.append(DEFAULT_BASE_URL);
         }
 
-        return extendGetBaseUrl(baseUrlBuilder.toString());
+        return extendGetBaseUrl(baseUrlBuilder).toString();
     }
 
     /**
      * This method is called by getBaseURL for the user to extend the base URL
      * of its ServiceClient implementation.
      * 
-     * @param baseUrl
-     *            the URL created by getBaseURL
-     * @return the enhanced base URL
+     * @param baseUrl a builder with the Base Url
+     * @return the builder, with the extended content as needed
      */
-    protected abstract String extendGetBaseUrl(final String baseUrl);
+    protected abstract StringBuilder extendGetBaseUrl(final StringBuilder baseUrl);
 
     /**
      * Creates a {@link Builder}
@@ -202,12 +200,8 @@ public abstract class AbstractHandshakeClient {
     }
 
     protected String readResponseFromClientResponse(final ClientResponse clientResponse) {
-        return readInputStreamToString(clientResponse.getEntityInputStream());
-    }
-
-    protected String readInputStreamToString(final InputStream inputStream) {
         try {
-            return IOUtils.toString(inputStream);
+            return IOUtils.toString(clientResponse.getEntityInputStream());
         } catch (final IOException e) {
             throw new RuntimeException(e);
         }        
@@ -216,11 +210,11 @@ public abstract class AbstractHandshakeClient {
     /**
      * Parse JSON to specified type
      *
-     * @param <V>
-     * @param string
-     * @param type
-     * @return parsed type
-     * @throws IOException
+     * @param <V> type of the object to obtain
+     * @param string JSON-formatted string to parse
+     * @param type of the object to obtain
+     * @return parsed object
+     * @throws IOException if the string is not JSON-formatted
      */
     protected <V> V parseJson(final String string, final Type type) throws IOException {        
         try {
