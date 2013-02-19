@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class Variant {
+public class Variant extends HandshakeObject {
     @SerializedName("resource_uri")
     private String resourceUri;
 

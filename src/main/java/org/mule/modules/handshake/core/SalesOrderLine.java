@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  * 
  * @author marianosimone
  */
-public class SalesOrderLine {
+public class SalesOrderLine extends HandshakeObject {
 
     private String isku;
     private String vsku;

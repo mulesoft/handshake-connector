@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class Order {
+public class Order extends HandshakeObject {
     private String id;
     private Customer customer;
     private Address billTo;
