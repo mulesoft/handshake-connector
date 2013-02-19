@@ -60,7 +60,7 @@ public abstract class AbstractHandshakeClient {
         this.gson = builder.create();
     }
 
-    public void setBaseUrl(String baseUrl) {
+    public void setBaseUrl(final String baseUrl) {
         this.baseUrl = baseUrl;
     }
 
@@ -89,7 +89,7 @@ public abstract class AbstractHandshakeClient {
      *            the URL created by getBaseURL
      * @return the enhanced base URL
      */
-    protected abstract String extendGetBaseUrl(String baseUrl);
+    protected abstract String extendGetBaseUrl(final String baseUrl);
 
     /**
      * Creates a {@link Builder}
@@ -100,7 +100,7 @@ public abstract class AbstractHandshakeClient {
      *            a map containing all the query parameters
      * @return the builder.
      */
-    protected WebResource.Builder getBuilder(String user, String url, Map<String, String> queryParameters) {
+    protected WebResource.Builder getBuilder(final String user, final String url, final Map<String, String> queryParameters) {
 
         final ClientConfig clientConfig = getJerseyClientConfiguration();
 
@@ -176,7 +176,7 @@ public abstract class AbstractHandshakeClient {
      * @param password
      * @return a {@link HTTPBasicAuthFilter} to be added to the {@link Client}
      */
-    private HTTPBasicAuthFilter getBasicAuthenticationFilter(String user, String password) {
+    private HTTPBasicAuthFilter getBasicAuthenticationFilter(final String user, final String password) {
         return new HTTPBasicAuthFilter(user, password);
     }
 
@@ -189,11 +189,11 @@ public abstract class AbstractHandshakeClient {
      *            the map of query parameters
      * @return the same map in an {@link MultivaluedMap} object.
      */
-    protected MultivaluedMap<String, String> mapToMultivaluedMap(Map<String, String> map) {
-        MultivaluedMap<String, String> multivaluedMap = new MultivaluedMapImpl();
+    protected MultivaluedMap<String, String> mapToMultivaluedMap(final Map<String, String> map) {
+        final MultivaluedMap<String, String> multivaluedMap = new MultivaluedMapImpl();
 
         if (map != null && !map.isEmpty()) {
-            for (String key : map.keySet()) {
+            for (final String key : map.keySet()) {
                 multivaluedMap.add(key, map.get(key));
             }
         }
@@ -201,14 +201,14 @@ public abstract class AbstractHandshakeClient {
         return multivaluedMap;
     }
 
-    protected String readResponseFromClientResponse(ClientResponse clientResponse) {
+    protected String readResponseFromClientResponse(final ClientResponse clientResponse) {
         return readInputStreamToString(clientResponse.getEntityInputStream());
     }
 
-    protected String readInputStreamToString(InputStream inputStream) {
+    protected String readInputStreamToString(final InputStream inputStream) {
         try {
             return IOUtils.toString(inputStream);
-        } catch (IOException e) {
+        } catch (final IOException e) {
             throw new RuntimeException(e);
         }        
     }
@@ -225,8 +225,8 @@ public abstract class AbstractHandshakeClient {
     protected <V> V parseJson(final String string, final Type type) throws IOException {        
         try {
             return gson.fromJson(string, type);
-        } catch (JsonParseException jpe) {
-            IOException ioe = new IOException("Parse exception converting JSON to object"); //$NON-NLS-1$
+        } catch (final JsonParseException jpe) {
+            final IOException ioe = new IOException("Parse exception converting JSON to object"); //$NON-NLS-1$
             ioe.initCause(jpe);
             throw ioe;
         }
