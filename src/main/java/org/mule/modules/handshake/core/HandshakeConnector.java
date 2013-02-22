@@ -108,12 +108,14 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders-with-filters-by-date}
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
-     *
+     * @param limit the maximum amount of items to be returned.
+     * @param offset pagination offset
+     * 
      * @return The list of Sales Orders matching the filters
      */
     @Processor
-    public List<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getOrdersClient().getAll(filters);
+    public List<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+        return getClientProvider().getOrdersClient().getAll(filters, limit, offset);
     }
 
     /**
@@ -136,14 +138,15 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers-with-filters}
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
-     * 
+     * @param limit the maximum amount of items to be returned.
+     * @param offset pagination offset
      * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
      * 
      * @return The list of customers for the connected account
      */
     @Processor
-    public List<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getCustomersClient().getAll(filters);
+    public List<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+        return getClientProvider().getCustomersClient().getAll(filters, limit, offset);
     }
 
     /**

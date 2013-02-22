@@ -54,8 +54,18 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     }
 
     @Override
-    public List<T> getAll(final Map<String, String> filters) {
-        final Builder builder = getBuilder(apiKey, getBaseURL(), filters);
+    public List<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset) {
+        final Map<String, String> params = new HashMap<String, String>();
+        if (filters != null) {
+            params.putAll(filters);
+        }
+        if (limit != null) {
+            params.put("limit", limit.toString());
+        }
+        if (offset != null) {
+            params.put("offset", offset.toString());
+        }
+        final Builder builder = getBuilder(apiKey, getBaseURL(), params);
         final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
         return response.getObjects();
     }

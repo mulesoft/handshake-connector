@@ -34,9 +34,12 @@ public interface GenericHandshakeClient<T> {
 
     /**
      * Get all the the elements that match the given filters
+     * @param filters to apply to the search
+     * @param limit the maximum amount of items to be returned.
+     * @param offset pagination offset
      * @return all the Orders matching the given filters
      */
-    List<T> getAll(final Map<String, String> filters);
+    List<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset);
 
     /**
      * Get one element, matching the given id. The id is the user-specified one for the given entity.
