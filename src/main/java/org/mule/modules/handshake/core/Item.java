@@ -9,7 +9,6 @@
 
 package org.mule.modules.handshake.core;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +30,7 @@ public class Item extends HandshakeObject {
     private int multQty;
     private Category category;
     private int categoryPosition;
-    private List<Variant> variants = new ArrayList<Variant>();
+    private List<Variant> variants;
     private Map<String, String> additionalPrices;
     private String manufacturer;
     private List<String> imageURLs;
