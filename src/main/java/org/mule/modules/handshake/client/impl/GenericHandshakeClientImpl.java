@@ -48,7 +48,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     }
 
     @Override
-    public T edit(final String resourceUri, final T edited) {
+    public T update(final String resourceUri, final T edited) {
         final Builder builder = getBuilder(apiKey, this.detailUrl(resourceUri), null);
         return this.update(builder, elementType, edited);
     }

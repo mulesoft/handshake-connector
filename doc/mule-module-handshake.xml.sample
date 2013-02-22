@@ -75,8 +75,8 @@
         </handshake:customer>
     </handshake:create-customer>
 <!-- END_INCLUDE(handshake:create-customer) -->
-<!-- BEGIN_INCLUDE(handshake:edit-customer) -->
-    <handshake:edit-customer resourceUri="/api/v2/customers/1">
-        <handshake:edited paymentTerms="New Payment Terms" />
-    </handshake:edit-customer>
-<!-- END_INCLUDE(handshake:edit-customer) -->
+<!-- BEGIN_INCLUDE(handshake:update-customer) -->
+    <handshake:update-customer resourceUri="/api/v2/customers/1">
+        <handshake:customer paymentTerms="New Payment Terms" />
+    </handshake:update-customer>
+<!-- END_INCLUDE(handshake:update-customer) -->

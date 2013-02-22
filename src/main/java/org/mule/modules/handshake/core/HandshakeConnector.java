@@ -178,21 +178,21 @@ public class HandshakeConnector {
     }
 
     /**
-     * Edits a {@link org.mule.modules.handshake.core.Customer} on Handshake, given her resourceUri
+     * Updates a {@link org.mule.modules.handshake.core.Customer} on Handshake, given her resourceUri
      * 
      * Take into account than neither the {@link CustomerGroup} nor the {@link UserGroup} can be created alongside the {@link Customer}
      * You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one
      * 
-     * @param resourceUri of the Customer to edit
-     * @param edited Customer. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
+     * @param resourceUri of the Customer to update
+     * @param customer with the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
      *
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:edit-customer}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:update-customer}
      *
-     * @return the edited customer
+     * @return the updated customer
      */
     @Processor
-    public Customer editCustomer(final String resourceUri, final Customer edited) {
-        return getClientProvider().getCustomersClient().edit(resourceUri, edited);
+    public Customer updateCustomer(final String resourceUri, final Customer customer) {
+        return getClientProvider().getCustomersClient().update(resourceUri, customer);
     }
 
     /**
@@ -239,7 +239,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Item updateItem(final String resourceUri, final Item item) {
-        return getClientProvider().getItemsClient().edit(resourceUri, item);
+        return getClientProvider().getItemsClient().update(resourceUri, item);
     }
 
     /**

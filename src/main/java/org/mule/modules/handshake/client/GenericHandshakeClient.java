@@ -24,13 +24,13 @@ public interface GenericHandshakeClient<T> {
     T create(final T t);
 
     /**
-     * Edit an existing element on Handshake, by providing its resourceUri and an object with the fields to edit.
+     * Updates an existing element on Handshake, by providing its resourceUri and an object with the fields to update.
      * Because of the way Handshake references work, you should not include fields that you don't want updated, specially if they are nested objects, and should either leave them blank or include the corresponding resourceUri
      * @param resourceUri of the element to edit
-     * @param edited object with the fields to be edited
-     * @return the edited element
+     * @param toUpdate object with the fields to be edited
+     * @return the updated element
      */
-    T edit(final String resourceUri, final T  edited);
+    T update(final String resourceUri, final T toUpdate);
 
     /**
      * Get all the the elements that match the given filters
