@@ -52,7 +52,7 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
  */
 public abstract class AbstractHandshakeClient {
 
-    private static final String DEFAULT_BASE_URL = "https://app.handshake-app.com/api/v2/";
+    private static final String DEFAULT_BASE_URL = "https://preview.handshake-app.com/api/v2/";
 
     private String baseUrl = "";
 

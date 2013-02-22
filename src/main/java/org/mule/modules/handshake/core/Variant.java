@@ -9,6 +9,8 @@
 
 package org.mule.modules.handshake.core;
 
+import java.math.BigDecimal;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -18,9 +20,31 @@ import com.google.gson.annotations.SerializedName;
  * @author marianosimone
  */
 public class Variant extends HandshakeObject {
+
+    private String sku;
+    private BigDecimal unitPrice;
+    private String barcode;
     @SerializedName("resource_uri")
     private String resourceUri;
 
+    public String getSku() {
+        return sku;
+    }
+    public void setSku(String sku) {
+        this.sku = sku;
+    }
+    public BigDecimal getUnitPrice() {
+        return unitPrice;
+    }
+    public void setUnitPrice(BigDecimal unitPrice) {
+        this.unitPrice = unitPrice;
+    }
+    public String getBarcode() {
+        return barcode;
+    }
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
     public void setResourceUri(final String resourceUri) {
         this.resourceUri = resourceUri;
     }
