@@ -24,6 +24,7 @@ public class Category extends HandshakeObject {
     private String id;
     private int categoryPosition;
     private String parent;
+    private CategorySubType subType;
     private List<String> subcategories;
     @SerializedName("resource_uri")
     private String resourceUri;
@@ -51,6 +52,12 @@ public class Category extends HandshakeObject {
     }
     public void setParent(String parent) {
         this.parent = parent;
+    }
+    public CategorySubType getSubType() {
+        return subType;
+    }
+    public void setSubType(CategorySubType subType) {
+        this.subType = subType;
     }
     public List<String> getSubcategories() {
         return subcategories;
