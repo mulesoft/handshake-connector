@@ -369,19 +369,6 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../mule/handshake-config.html#edit-customer">&lt;handshake:edit-customer&gt;</a></nobr>
-        
-        <div class="jd-descrdiv">Edits a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
- 
- Take into account than neither the <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
- You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</div>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-customer">&lt;handshake:get-customer&gt;</a></nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</div>
@@ -390,7 +377,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-customers">&lt;handshake:get-customers&gt;</a></nobr>
         
@@ -403,7 +390,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-order">&lt;handshake:get-order&gt;</a></nobr>
         
@@ -413,7 +400,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-orders">&lt;handshake:get-orders&gt;</a></nobr>
         
@@ -422,6 +409,29 @@ Summary:
  
  
  </div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#update-customer">&lt;handshake:update-customer&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Updates a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
+ 
+ Take into account than neither the <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#update-item">&lt;handshake:update-item&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Updates a <code><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></code> on Handshake, given its resourceUri</div>
         
   </td></tr>
 
@@ -1016,106 +1026,6 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
-<A NAME="edit-customer"></A>
-
-<div class="jd-details api apilevel-">
-    <h4 class="jd-details-title">
-      <span class="sympad">&lt;handshake:edit-customer&gt;</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Edits a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
- 
- Take into account than neither the <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
- You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Attributes</h5>
-
-        <table id="lconfig" class="jd-sumtable">
-        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
-        <tr>
-          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-          <td class="jd-descrcol"></td>
-        </tr>
-          
-          
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>resourceUri</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">Of the Customer to edit</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                
-                
-          
-                
-                    <tr class="alt-color api apilevel-" >
-                        <td class="jd-linkcol"><nobr>edited</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">Customer. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
-
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:edit-customer resourceUri="/api/v2/customers/1"&gt;
-    &lt;handshake:edited paymentTerms="New Payment Terms" /&gt;
-&lt;/handshake:edit-customer&gt;</pre></div></td>
-                        <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol"></td>
-                    </tr>
-                
-                
-          
-          
-              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
-                
-                    <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
-                        <td class="jd-descrcol">String</td>
-                        <td class="jd-descrcol">*/*</td>
-                        <td class="jd-descrcol">UTF-8</td>
-                    </tr>
-                    
-                
-          
-          
-        </table>
-  </div>
-  
-  
-      <div class="jd-tagdata">
-         <h5 class="jd-tagtitle">Returns</h5>
-         <table id="lconfig" class="jd-sumtable">
-             <tr>
-                <th>Return Type</th>
-                <th>Description</th>
-             </tr>
-             <tr>
-                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
-                <td class="jd-descrcol">the edited customer
-</td>
-             </tr>
-         </table>
-  </div>
-    
-  
-
-    </div>
-</div>
-
-
 <A NAME="get-customer"></A>
 
 <div class="jd-details api apilevel-">
@@ -1460,6 +1370,203 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              <tr>
                 <td class="jd-descrcol">List&lt;<a href="../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</td>
                 <td class="jd-descrcol">The list of Sales Orders matching the filters
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="update-customer"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:update-customer&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code> on Handshake, given her resourceUri
+ 
+ Take into account than neither the <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code> nor the <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code> can be created alongside the <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>
+ You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>resourceUri</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the Customer to update</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>customer</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">With the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:update-customer resourceUri="/api/v2/customers/1"&gt;
+    &lt;handshake:customer paymentTerms="New Payment Terms" /&gt;
+&lt;/handshake:update-customer&gt;</pre></div></td>
+                        <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
+                <td class="jd-descrcol">the updated customer
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="update-item"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:update-item&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates a <code><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></code> on Handshake, given its resourceUri</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>resourceUri</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the Item to edit</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>item</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">With the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:update-item resourceUri="/api/v2/items/1"&gt;
+    &lt;handshake:item barcode="UPDATED" /&gt;
+&lt;/handshake:update-item&gt;</pre></div></td>
+                        <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol"></td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></td>
+                <td class="jd-descrcol">the updated item
 </td>
              </tr>
          </table>

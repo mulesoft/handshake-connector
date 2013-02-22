@@ -471,24 +471,6 @@ Summary:
             
             
             
-            T</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#edit(java.lang.String, T)">edit</a></span>(String resourceUri, T edited)</nobr>
-        
-        <div class="jd-descrdiv">Edit an existing element on Handshake, by providing its resourceUri and an object with the fields to edit.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
             List&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -500,7 +482,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -518,7 +500,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -531,6 +513,24 @@ Summary:
         <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getByResourceUri(java.lang.String)">getByResourceUri</a></span>(String resourceUri)</nobr>
         
         <div class="jd-descrdiv">Get one element, matching the given Handshake Id (resourceUri)</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            T</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#update(java.lang.String, T)">update</a></span>(String resourceUri, T toUpdate)</nobr>
+        
+        <div class="jd-descrdiv">Updates an existing element on Handshake, by providing its resourceUri and an object with the fields to update.</div>
   
   </td></tr>
 
@@ -621,56 +621,6 @@ Summary:
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>the created element
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="edit(java.lang.String, T)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        T
-      </span>
-      <span class="sympad">edit</span>
-      <span class="normal">(String resourceUri, T edited)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Edit an existing element on Handshake, by providing its resourceUri and an object with the fields to edit.
- Because of the way Handshake references work, you should not include fields that you don't want updated, specially if they are nested objects, and should either leave them blank or include the corresponding resourceUri</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>resourceUri</td>
-          <td>Of the element to edit</td>
-        </tr>
-        <tr>
-          <th>edited</td>
-          <td>Object with the fields to be edited</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the edited element
 </li></ul>
   </div>
 
@@ -821,6 +771,56 @@ Summary:
 </td>
         </tr>
       </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="update(java.lang.String, T)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        T
+      </span>
+      <span class="sympad">update</span>
+      <span class="normal">(String resourceUri, T toUpdate)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Updates an existing element on Handshake, by providing its resourceUri and an object with the fields to update.
+ Because of the way Handshake references work, you should not include fields that you don't want updated, specially if they are nested objects, and should either leave them blank or include the corresponding resourceUri</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>resourceUri</td>
+          <td>Of the element to edit</td>
+        </tr>
+        <tr>
+          <th>toUpdate</td>
+          <td>Object with the fields to be edited</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the updated element
+</li></ul>
   </div>
 
     </div>
