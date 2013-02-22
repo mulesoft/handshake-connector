@@ -7,7 +7,7 @@
  * place, you may not use the software.
  */
 
-package org.mule.modules.handshake.client.impl;
+package org.mule.modules.handshake.client.serialization;
 
 import java.lang.reflect.Type;
 import java.math.BigDecimal;

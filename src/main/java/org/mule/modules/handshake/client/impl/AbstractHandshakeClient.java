@@ -20,10 +20,13 @@ import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.mule.modules.handshake.client.serialization.BigDecimalAsStringSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeCustomerSerializer;
+import org.mule.modules.handshake.client.serialization.HandshakeItemSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeOrderSerializer;
 import org.mule.modules.handshake.core.Customer;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
+import org.mule.modules.handshake.core.Item;
 import org.mule.modules.handshake.core.Order;
 
 import com.google.gson.Gson;
@@ -59,6 +62,7 @@ public abstract class AbstractHandshakeClient {
         final GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Order.class, new HandshakeOrderSerializer());
         builder.registerTypeAdapter(Customer.class, new HandshakeCustomerSerializer());
+        builder.registerTypeAdapter(Item.class, new HandshakeItemSerializer());
         builder.registerTypeAdapter(BigDecimal.class, new BigDecimalAsStringSerializer());
         this.gson = builder.create();
     }

@@ -32,6 +32,11 @@
         </handshake:items>
     </handshake:create-items>
 <!-- END_INCLUDE(handshake:create-items) -->
+<!-- BEGIN_INCLUDE(handshake:update-item) -->
+    <handshake:update-item resourceUri="/api/v2/items/1">
+        <handshake:item barcode="UPDATED" />
+    </handshake:update-item>
+<!-- END_INCLUDE(handshake:update-item) -->
 <!-- BEGIN_INCLUDE(handshake:create-category) -->
     <handshake:create-category>
         <handshake:category name="Some category" categoryPosition="0" id="CAT" />

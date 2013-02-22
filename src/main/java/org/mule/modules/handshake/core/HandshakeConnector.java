@@ -228,6 +228,21 @@ public class HandshakeConnector {
     }
 
     /**
+     * Updates a {@link org.mule.modules.handshake.core.Item} on Handshake, given its resourceUri
+     * 
+     * @param resourceUri of the Item to edit
+     * @param item with the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:update-item}
+     *
+     * @return the updated item
+     */
+    @Processor
+    public Item updateItem(final String resourceUri, final Item item) {
+        return getClientProvider().getItemsClient().edit(resourceUri, item);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Category} on handshake
      * 
      * @param category to create
@@ -262,6 +277,5 @@ public class HandshakeConnector {
         }
         return clientProvider;
     }
-
 
 }
