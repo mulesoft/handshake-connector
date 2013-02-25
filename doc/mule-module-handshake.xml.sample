@@ -10,6 +10,9 @@
 <!-- BEGIN_INCLUDE(handshake:get-customer-group) -->
     <handshake:get-customer-group id="1" />
 <!-- END_INCLUDE(handshake:get-customer-group) -->
+<!-- BEGIN_INCLUDE(handshake:get-user-group) -->
+    <handshake:get-user-group id="1" />
+<!-- END_INCLUDE(handshake:get-user-group) -->
 <!-- BEGIN_INCLUDE(handshake:get-orders) -->
     <handshake:get-orders />
 <!-- END_INCLUDE(handshake:get-orders) -->

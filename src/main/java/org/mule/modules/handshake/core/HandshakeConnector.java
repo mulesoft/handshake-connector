@@ -285,6 +285,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.UserGroup}, given its id
+     * 
+     * @param id of the UserGroup to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-user-group}
+     *
+     * @return the user group with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public UserGroup getUserGroup(final String id) {
+        return getClientProvider().getUserGroupsClient().getById(id);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Order} on handshake
      *
      * @param order to create
@@ -305,5 +319,4 @@ public class HandshakeConnector {
         }
         return clientProvider;
     }
-
 }
