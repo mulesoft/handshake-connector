@@ -58,7 +58,7 @@ import org.mule.modules.handshake.client.impl.HandshakeListing;
  *
  * @author marianosimone
  */
-@RequiresEnterpriseLicense
+//@RequiresEnterpriseLicense
 @Connector(name="handshake", schemaVersion="1.0-SNAPSHOT", friendlyName="Handshake")
 public class HandshakeConnector {
 
