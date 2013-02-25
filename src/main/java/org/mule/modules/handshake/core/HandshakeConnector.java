@@ -257,6 +257,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.Category}, given its id
+     * 
+     * @param id of the Category to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-category}
+     *
+     * @return the category with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public Category getCategory(final String id) {
+        return getClientProvider().getCategoriesClient().getById(id);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Order} on handshake
      *
      * @param order to create

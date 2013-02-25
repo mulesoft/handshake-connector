@@ -42,6 +42,9 @@
         <handshake:category name="Some category" categoryPosition="0" id="CAT" subType="Item" />
     </handshake:create-category>
 <!-- END_INCLUDE(handshake:create-category) -->
+<!-- BEGIN_INCLUDE(handshake:get-category) -->
+    <handshake:get-category id="1" />
+<!-- END_INCLUDE(handshake:get-category) -->
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
     <handshake:create-order>
         <handshake:order>
