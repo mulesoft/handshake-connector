@@ -204,12 +204,14 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items}
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items-with-filters}
      * @param filters to apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)
+     * @param limit the maximum amount of items to be returned.
+     * @param offset pagination offset
      *
      * @return The list of items for the connected account that match the filters
      */
     @Processor
-    public List<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getItemsClient().getAll(filters);
+    public List<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+        return getClientProvider().getItemsClient().getAll(filters, limit, offset);
     }
 
     /**
