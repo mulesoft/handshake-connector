@@ -37,6 +37,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
+import com.sun.jersey.api.client.filter.LoggingFilter;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 /**
@@ -119,6 +120,7 @@ public abstract class AbstractHandshakeClient {
 
         //TODO: May need to add token for Credit Cards
         client.addFilter(getBasicAuthenticationFilter(user, ""));
+        client.addFilter(new LoggingFilter());
 
         final WebResource wr = client.resource(url);
         final MultivaluedMap<String, String> actualQueryParameters = mapToMultivaluedMap(queryParameters);
