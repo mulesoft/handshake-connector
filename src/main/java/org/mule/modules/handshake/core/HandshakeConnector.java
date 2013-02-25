@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.api.ConnectionException;
 import org.mule.api.annotations.Connect;
 import org.mule.api.annotations.ConnectionIdentifier;
@@ -32,6 +33,7 @@ import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
 import org.mule.modules.handshake.client.impl.HandshakeListing;
+import org.mule.modules.handshake.client.impl.InvalidHandshakeObjectReferenceException;
 
 /**
  * Handshake Cloud Connector
@@ -192,7 +194,7 @@ public class HandshakeConnector {
      * Take into account than neither the {@link CustomerGroup} nor the {@link UserGroup} can be created alongside the {@link Customer}
      * You can either let them be the default values for your account (by not specifying them), or use their resourceUri property to reference an existing one
      * 
-     * @param resourceUri of the Customer to update
+     * @param resourceUri of the Customer to update (if you skip this, you should include the resourceUri attribute in the customer)
      * @param customer with the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:update-customer}
@@ -200,7 +202,7 @@ public class HandshakeConnector {
      * @return the updated customer
      */
     @Processor
-    public Customer updateCustomer(final String resourceUri, final Customer customer) {
+    public Customer updateCustomer(@Optional final String resourceUri, final Customer customer) {
         return getClientProvider().getCustomersClient().update(resourceUri, customer);
     }
 
@@ -255,7 +257,7 @@ public class HandshakeConnector {
     /**
      * Updates a {@link org.mule.modules.handshake.core.Item} on Handshake, given its resourceUri
      * 
-     * @param resourceUri of the Item to edit
+     * @param resourceUri of the Item to edit (if you skip this, you should include the resourceUri attribute in the item)
      * @param item with the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:update-item}
@@ -263,7 +265,7 @@ public class HandshakeConnector {
      * @return the updated item
      */
     @Processor
-    public Item updateItem(final String resourceUri, final Item item) {
+    public Item updateItem(@Optional final String resourceUri, final Item item) {
         return getClientProvider().getItemsClient().update(resourceUri, item);
     }
 

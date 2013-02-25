@@ -188,6 +188,7 @@ public class Order extends HandshakeObject {
     public void setResourceUri(final String resourceUri) {
         this.resourceUri = resourceUri;
     }
+    @Override
     public String getResourceUri() {
         return this.resourceUri;
     }

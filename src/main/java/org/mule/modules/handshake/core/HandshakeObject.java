@@ -11,7 +11,7 @@ package org.mule.modules.handshake.core;
 
 import java.util.Date;
 
-public class HandshakeObject {
+public abstract class HandshakeObject {
     private Date mtime;
     private Date ctime;
 
@@ -21,4 +21,6 @@ public class HandshakeObject {
     public Date getCtime() {
         return ctime;
     }
+    // FIXME: This could be implemented here, but the samples wouldn't parse it: http://www.mulesoft.org/jira/browse/DEVKIT-317
+    public abstract String getResourceUri();
 }

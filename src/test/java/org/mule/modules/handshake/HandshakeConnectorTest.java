@@ -12,6 +12,8 @@ package org.mule.modules.handshake;
 import org.junit.Before;
 import org.junit.Test;
 import org.mule.api.ConnectionException;
+import org.mule.modules.handshake.client.impl.InvalidHandshakeObjectReferenceException;
+import org.mule.modules.handshake.core.Customer;
 import org.mule.modules.handshake.core.HandshakeConnector;
 
 public class HandshakeConnectorTest {
@@ -24,8 +26,13 @@ public class HandshakeConnectorTest {
         connector.connect("SOME_KEY", "SOME_TOKEN");
     }
 
-    @Test(expected=IllegalArgumentException.class)
+    @Test(expected=InvalidHandshakeObjectReferenceException.class)
     public void getOrderWithBadUriShouldRaise() {
         connector.getOrder("/blah/568");
+    }
+
+    @Test(expected=InvalidHandshakeObjectReferenceException.class)
+    public void updatingACustomerWithoutResourceUriShouldFail() {
+        connector.updateCustomer(null, new Customer());
     }
 }

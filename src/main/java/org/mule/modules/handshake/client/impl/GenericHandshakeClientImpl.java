@@ -15,11 +15,13 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
+import org.mule.modules.handshake.core.HandshakeObject;
 
 import com.sun.jersey.api.client.WebResource.Builder;
 
-public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient implements GenericHandshakeClient<T> {
+public class GenericHandshakeClientImpl<T extends HandshakeObject> extends AbstractHandshakeClient implements GenericHandshakeClient<T> {
 
     private final String apiKey;
     private final String securityToken;
@@ -49,7 +51,10 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
 
     @Override
     public T update(final String resourceUri, final T edited) {
-        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(resourceUri), null);
+        if (StringUtils.isBlank(resourceUri) && StringUtils.isBlank(edited.getResourceUri())) {
+            throw new InvalidHandshakeObjectReferenceException("You have to either pass the resourceUri or set it to the element to edit");
+        }
+        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(StringUtils.isBlank(resourceUri) ? edited.getResourceUri() : resourceUri), null);
         return this.update(builder, elementType, edited);
     }
 
@@ -90,7 +95,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     /**
      * Extracts the resource id from a resourceUri
      * @param resourceUri from which to extract the resource ID
-     * @throws IllegalArgumentException if the resourceUri is not well formed
+     * @throws InvalidHandshakeObjectReferenceException if the resourceUri is not well formed
      * @return the id
      */
     protected static String extractIdFromResourceUri(final String resourceUri) {
@@ -98,7 +103,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
         if (matcher.matches()) {
             return matcher.group(1);
         } else {
-            throw new IllegalArgumentException("The given resourceUri is not valid: " + resourceUri);
+            throw new InvalidHandshakeObjectReferenceException("The given resourceUri is not valid: " + resourceUri);
         }
     }
 

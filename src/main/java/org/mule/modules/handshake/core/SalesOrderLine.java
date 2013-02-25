@@ -104,4 +104,8 @@ public class SalesOrderLine extends HandshakeObject {
     public void setPercentageDiscount(String percentageDiscount) {
         this.percentageDiscount = percentageDiscount;
     }
+    @Override
+    public String getResourceUri() {
+        return null;
+    }
 }
