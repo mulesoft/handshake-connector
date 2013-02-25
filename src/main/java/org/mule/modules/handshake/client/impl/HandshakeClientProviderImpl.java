@@ -13,9 +13,11 @@ import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.core.Category;
 import org.mule.modules.handshake.core.Customer;
+import org.mule.modules.handshake.core.CustomerGroup;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
 import org.mule.modules.handshake.core.Item;
 import org.mule.modules.handshake.core.Order;
+import org.mule.modules.handshake.core.UserGroup;
 
 import com.google.gson.reflect.TypeToken;
 
@@ -26,6 +28,8 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
     private GenericHandshakeClient<Order> ordersClient;
     private GenericHandshakeClient<Item> itemsClient;
     private GenericHandshakeClient<Category> categoriesClient;
+    private GenericHandshakeClient<CustomerGroup> customerGroupsClient;
+    private GenericHandshakeClient<UserGroup> userGroupsClient;
 
     public HandshakeClientProviderImpl(final String apiKey) {
         this.apiKey = apiKey;
@@ -60,4 +64,19 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
         return categoriesClient;
     }
 
+    @Override
+    public GenericHandshakeClient<CustomerGroup> getCustomerGroupsClient() {
+        if (customerGroupsClient == null) {
+            customerGroupsClient = new GenericHandshakeClientImpl<CustomerGroup>(apiKey, "customer_groups", new TypeToken<CustomerGroup>() {}.getType(), new TypeToken<HandshakeAPIResponse<CustomerGroup>>() {}.getType());
+        }
+        return customerGroupsClient;
+    }
+
+    @Override
+    public GenericHandshakeClient<UserGroup> getUserGroupsClient() {
+        if (userGroupsClient == null) {
+            userGroupsClient = new GenericHandshakeClientImpl<UserGroup>(apiKey, "user_groups", new TypeToken<UserGroup>() {}.getType(), new TypeToken<HandshakeAPIResponse<UserGroup>>() {}.getType());
+        }
+        return userGroupsClient;
+    }
 }

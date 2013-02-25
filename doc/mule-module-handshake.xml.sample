@@ -7,6 +7,12 @@
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
     <handshake:get-customer id="1" />
 <!-- END_INCLUDE(handshake:get-customer) -->
+<!-- BEGIN_INCLUDE(handshake:get-customer-group) -->
+    <handshake:get-customer-group id="1" />
+<!-- END_INCLUDE(handshake:get-customer-group) -->
+<!-- BEGIN_INCLUDE(handshake:get-user-group) -->
+    <handshake:get-user-group id="1" />
+<!-- END_INCLUDE(handshake:get-user-group) -->
 <!-- BEGIN_INCLUDE(handshake:get-orders) -->
     <handshake:get-orders />
 <!-- END_INCLUDE(handshake:get-orders) -->
@@ -19,6 +25,12 @@
 <!-- BEGIN_INCLUDE(handshake:get-order) -->
     <handshake:get-order resourceUri="/api/v2/orders/1" />
 <!-- END_INCLUDE(handshake:get-order) -->
+<!-- BEGIN_INCLUDE(handshake:get-items) -->
+    <handshake:get-items />
+<!-- END_INCLUDE(handshake:get-items) -->
+<!-- BEGIN_INCLUDE(handshake:get-items-with-filters) -->
+    <handshake:get-items filters="#['category':'1']"/>
+<!-- END_INCLUDE(handshake:get-items-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
         <handshake:item sku="SOME_PROD" />
@@ -42,6 +54,9 @@
         <handshake:category name="Some category" categoryPosition="0" id="CAT" subType="Item" />
     </handshake:create-category>
 <!-- END_INCLUDE(handshake:create-category) -->
+<!-- BEGIN_INCLUDE(handshake:get-category) -->
+    <handshake:get-category id="1" />
+<!-- END_INCLUDE(handshake:get-category) -->
 <!-- BEGIN_INCLUDE(handshake:create-order) -->
     <handshake:create-order>
         <handshake:order>

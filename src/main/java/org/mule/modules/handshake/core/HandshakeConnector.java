@@ -199,6 +199,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get all items for the connected account
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items-with-filters}
+     * @param filters to apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)
+     *
+     * @return The list of items for the connected account that match the filters
+     */
+    @Processor
+    public List<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+        return getClientProvider().getItemsClient().getAll(filters);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Item} on handshake
      * 
      * @param item to create
@@ -260,6 +274,48 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.Category}, given its id
+     * 
+     * @param id of the Category to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-category}
+     *
+     * @return the category with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public Category getCategory(final String id) {
+        return getClientProvider().getCategoriesClient().getById(id);
+    }
+
+    /**
+     * Get a {@link org.mule.modules.handshake.core.CustomerGroup}, given its id
+     * 
+     * @param id of the CustomerGroup to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer-group}
+     *
+     * @return the customer group with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public CustomerGroup getCustomerGroup(final String id) {
+        return getClientProvider().getCustomerGroupsClient().getById(id);
+    }
+
+    /**
+     * Get a {@link org.mule.modules.handshake.core.UserGroup}, given its id
+     * 
+     * @param id of the UserGroup to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-user-group}
+     *
+     * @return the user group with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public UserGroup getUserGroup(final String id) {
+        return getClientProvider().getUserGroupsClient().getById(id);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Order} on handshake
      *
      * @param order to create
@@ -280,5 +336,4 @@ public class HandshakeConnector {
         }
         return clientProvider;
     }
-
 }
