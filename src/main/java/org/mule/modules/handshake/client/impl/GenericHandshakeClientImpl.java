@@ -22,13 +22,15 @@ import com.sun.jersey.api.client.WebResource.Builder;
 public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient implements GenericHandshakeClient<T> {
 
     private final String apiKey;
+    private final String securityToken;
     private final String resourcePath;
     private final Type elementType;
     private final Type responseElementType;
     private static Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v2/.*/(\\d+)$");
 
-    public GenericHandshakeClientImpl(final String apiKey, final String resourcePath, final Type elementType, final Type responseElementType) {
+    public GenericHandshakeClientImpl(final String apiKey, final String securityToken, final String resourcePath, final Type elementType, final Type responseElementType) {
         this.apiKey = apiKey;
+        this.securityToken = securityToken;
         this.resourcePath = resourcePath;
         this.elementType = elementType;
         this.responseElementType = responseElementType;
@@ -41,13 +43,13 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
 
     @Override
     public T create(final T t) {
-        final Builder builder = getBuilder(apiKey, getBaseURL(), null);
+        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), null);
         return this.post(builder, elementType, elementType, t);
     }
 
     @Override
     public T update(final String resourceUri, final T edited) {
-        final Builder builder = getBuilder(apiKey, this.detailUrl(resourceUri), null);
+        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(resourceUri), null);
         return this.update(builder, elementType, edited);
     }
 
@@ -63,14 +65,14 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
         if (offset != null) {
             params.put("offset", offset.toString());
         }
-        final Builder builder = getBuilder(apiKey, getBaseURL(), params);
+        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), params);
         return this.get(builder, responseElementType);
     }
 
     @Override
     public T getById(final String id) {
         @SuppressWarnings("serial")
-        final Builder builder = getBuilder(apiKey, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
+        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
         final HandshakeListing<T> response = this.get(builder, responseElementType);
         if (!response.getResults().isEmpty()) {
             return response.getResults().get(0);
@@ -81,7 +83,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
 
     @Override
     public T getByResourceUri(final String resourceUri) {
-        final Builder builder = getBuilder(apiKey, this.detailUrl(resourceUri), null);
+        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(resourceUri), null);
         return this.singleGet(builder, elementType);
     }
 

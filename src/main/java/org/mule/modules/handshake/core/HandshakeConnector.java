@@ -22,9 +22,11 @@ import org.mule.api.annotations.Connector;
 import org.mule.api.annotations.Disconnect;
 import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
+import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.licensing.RequiresEnterpriseLicense;
 import org.mule.api.annotations.param.ConnectionKey;
+import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
@@ -63,18 +65,21 @@ import org.mule.modules.handshake.client.impl.HandshakeListing;
 public class HandshakeConnector {
 
     private String apiKey;
+    private String securityToken;
     private HandshakeClientProvider clientProvider;
 
     /**
      * Connect
      *
      * @param apiKey the API key for the user
+     * @param securityToken used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication
      * @throws ConnectionException
      */
     @Connect
-    public void connect(@ConnectionKey String apiKey)
+    public void connect(@ConnectionKey String apiKey, @Optional @Default("") @Password String securityToken)
         throws ConnectionException {
         this.apiKey = apiKey;
+        this.securityToken = securityToken;
     }
 
     /**
@@ -335,7 +340,7 @@ public class HandshakeConnector {
 
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
-            clientProvider = new HandshakeClientProviderImpl(apiKey);
+            clientProvider = new HandshakeClientProviderImpl(apiKey, securityToken);
         }
         return clientProvider;
     }

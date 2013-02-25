@@ -101,13 +101,13 @@ public abstract class AbstractHandshakeClient {
     /**
      * Creates a {@link Builder}
      * 
-     * @param url
-     *            the URL to be hit by the client
-     * @param queryParameters
-     *            a map containing all the query parameters
+     * @param user for authentication
+     * @param password for authentication
+     * @param url the URL to be hit by the client
+     * @param queryParameters a map containing all the query parameters
      * @return the builder.
      */
-    protected WebResource.Builder getBuilder(final String user, final String url, final Map<String, String> queryParameters) {
+    protected WebResource.Builder getBuilder(final String user, final String password, final String url, final Map<String, String> queryParameters) {
 
         final ClientConfig clientConfig = getJerseyClientConfiguration();
 
@@ -118,8 +118,7 @@ public abstract class AbstractHandshakeClient {
             client = Client.create(clientConfig);
         }
 
-        //TODO: May need to add token for Credit Cards
-        client.addFilter(getBasicAuthenticationFilter(user, ""));
+        client.addFilter(getBasicAuthenticationFilter(user, password));
         client.addFilter(new LoggingFilter());
 
         final WebResource wr = client.resource(url);
