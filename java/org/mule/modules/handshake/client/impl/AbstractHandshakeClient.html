@@ -236,7 +236,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html">AbstractHandshakeClient</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">HandshakeObject</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html">HandshakeClientProviderImpl</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</li>
       </ul>
@@ -247,6 +247,7 @@
     <li><h2>Exceptions</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeAPIException.html">HandshakeAPIException</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/InvalidHandshakeObjectReferenceException.html">InvalidHandshakeObjectReferenceException</a></li>
       </ul>
     </li>
               
@@ -407,7 +408,7 @@ Summary:
               >
           
             
-              <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;
+              <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">HandshakeObject</a>&gt;
             
           
       </div>
@@ -416,7 +417,7 @@ Summary:
               >
   <table class="jd-sumtable-expando">
         <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</td>
+              <td class="jd-linkcol"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">HandshakeObject</a>&gt;</td>
               <td class="jd-descrcol" width="100%">&nbsp;</td>
           </tr>
   </table>
@@ -662,7 +663,7 @@ Summary:
             WebResource.Builder</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBuilder(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)">getBuilder</a></span>(String user, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBuilder(java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)">getBuilder</a></span>(String user, String password, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</nobr>
         
         <div class="jd-descrdiv">Creates a Builder</div>
   
@@ -1371,7 +1372,7 @@ From class
 </div>
 
 
-<A NAME="getBuilder(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getBuilder(java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1384,7 +1385,7 @@ From class
         WebResource.Builder
       </span>
       <span class="sympad">getBuilder</span>
-      <span class="normal">(String user, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</span>
+      <span class="normal">(String user, String password, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1402,7 +1403,11 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>user</td>
-          <td></td>
+          <td>For authentication</td>
+        </tr>
+        <tr>
+          <th>password</td>
+          <td>For authentication</td>
         </tr>
         <tr>
           <th>url</td>

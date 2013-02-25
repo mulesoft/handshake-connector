@@ -236,7 +236,7 @@
     <li><h2>Classes</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html">AbstractHandshakeClient</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&nbsp;extends&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">HandshakeObject</a>&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html">HandshakeClientProviderImpl</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</li>
       </ul>
@@ -247,6 +247,7 @@
     <li><h2>Exceptions</h2>
       <ul>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeAPIException.html">HandshakeAPIException</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/InvalidHandshakeObjectReferenceException.html">InvalidHandshakeObjectReferenceException</a></li>
       </ul>
     </li>
               
@@ -424,7 +425,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.client.impl.GenericHandshakeClientImpl&lt;T&gt;</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.client.impl.GenericHandshakeClientImpl&lt;T&nbsp;extends&nbsp;<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeObject.html">org.mule.modules.handshake.core.HandshakeObject</a>&gt;</td>
     </tr>
     
 
@@ -585,6 +586,17 @@ Summary:
       </tr>
       
     
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          final
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#securityToken">securityToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
 
 </table>
 
@@ -668,7 +680,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#GenericHandshakeClientImpl(java.lang.String, java.lang.String, java.lang.reflect.Type, java.lang.reflect.Type)">GenericHandshakeClientImpl</a></span>(String apiKey, String resourcePath, Type elementType, Type responseElementType)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#GenericHandshakeClientImpl(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Type, java.lang.reflect.Type)">GenericHandshakeClientImpl</a></span>(String apiKey, String securityToken, String resourcePath, Type elementType, Type responseElementType)</nobr>
         
   </td></tr>
 
@@ -920,7 +932,7 @@ From class
             WebResource.Builder</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBuilder(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)">getBuilder</a></span>(String user, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBuilder(java.lang.String, java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)">getBuilder</a></span>(String user, String password, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</nobr>
         
         <div class="jd-descrdiv">Creates a Builder</div>
   
@@ -1569,6 +1581,36 @@ From interface
 
 
 
+<A NAME="securityToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+        final 
+        String
+      </span>
+        securityToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 
 <!-- Public ctors -->
 
@@ -1578,7 +1620,7 @@ From interface
 
 
 
-<A NAME="GenericHandshakeClientImpl(java.lang.String, java.lang.String, java.lang.reflect.Type, java.lang.reflect.Type)"></A>
+<A NAME="GenericHandshakeClientImpl(java.lang.String, java.lang.String, java.lang.String, java.lang.reflect.Type, java.lang.reflect.Type)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1591,7 +1633,7 @@ From interface
         
       </span>
       <span class="sympad">GenericHandshakeClientImpl</span>
-      <span class="normal">(String apiKey, String resourcePath, Type elementType, Type responseElementType)</span>
+      <span class="normal">(String apiKey, String securityToken, String resourcePath, Type elementType, Type responseElementType)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1609,6 +1651,10 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>apiKey</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>securityToken</td>
           <td></td>
         </tr>
         <tr>
@@ -1982,7 +2028,7 @@ From interface
       <h5 class="jd-tagtitle">Throws</h5>
       <table class="jd-tagtable">  
         <tr>
-            <th>IllegalArgumentException</td>
+            <th><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/InvalidHandshakeObjectReferenceException.html">InvalidHandshakeObjectReferenceException</a></td>
             <td>if the resourceUri is not well formed</td>
         </tr>
       </table>

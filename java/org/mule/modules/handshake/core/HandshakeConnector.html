@@ -584,6 +584,17 @@ Summary:
       </tr>
       
     
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#securityToken">securityToken</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
 
 </table>
 
@@ -638,7 +649,7 @@ Summary:
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#connect(java.lang.String)">connect</a></span>(String apiKey)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#connect(java.lang.String, java.lang.String)">connect</a></span>(String apiKey, String securityToken)</nobr>
         
         <div class="jd-descrdiv">Connect</div>
   
@@ -1312,6 +1323,36 @@ From class
 
 
 
+<A NAME="securityToken"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        String
+      </span>
+        securityToken
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
 
 <!-- Public ctors -->
 
@@ -1367,7 +1408,7 @@ From class
 
 
 
-<A NAME="connect(java.lang.String)"></A>
+<A NAME="connect(java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1380,7 +1421,7 @@ From class
         void
       </span>
       <span class="sympad">connect</span>
-      <span class="normal">(String apiKey)</span>
+      <span class="normal">(String apiKey, String securityToken)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1399,6 +1440,10 @@ From class
         <tr>
           <th>apiKey</td>
           <td>The API key for the user</td>
+        </tr>
+        <tr>
+          <th>securityToken</td>
+          <td>Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication</td>
         </tr>
       </table>
   </div>
@@ -2221,7 +2266,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>resourceUri</td>
-          <td>Of the Customer to update</td>
+          <td>Of the Customer to update (if you skip this, you should include the resourceUri attribute in the customer)</td>
         </tr>
         <tr>
           <th>customer</td>
@@ -2272,7 +2317,7 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>resourceUri</td>
-          <td>Of the Item to edit</td>
+          <td>Of the Item to edit (if you skip this, you should include the resourceUri attribute in the item)</td>
         </tr>
         <tr>
           <th>item</td>
