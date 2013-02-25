@@ -271,6 +271,20 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.CustomerGroup}, given its id
+     * 
+     * @param id of the CustomerGroup to get. The id is the one specified on creation, and not Handshake's uid
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer-group}
+     *
+     * @return the customer group with the given id, or null if it doesn't exist
+     */
+    @Processor
+    public CustomerGroup getCustomerGroup(final String id) {
+        return getClientProvider().getCustomerGroupsClient().getById(id);
+    }
+
+    /**
      * Creates a {@link org.mule.modules.handshake.core.Order} on handshake
      *
      * @param order to create
