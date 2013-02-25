@@ -11,13 +11,11 @@ package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.mule.modules.handshake.client.GenericHandshakeClient;
-import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 import com.sun.jersey.api.client.WebResource.Builder;
 
@@ -54,7 +52,7 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
     }
 
     @Override
-    public List<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset) {
+    public HandshakeListing<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset) {
         final Map<String, String> params = new HashMap<String, String>();
         if (filters != null) {
             params.putAll(filters);
@@ -66,17 +64,16 @@ public class GenericHandshakeClientImpl<T> extends AbstractHandshakeClient imple
             params.put("offset", offset.toString());
         }
         final Builder builder = getBuilder(apiKey, getBaseURL(), params);
-        final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
-        return response.getObjects();
+        return this.get(builder, responseElementType);
     }
 
     @Override
     public T getById(final String id) {
         @SuppressWarnings("serial")
         final Builder builder = getBuilder(apiKey, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
-        final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
-        if (!response.getObjects().isEmpty()) {
-            return response.getObjects().get(0);
+        final HandshakeListing<T> response = this.get(builder, responseElementType);
+        if (!response.getResults().isEmpty()) {
+            return response.getResults().get(0);
         } else {
             return null;
         }

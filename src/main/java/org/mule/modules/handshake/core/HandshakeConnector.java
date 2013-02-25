@@ -29,6 +29,7 @@ import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
+import org.mule.modules.handshake.client.impl.HandshakeListing;
 
 /**
  * Handshake Cloud Connector
@@ -114,7 +115,7 @@ public class HandshakeConnector {
      * @return The list of Sales Orders matching the filters
      */
     @Processor
-    public List<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+    public HandshakeListing<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
         return getClientProvider().getOrdersClient().getAll(filters, limit, offset);
     }
 
@@ -145,7 +146,7 @@ public class HandshakeConnector {
      * @return The list of customers for the connected account
      */
     @Processor
-    public List<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+    public HandshakeListing<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
         return getClientProvider().getCustomersClient().getAll(filters, limit, offset);
     }
 
@@ -210,7 +211,7 @@ public class HandshakeConnector {
      * @return The list of items for the connected account that match the filters
      */
     @Processor
-    public List<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+    public HandshakeListing<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
         return getClientProvider().getItemsClient().getAll(filters, limit, offset);
     }
 

@@ -9,10 +9,10 @@
 
 package org.mule.modules.handshake.client;
 
-import java.util.List;
 import java.util.Map;
 
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
+import org.mule.modules.handshake.client.impl.HandshakeListing;
 
 public interface GenericHandshakeClient<T> {
 
@@ -39,7 +39,7 @@ public interface GenericHandshakeClient<T> {
      * @param offset pagination offset
      * @return all the Orders matching the given filters
      */
-    List<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset);
+    HandshakeListing<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset);
 
     /**
      * Get one element, matching the given id. The id is the user-specified one for the given entity.

@@ -130,9 +130,10 @@ public abstract class AbstractHandshakeClient {
         return wr.queryParams(actualQueryParameters).type(MediaType.APPLICATION_JSON_TYPE);
     }
 
-    protected <T> HandshakeAPIResponse<T> get(final WebResource.Builder resourceBuilder, final Type type) {
+    protected <T> HandshakeListing<T> get(final WebResource.Builder resourceBuilder, final Type type) {
         final ClientResponse clientResponse = resourceBuilder.get(ClientResponse.class);
-        return processResponse(clientResponse, type);
+        final HandshakeAPIResponse<T> response = processResponse(clientResponse, type);
+        return HandshakeListing.fromAPIResponse(response);
     }
 
     protected <T> T singleGet(final WebResource.Builder resourceBuilder, final Type type) {
