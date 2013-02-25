@@ -238,6 +238,7 @@
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html">AbstractHandshakeClient</a></li>
           <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html">HandshakeClientProviderImpl</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</li>
       </ul>
     </li>
               
@@ -711,10 +712,10 @@ Summary:
             
             
             
-            List&lt;T&gt;</nobr>
+            <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
         
         <div class="jd-descrdiv">Get all the the elements that match the given filters</div>
   
@@ -882,7 +883,7 @@ From class
             
             
             &lt;T&gt;
-            <a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt;</nobr>
+            <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#get(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type)">get</a></span>(WebResource.Builder resourceBuilder, Type type)</nobr>
@@ -1316,10 +1317,10 @@ From interface
             
             
             
-            List&lt;T&gt;</nobr>
+            <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
         
         <div class="jd-descrdiv">Get all the the elements that match the given filters</div>
   
@@ -1689,7 +1690,7 @@ From interface
 </div>
 
 
-<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1699,10 +1700,10 @@ From interface
          
          
          
-        List&lt;T&gt;
+        <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;
       </span>
       <span class="sympad">getAll</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1720,7 +1721,15 @@ From interface
       <table class="jd-tagtable">
         <tr>
           <th>filters</td>
-          <td></td>
+          <td>To apply to the search</td>
+        </tr>
+        <tr>
+          <th>limit</td>
+          <td>The maximum amount of items to be returned.</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>Pagination offset</td>
         </tr>
       </table>
   </div>

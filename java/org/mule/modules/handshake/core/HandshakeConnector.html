@@ -854,10 +854,10 @@ Summary:
             
             
             
-            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</nobr>
+            <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomers(java.util.Map<java.lang.String, java.lang.String>)">getCustomers</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomers(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getCustomers</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
         
         <div class="jd-descrdiv">Get all customers for the connected account
 
@@ -875,10 +875,10 @@ Summary:
             
             
             
-            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
+            <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getItems(java.util.Map<java.lang.String, java.lang.String>)">getItems</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getItems(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getItems</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
         
         <div class="jd-descrdiv">Get all items for the connected account
 
@@ -914,10 +914,10 @@ Summary:
             
             
             
-            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</nobr>
+            <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getOrders(java.util.Map<java.lang.String, java.lang.String>)">getOrders</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getOrders(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getOrders</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
         
         <div class="jd-descrdiv">Get Sales Orders for the connected account
 
@@ -1891,7 +1891,7 @@ From class
 </div>
 
 
-<A NAME="getCustomers(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getCustomers(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1901,10 +1901,10 @@ From class
          
          
          
-        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;
+        <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;
       </span>
       <span class="sympad">getCustomers</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1925,8 +1925,15 @@ From class
       <table class="jd-tagtable">
         <tr>
           <th>filters</td>
-          <td>Allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
- 
+          <td>Allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)</td>
+        </tr>
+        <tr>
+          <th>limit</td>
+          <td>The maximum amount of items to be returned.</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>Pagination offset
  NOTE: filter values refer to the user-defined IDs, and not to the HandShake id </td>
         </tr>
       </table>
@@ -1941,7 +1948,7 @@ From class
 </div>
 
 
-<A NAME="getItems(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getItems(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1951,10 +1958,10 @@ From class
          
          
          
-        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
+        <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
       </span>
       <span class="sympad">getItems</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1976,6 +1983,14 @@ From class
         <tr>
           <th>filters</td>
           <td>To apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)</td>
+        </tr>
+        <tr>
+          <th>limit</td>
+          <td>The maximum amount of items to be returned.</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>Pagination offset</td>
         </tr>
       </table>
   </div>
@@ -2036,7 +2051,7 @@ From class
 </div>
 
 
-<A NAME="getOrders(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getOrders(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2046,10 +2061,10 @@ From class
          
          
          
-        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;
+        <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;
       </span>
       <span class="sympad">getOrders</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2072,6 +2087,14 @@ From class
         <tr>
           <th>filters</td>
           <td>Allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)</td>
+        </tr>
+        <tr>
+          <th>limit</td>
+          <td>The maximum amount of items to be returned.</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>Pagination offset</td>
         </tr>
       </table>
   </div>

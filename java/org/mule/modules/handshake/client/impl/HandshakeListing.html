@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  AbstractHandshakeClient
+  HandshakeListing
 
 
 | Mule Handshake Connector
@@ -235,10 +235,10 @@
               
     <li><h2>Classes</h2>
       <ul>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html">AbstractHandshakeClient</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html">AbstractHandshakeClient</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html">HandshakeClientProviderImpl</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</li>
       </ul>
     </li>
               
@@ -304,12 +304,9 @@ Summary:
 
 
 
-  <a href="#constants">Constants</a>
-  
 
 
-
-  &#124; <a href="#lfields">Fields</a>
+  <a href="#lfields">Fields</a>
   
 
 
@@ -322,9 +319,6 @@ Summary:
   &#124; <a href="#pubmethods">Methods</a>
   
 
-
-  &#124; <a href="#promethods">Protected Methods</a>
-  
 
 
   &#124; <a href="#inhmethods">Inherited Methods</a>
@@ -349,9 +343,9 @@ Summary:
     public
      
      
-    abstract
+    
     class
-<h1>AbstractHandshakeClient</h1>
+<h1>HandshakeListing</h1>
 
 
 
@@ -384,7 +378,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.client.impl.AbstractHandshakeClient</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.client.impl.HandshakeListing&lt;T&gt;</td>
     </tr>
     
 
@@ -393,54 +387,11 @@ Summary:
 
 
 
-<table class="jd-sumtable jd-sumtable-subclasses"><tr><td colspan="12" style="border:none;margin:0;padding:0;">
-
-  <a href="#" onclick="return toggleInherited(this, null)" id="subclasses-direct" class="jd-expando-trigger closed"
-          ><img id="subclasses-direct-trigger"
-          src="../../../../../../../assets/images/triangle-closed.png"
-          class="jd-expando-trigger-img" /></a>Known Direct Subclasses
-
-  <div id="subclasses-direct">
-      <div id="subclasses-direct-list"
-              class="jd-inheritedlinks"
-              
-              >
-          
-            
-              <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;
-            
-          
-      </div>
-      <div id="subclasses-direct-summary"
-              style="display: none;"
-              >
-  <table class="jd-sumtable-expando">
-        <tr class="alt-color api apilevel-" >
-              <td class="jd-linkcol"><a href="../../../../../../../java/org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html">GenericHandshakeClientImpl</a>&lt;T&gt;</td>
-              <td class="jd-descrcol" width="100%">&nbsp;</td>
-          </tr>
-  </table>
-      </div>
-  </div>
-</td></tr></table>
-
 
 
 
 <div class="jd-descr">
 
-
-<h2>Class Overview</h2>
-<p>Base class for all the service client in this project. The class handles:
- 
- <ul>
- 	<li>base URL creation</li>
-  <li>creation of the Jersey client</li>
-  <li>set up of basic authentication headers</li>
-  <li>read of files from input streams</li>
-  <li>string serialization of the responses</li>
- </ul>
-</p>
 
 
 
@@ -480,22 +431,6 @@ Summary:
 
 
 
-<!-- =========== ENUM CONSTANT SUMMARY =========== -->
-<table id="constants" class="jd-sumtable"><tr><th colspan="12">Constants</th></tr>
-
-
-    
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol">String</td>
-        <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#DEFAULT_BASE_URL">DEFAULT_BASE_URL</a></td>
-        <td class="jd-descrcol" width="100%"></td>
-    </tr>
-    
-    
-
-</table>
-
-
 
 
 
@@ -511,19 +446,52 @@ Summary:
           private
           
           
-          String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#baseUrl">baseUrl</a></td>
+          Integer</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#limit">limit</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
     
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
-          protected
+          private
           
-          final
-          Gson</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#gson">gson</a></td>
+          
+          Integer</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#next">next</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Integer</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#offset">offset</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          List&lt;T&gt;</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#results">results</a></td>
+          <td class="jd-descrcol" width="100%"></td>
+      </tr>
+      
+    
+      <tr class="alt-color api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          private
+          
+          
+          Integer</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#totalCount">totalCount</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -553,7 +521,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#AbstractHandshakeClient()">AbstractHandshakeClient</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#HandshakeListing()">HandshakeListing</a></span>()</nobr>
         
   </td></tr>
 
@@ -577,182 +545,12 @@ Summary:
             
             
             
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#setBaseUrl(java.lang.String)">setBaseUrl</a></span>(String baseUrl)</nobr>
-        
-  </td></tr>
-
-
-
-</table>
-
-
-
-
-<!-- ========== METHOD SUMMARY =========== -->
-<table id="promethods" class="jd-sumtable"><tr><th colspan="12">Protected Methods</th></tr>
-
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            StringBuilder</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#extendGetBaseUrl(java.lang.StringBuilder)">extendGetBaseUrl</a></span>(StringBuilder baseUrl)</nobr>
-        
-        <div class="jd-descrdiv">This method is called by getBaseURL for the user to extend the base URL
- of its ServiceClient implementation.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
+            static
             &lt;T&gt;
             <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#get(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type)">get</a></span>(WebResource.Builder resourceBuilder, Type type)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBaseURL()">getBaseURL</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">Builds the base URL for this service.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            WebResource.Builder</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getBuilder(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)">getBuilder</a></span>(String user, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</nobr>
-        
-        <div class="jd-descrdiv">Creates a Builder</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            ClientConfig</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#getJerseyClientConfiguration()">getJerseyClientConfiguration</a></span>()</nobr>
-        
-        <div class="jd-descrdiv">This method is called by getBuilder before the creation of the
- Client.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            MultivaluedMap&lt;String,&nbsp;String&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#mapToMultivaluedMap(java.util.Map<java.lang.String, java.lang.String>)">mapToMultivaluedMap</a></span>(Map&lt;String,&nbsp;String&gt; map)</nobr>
-        
-        <div class="jd-descrdiv">Transform a map in a MultivaluedMap which is needed by Jersey to
- send query parameters.</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            &lt;V&gt;
-            V</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#parseJson(java.lang.String, java.lang.reflect.Type)">parseJson</a></span>(String string, Type type)</nobr>
-        
-        <div class="jd-descrdiv">Parse JSON to specified type</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            &lt;T&gt;
-            T</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#post(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type, java.lang.reflect.Type, java.lang.Object)">post</a></span>(WebResource.Builder resourceBuilder, Type requestType, Type responseType, Object params)</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            String</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#readResponseFromClientResponse(com.sun.jersey.api.client.ClientResponse)">readResponseFromClientResponse</a></span>(ClientResponse clientResponse)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#fromAPIResponse(org.mule.modules.handshake.core.HandshakeAPIResponse<T>)">fromAPIResponse</a></span>(<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt; response)</nobr>
         
   </td></tr>
 
@@ -764,11 +562,11 @@ Summary:
             
             
             
-            &lt;T&gt;
-            T</nobr>
+            
+            Integer</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#singleGet(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type)">singleGet</a></span>(WebResource.Builder resourceBuilder, Type type)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#getLimit()">getLimit</a></span>()</nobr>
         
   </td></tr>
 
@@ -780,17 +578,67 @@ Summary:
             
             
             
-            &lt;T&gt;
-            T</nobr>
+            
+            Integer</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/AbstractHandshakeClient.html#update(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type, T)">update</a></span>(WebResource.Builder resourceBuilder, Type objectType, T edited)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#getNext()">getNext</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Integer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#getOffset()">getOffset</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            List&lt;T&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#getResults()">getResults</a></span>()</nobr>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            Integer</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeListing.html#getTotalCount()">getTotalCount</a></span>()</nobr>
         
   </td></tr>
 
 
 
 </table>
+
+
 
 
 
@@ -1026,52 +874,6 @@ From class
 <!-- Constants -->
 
 
-<!-- ========= ENUM CONSTANTS DETAIL ======== -->
-<h2>Constants</h2>
-
-
-
-
-<A NAME="DEFAULT_BASE_URL"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        private 
-        static 
-        final 
-        String
-      </span>
-        DEFAULT_BASE_URL
-    </h4>
-      <div class="api-level">
-        
-
-
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    
-        <div class="jd-tagdata">
-        <span class="jd-tagtitle">Constant Value: </span>
-        <span>
-            
-                "https://preview.handshake-app.com/api/v2/"
-            
-        </span>
-        </div>
-    
-    </div>
-</div>
-
-
-
-
 <!-- Fields -->
 
 
@@ -1081,7 +883,7 @@ From class
 
 
 
-<A NAME="baseUrl"></A>
+<A NAME="limit"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1089,9 +891,9 @@ From class
         private 
          
          
-        String
+        Integer
       </span>
-        baseUrl
+        limit
     </h4>
       <div class="api-level">
         
@@ -1111,17 +913,107 @@ From class
 
 
 
-<A NAME="gson"></A>
+<A NAME="next"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
-        protected 
+        private 
          
-        final 
-        Gson
+         
+        Integer
       </span>
-        gson
+        next
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="offset"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Integer
+      </span>
+        offset
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="results"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        List&lt;T&gt;
+      </span>
+        results
+    </h4>
+      <div class="api-level">
+        
+
+
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    
+    </div>
+</div>
+
+
+
+<A NAME="totalCount"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        private 
+         
+         
+        Integer
+      </span>
+        totalCount
     </h4>
       <div class="api-level">
         
@@ -1150,7 +1042,7 @@ From class
 
 
 
-<A NAME="AbstractHandshakeClient()"></A>
+<A NAME="HandshakeListing()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1162,7 +1054,7 @@ From class
          
         
       </span>
-      <span class="sympad">AbstractHandshakeClient</span>
+      <span class="sympad">HandshakeListing</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -1196,7 +1088,47 @@ From class
 
 
 
-<A NAME="setBaseUrl(java.lang.String)"></A>
+<A NAME="fromAPIResponse(org.mule.modules.handshake.core.HandshakeAPIResponse<T>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+        static 
+         
+         
+         
+        <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;
+      </span>
+      <span class="sympad">fromAPIResponse</span>
+      <span class="normal">(<a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt; response)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>response</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getLimit()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1206,10 +1138,10 @@ From class
          
          
          
-        void
+        Integer
       </span>
-      <span class="sympad">setBaseUrl</span>
-      <span class="normal">(String baseUrl)</span>
+      <span class="sympad">getLimit</span>
+      <span class="normal">()</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1222,15 +1154,130 @@ From class
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>baseUrl</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getNext()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getNext</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getOffset()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getOffset</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getResults()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;T&gt;
+      </span>
+      <span class="sympad">getResults</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+
+    </div>
+</div>
+
+
+<A NAME="getTotalCount()"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        Integer
+      </span>
+      <span class="sympad">getTotalCount</span>
+      <span class="normal">()</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p></p></div>
 
     </div>
 </div>
@@ -1240,512 +1287,6 @@ From class
 
 
 <!-- ========= METHOD DETAIL ======== -->
-
-<h2>Protected Methods</h2>
-
-
-
-<A NAME="extendGetBaseUrl(java.lang.StringBuilder)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-        abstract 
-         
-        StringBuilder
-      </span>
-      <span class="sympad">extendGetBaseUrl</span>
-      <span class="normal">(StringBuilder baseUrl)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>This method is called by getBaseURL for the user to extend the base URL
- of its ServiceClient implementation.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>baseUrl</td>
-          <td>A builder with the Base Url</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the builder, with the extended content as needed
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="get(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        <a href="../../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;
-      </span>
-      <span class="sympad">get</span>
-      <span class="normal">(WebResource.Builder resourceBuilder, Type type)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>resourceBuilder</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>type</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getBaseURL()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">getBaseURL</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Builds the base URL for this service.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the base URL with no final "/".
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getBuilder(java.lang.String, java.lang.String, java.util.Map<java.lang.String, java.lang.String>)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        WebResource.Builder
-      </span>
-      <span class="sympad">getBuilder</span>
-      <span class="normal">(String user, String url, Map&lt;String,&nbsp;String&gt; queryParameters)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Creates a Builder</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>user</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>url</td>
-          <td>The URL to be hit by the client</td>
-        </tr>
-        <tr>
-          <th>queryParameters</td>
-          <td>A map containing all the query parameters</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the builder.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="getJerseyClientConfiguration()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        ClientConfig
-      </span>
-      <span class="sympad">getJerseyClientConfiguration</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>This method is called by getBuilder before the creation of the
- Client. The ClientConfig is used to create the
- Client.</p></div>
-
-    </div>
-</div>
-
-
-<A NAME="mapToMultivaluedMap(java.util.Map<java.lang.String, java.lang.String>)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        MultivaluedMap&lt;String,&nbsp;String&gt;
-      </span>
-      <span class="sympad">mapToMultivaluedMap</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; map)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Transform a map in a MultivaluedMap which is needed by Jersey to
- send query parameters. It also validate that not empty parameters are
- being send.</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>map</td>
-          <td>The map of query parameters</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the same map in an MultivaluedMap object.
-</li></ul>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="parseJson(java.lang.String, java.lang.reflect.Type)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        V
-      </span>
-      <span class="sympad">parseJson</span>
-      <span class="normal">(String string, Type type)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Parse JSON to specified type</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>string</td>
-          <td>JSON-formatted string to parse</td>
-        </tr>
-        <tr>
-          <th>type</td>
-          <td>Of the object to obtain</td>
-        </tr>
-      </table>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>parsed object</li></ul>
-  </div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Throws</h5>
-      <table class="jd-tagtable">  
-        <tr>
-            <th>IOException</td>
-            <td>if the string is not JSON-formatted
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="post(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type, java.lang.reflect.Type, java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        T
-      </span>
-      <span class="sympad">post</span>
-      <span class="normal">(WebResource.Builder resourceBuilder, Type requestType, Type responseType, Object params)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>resourceBuilder</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>requestType</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>responseType</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>params</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="readResponseFromClientResponse(com.sun.jersey.api.client.ClientResponse)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        String
-      </span>
-      <span class="sympad">readResponseFromClientResponse</span>
-      <span class="normal">(ClientResponse clientResponse)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>clientResponse</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="singleGet(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        T
-      </span>
-      <span class="sympad">singleGet</span>
-      <span class="normal">(WebResource.Builder resourceBuilder, Type type)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>resourceBuilder</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>type</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
-<A NAME="update(com.sun.jersey.api.client.WebResource.Builder, java.lang.reflect.Type, T)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        protected 
-         
-         
-         
-         
-        T
-      </span>
-      <span class="sympad">update</span>
-      <span class="normal">(WebResource.Builder resourceBuilder, Type objectType, T edited)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>resourceBuilder</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>objectType</td>
-          <td></td>
-        </tr>
-        <tr>
-          <th>edited</td>
-          <td></td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 
 
 
