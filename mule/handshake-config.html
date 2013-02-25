@@ -369,9 +369,29 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#get-category">&lt;handshake:get-category&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Category.html">Category</a></code>, given its id</div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-customer">&lt;handshake:get-customer&gt;</a></nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</div>
+        
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#get-customer-group">&lt;handshake:get-customer-group&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code>, given its id</div>
         
   </td></tr>
 
@@ -392,6 +412,19 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#get-items">&lt;handshake:get-items&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Get all items for the connected account
+
+ 
+ </div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-order">&lt;handshake:get-order&gt;</a></nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Order.html">Order</a></code>, given its id</div>
@@ -400,7 +433,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-orders">&lt;handshake:get-orders&gt;</a></nobr>
         
@@ -409,6 +442,16 @@ Summary:
  
  
  </div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#get-user-group">&lt;handshake:get-user-group&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code>, given its id</div>
         
   </td></tr>
 
@@ -1026,6 +1069,89 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
 </div>
 
 
+<A NAME="get-category"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:get-category&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../java/org/mule/modules/handshake/core/Category.html">Category</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>id</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the Category to get. The id is the one specified on creation, and not Handshake's uid
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-category id="1" /&gt;</pre></div></td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Category.html">Category</a></td>
+                <td class="jd-descrcol">the category with the given id, or null if it doesn't exist
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
 <A NAME="get-customer"></A>
 
 <div class="jd-details api apilevel-">
@@ -1098,6 +1224,89 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              <tr>
                 <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
                 <td class="jd-descrcol">the customer with the given id, or null if it doesn't exist
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="get-customer-group"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:get-customer-group&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>id</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the CustomerGroup to get. The id is the one specified on creation, and not Handshake's uid
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-customer-group id="1" /&gt;</pre></div></td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></td>
+                <td class="jd-descrcol">the customer group with the given id, or null if it doesn't exist
 </td>
              </tr>
          </table>
@@ -1193,6 +1402,99 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              <tr>
                 <td class="jd-descrcol">List&lt;<a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</td>
                 <td class="jd-descrcol">The list of customers for the connected account
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="get-items"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:get-items&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get all items for the connected account
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-items /&gt;</pre></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-items filters="#['category':'1']"/&gt;</pre></div></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+      <div class="jd-tagdata">
+          <h5 class="jd-tagtitle">Child Elements</h5>
+            <table id="lconfig" class="jd-sumtable">
+              
+              <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th></td>
+              
+                
+                    <tr>
+                        <td><nobr>&lt;handshake:filters&gt;</nobr></td>
+                        <td></td>
+                        <td><i>Optional.&nbsp;</i>To apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)</td>
+                        <td>Map&lt;String,&nbsp;String&gt;</td>
+                    </tr>
+                
+                
+              
+          </table>
+      </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol">List&lt;<a href="../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</td>
+                <td class="jd-descrcol">The list of items for the connected account that match the filters
 </td>
              </tr>
          </table>
@@ -1370,6 +1672,89 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              <tr>
                 <td class="jd-descrcol">List&lt;<a href="../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</td>
                 <td class="jd-descrcol">The list of Sales Orders matching the filters
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="get-user-group"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:get-user-group&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>id</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the UserGroup to get. The id is the one specified on creation, and not Handshake's uid
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-user-group id="1" /&gt;</pre></div></td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></td>
+                <td class="jd-descrcol">the user group with the given id, or null if it doesn't exist
 </td>
              </tr>
          </table>

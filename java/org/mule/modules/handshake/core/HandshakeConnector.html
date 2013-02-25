@@ -784,6 +784,24 @@ Summary:
             
             
             
+            <a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCategory(java.lang.String)">getCategory</a></span>(String id)</nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></code>, given its id</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             <a href="../../../../../../java/org/mule/modules/handshake/client/HandshakeClientProvider.html">HandshakeClientProvider</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -793,7 +811,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -806,6 +824,24 @@ Summary:
         <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomer(java.lang.String)">getCustomer</a></span>(String id)</nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomerGroup(java.lang.String)">getCustomerGroup</a></span>(String id)</nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code>, given its id</div>
   
   </td></tr>
 
@@ -839,6 +875,27 @@ Summary:
             
             
             
+            List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getItems(java.util.Map<java.lang.String, java.lang.String>)">getItems</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        
+        <div class="jd-descrdiv">Get all items for the connected account
+
+ 
+ </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
             <a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
@@ -850,7 +907,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
             
@@ -867,6 +924,24 @@ Summary:
  
  
  </div>
+  
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getUserGroup(java.lang.String)">getUserGroup</a></span>(String id)</nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code>, given its id</div>
   
   </td></tr>
 
@@ -1644,6 +1719,53 @@ From class
 </div>
 
 
+<A NAME="getCategory(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a>
+      </span>
+      <span class="sympad">getCategory</span>
+      <span class="normal">(String id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>id</td>
+          <td>Of the Category to get. The id is the one specified on creation, and not Handshake's uid
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the category with the given id, or null if it doesn't exist
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getClientProvider()"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1722,6 +1844,53 @@ From class
 </div>
 
 
+<A NAME="getCustomerGroup(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a>
+      </span>
+      <span class="sympad">getCustomerGroup</span>
+      <span class="normal">(String id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>id</td>
+          <td>Of the CustomerGroup to get. The id is the one specified on creation, and not Handshake's uid
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the customer group with the given id, or null if it doesn't exist
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
 <A NAME="getCustomers(java.util.Map<java.lang.String, java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -1765,6 +1934,54 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>The list of customers for the connected account
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getItems(java.util.Map<java.lang.String, java.lang.String>)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        List&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
+      </span>
+      <span class="sympad">getItems</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get all items for the connected account
+
+ 
+ </p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filters</td>
+          <td>To apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>The list of items for the connected account that match the filters
 </li></ul>
   </div>
 
@@ -1861,6 +2078,53 @@ From class
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
       <ul class="nolist"><li>The list of Sales Orders matching the filters
+</li></ul>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="getUserGroup(java.lang.String)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a>
+      </span>
+      <span class="sympad">getUserGroup</span>
+      <span class="normal">(String id)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a></code>, given its id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>id</td>
+          <td>Of the UserGroup to get. The id is the one specified on creation, and not Handshake's uid
+
+ </td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>the user group with the given id, or null if it doesn't exist
 </li></ul>
   </div>
 

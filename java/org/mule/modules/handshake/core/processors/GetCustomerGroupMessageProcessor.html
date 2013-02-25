@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  GetCustomersMessageProcessor
+  GetCustomerGroupMessageProcessor
 
 
 | Mule Handshake Connector
@@ -246,9 +246,9 @@
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateOrderMessageProcessor.html">CreateOrderMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/EditCustomerMessageProcessor.html">EditCustomerMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCategoryMessageProcessor.html">GetCategoryMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html">GetCustomerGroupMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html">GetCustomerGroupMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomerMessageProcessor.html">GetCustomerMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html">GetCustomersMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html">GetCustomersMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetItemsMessageProcessor.html">GetItemsMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetOrderMessageProcessor.html">GetOrderMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetOrdersMessageProcessor.html">GetOrdersMessageProcessor</a></li>
@@ -444,7 +444,7 @@ Summary:
      
     
     class
-<h1>GetCustomersMessageProcessor</h1>
+<h1>GetCustomerGroupMessageProcessor</h1>
 
 
 
@@ -538,7 +538,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.processors.GetCustomersMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.processors.GetCustomerGroupMessageProcessor</td>
     </tr>
     
 
@@ -554,7 +554,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>GetCustomersMessageProcessor invokes the <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html#getCustomers(java.util.Map<java.lang.String, java.lang.String>)">getCustomers(java.util.Map)</a></code> method in <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>GetCustomerGroupMessageProcessor invokes the <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html#getCustomerGroup(java.lang.String)">getCustomerGroup(java.lang.String)</a></code> method in <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -757,8 +757,8 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
-          Map&lt;String,&nbsp;String&gt;</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#_filtersType">_filtersType</a></td>
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#_idType">_idType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -769,7 +769,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#filters">filters</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#id">id</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -934,7 +934,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#GetCustomersMessageProcessor()">GetCustomersMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#GetCustomerGroupMessageProcessor()">GetCustomerGroupMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -963,7 +963,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -979,7 +979,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -997,7 +997,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1015,9 +1015,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#setFilters(java.lang.Object)">setFilters</a></span>(Object value)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
-        <div class="jd-descrdiv">Sets filters</div>
+        <div class="jd-descrdiv">Sets flow construct</div>
   
   </td></tr>
 
@@ -1033,9 +1033,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#setId(java.lang.Object)">setId</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Sets flow construct</div>
+        <div class="jd-descrdiv">Sets id</div>
   
   </td></tr>
 
@@ -1051,7 +1051,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
         
         <div class="jd-descrdiv">Set the Mule context</div>
   
@@ -1069,7 +1069,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1085,7 +1085,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomersMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -2078,7 +2078,7 @@ From interface
 
 
 
-<A NAME="_filtersType"></A>
+<A NAME="_idType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2086,9 +2086,9 @@ From interface
         protected 
          
          
-        Map&lt;String,&nbsp;String&gt;
+        String
       </span>
-        _filtersType
+        _idType
     </h4>
       <div class="api-level">
         
@@ -2108,7 +2108,7 @@ From interface
 
 
 
-<A NAME="filters"></A>
+<A NAME="id"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2118,7 +2118,7 @@ From interface
          
         Object
       </span>
-        filters
+        id
     </h4>
       <div class="api-level">
         
@@ -2147,7 +2147,7 @@ From interface
 
 
 
-<A NAME="GetCustomersMessageProcessor()"></A>
+<A NAME="GetCustomerGroupMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2159,7 +2159,7 @@ From interface
          
         
       </span>
-      <span class="sympad">GetCustomersMessageProcessor</span>
+      <span class="sympad">GetCustomerGroupMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2313,47 +2313,6 @@ From interface
 </div>
 
 
-<A NAME="setFilters(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setFilters</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets filters</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="setFlowConstruct(org.mule.api.construct.FlowConstruct)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2386,6 +2345,47 @@ From interface
         <tr>
           <th>flowConstruct</td>
           <td>Flow construct to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setId(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setId</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets id</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
 </td>
         </tr>
       </table>
