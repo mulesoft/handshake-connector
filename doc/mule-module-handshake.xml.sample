@@ -21,7 +21,7 @@
     <handshake:find-orders />
 <!-- END_INCLUDE(handshake:find-orders) -->
 <!-- BEGIN_INCLUDE(handshake:find-orders-with-filters) -->
-    <handshake:find-orders pepe="blah">
+    <handshake:find-orders>
         <handshake:filters>
             <handshake:filter key="ctime__gte">2011-10-12T22:39:04Z</handshake:filter>
             <handshake:filter key="customerID">C1000</handshake:filter>
