@@ -153,7 +153,7 @@ public class HandshakeConnector {
      * @return The list of customers for the connected account
      */
     @Processor
-    public HandshakeListing<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+    public HandshakeListing<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Placement(group="Pagination") final Integer limit, @Optional @Placement(group="Pagination") final Integer offset) {
         return getClientProvider().getCustomersClient().getAll(filters, limit, offset);
     }
 
@@ -218,7 +218,7 @@ public class HandshakeConnector {
      * @return The list of items for the connected account that match the filters
      */
     @Processor
-    public HandshakeListing<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
+    public HandshakeListing<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Placement(group="Pagination") final Integer limit, @Optional @Placement(group="Pagination") final Integer offset) {
         return getClientProvider().getItemsClient().getAll(filters, limit, offset);
     }
 
