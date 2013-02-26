@@ -39,7 +39,6 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
     private GenericHandshakeClient<Category> categoriesClient;
     private GenericHandshakeClient<CustomerGroup> customerGroupsClient;
     private GenericHandshakeClient<UserGroup> userGroupsClient;
-    private GenericHandshakeClient<Address> addressesClient;
 
     @SuppressWarnings("serial")
     public HandshakeClientProviderImpl(final String apiKey, final String securityToken) {
