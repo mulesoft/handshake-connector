@@ -113,3 +113,8 @@
         <handshake:address city="Springfield" street="742 Evergreen Terrace" />
     </handshake:create-address>
 <!-- END_INCLUDE(handshake:create-address) -->
+<!-- BEGIN_INCLUDE(handshake:update-address) -->
+    <handshake:update-address>
+        <handshake:address resourceUri="/api/v2/addresses/2" street2="First Floor" />
+    </handshake:update-address>
+<!-- END_INCLUDE(handshake:update-address) -->

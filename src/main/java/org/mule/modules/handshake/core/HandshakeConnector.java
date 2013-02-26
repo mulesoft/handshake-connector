@@ -356,6 +356,21 @@ public class HandshakeConnector {
         return getClientProvider().getClient(Address.class).create(address);
     }
 
+    /**
+     * Updates a {@link org.mule.modules.handshake.core.Address} on Handshake, given its resourceUri
+     * 
+     * @param resourceUri of the Address to edit (if you skip this, you should include the resourceUri attribute in the address)
+     * @param address with the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:update-address}
+     *
+     * @return the updated address
+     */
+    @Processor
+    public Address updateAddress(@Optional final String resourceUri, final Address address) {
+        return getClientProvider().getClient(Address.class).update(resourceUri, address);
+    }
+
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
             clientProvider = new HandshakeClientProviderImpl(apiKey, securityToken);
