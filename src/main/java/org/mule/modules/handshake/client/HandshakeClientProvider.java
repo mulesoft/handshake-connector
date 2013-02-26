@@ -9,13 +9,6 @@
 
 package org.mule.modules.handshake.client;
 
-import org.mule.modules.handshake.core.Category;
-import org.mule.modules.handshake.core.Customer;
-import org.mule.modules.handshake.core.CustomerGroup;
-import org.mule.modules.handshake.core.Item;
-import org.mule.modules.handshake.core.Order;
-import org.mule.modules.handshake.core.UserGroup;
-
 /**
  * Facade to group all Handshake clients
  * 
@@ -23,11 +16,5 @@ import org.mule.modules.handshake.core.UserGroup;
  *
  */
 public interface HandshakeClientProvider {
-    GenericHandshakeClient<Customer> getCustomersClient();
-    GenericHandshakeClient<Item> getItemsClient();
-    GenericHandshakeClient<Order> getOrdersClient();
-    GenericHandshakeClient<Category> getCategoriesClient();
-    GenericHandshakeClient<CustomerGroup> getCustomerGroupsClient();
-    GenericHandshakeClient<UserGroup> getUserGroupsClient();
     <T> GenericHandshakeClient<T> getClient(final Class<T> type);
 }

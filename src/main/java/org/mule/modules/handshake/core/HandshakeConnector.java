@@ -115,7 +115,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Iterable<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getOrdersClient().getAll(filters);
+        return getClientProvider().getClient(Order.class).getAll(filters);
     }
 
     /**
@@ -129,7 +129,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Order getOrder(final String resourceUri) {
-        return getClientProvider().getOrdersClient().getByResourceUri(resourceUri);
+        return getClientProvider().getClient(Order.class).getByResourceUri(resourceUri);
     }
 
     /**
@@ -144,7 +144,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Iterable<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getCustomersClient().getAll(filters);
+        return getClientProvider().getClient(Customer.class).getAll(filters);
     }
 
     /**
@@ -158,7 +158,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer getCustomer(final String id) {
-        return getClientProvider().getCustomersClient().getById(id);
+        return getClientProvider().getClient(Customer.class).getById(id);
     }
 
     /**
@@ -175,7 +175,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer createCustomer(final Customer customer) {
-        return getClientProvider().getCustomersClient().create(customer);
+        return getClientProvider().getClient(Customer.class).create(customer);
     }
 
     /**
@@ -193,7 +193,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer updateCustomer(@Optional final String resourceUri, final Customer customer) {
-        return getClientProvider().getCustomersClient().update(resourceUri, customer);
+        return getClientProvider().getClient(Customer.class).update(resourceUri, customer);
     }
 
     /**
@@ -207,7 +207,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Iterable<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getItemsClient().getAll(filters);
+        return getClientProvider().getClient(Item.class).getAll(filters);
     }
 
     /**
@@ -221,7 +221,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Item createItem(final Item item) {
-        return getClientProvider().getItemsClient().create(item);
+        return getClientProvider().getClient(Item.class).create(item);
     }
 
     /**
@@ -254,7 +254,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Item updateItem(@Optional final String resourceUri, final Item item) {
-        return getClientProvider().getItemsClient().update(resourceUri, item);
+        return getClientProvider().getClient(Item.class).update(resourceUri, item);
     }
 
     /**
@@ -268,7 +268,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Category createCategory(final Category category) {
-        return getClientProvider().getCategoriesClient().create(category);
+        return getClientProvider().getClient(Category.class).create(category);
     }
 
     /**
@@ -282,7 +282,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Category getCategory(final String id) {
-        return getClientProvider().getCategoriesClient().getById(id);
+        return getClientProvider().getClient(Category.class).getById(id);
     }
 
     /**
@@ -296,7 +296,7 @@ public class HandshakeConnector {
      */
     @Processor
     public CustomerGroup getCustomerGroup(final String id) {
-        return getClientProvider().getCustomerGroupsClient().getById(id);
+        return getClientProvider().getClient(CustomerGroup.class).getById(id);
     }
 
     /**
@@ -310,7 +310,7 @@ public class HandshakeConnector {
      */
     @Processor
     public UserGroup getUserGroup(final String id) {
-        return getClientProvider().getUserGroupsClient().getById(id);
+        return getClientProvider().getClient(UserGroup.class).getById(id);
     }
 
     /**
@@ -325,7 +325,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Order createOrder(final Order order) {
-        return getClientProvider().getOrdersClient().create(order);
+        return getClientProvider().getClient(Order.class).create(order);
     }
 
     /**
