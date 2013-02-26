@@ -399,6 +399,7 @@ Summary:
         
         <div class="jd-descrdiv">Find all Sales Orders for the connected account that match the filters
 
+ 
  </div>
         
   </td></tr>
@@ -1143,7 +1144,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
   <div class="jd-tagdata jd-tagdescr"><p>Find all customers for the connected account that match the filters
 
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-customers /&gt;</pre></div>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-customers filters="#['customerGroup':'4']"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-customers&gt;
+    &lt;handshake:filters&gt;
+        &lt;handshake:filter key="customerGroup"&gt;4&lt;/handshake:filter&gt;
+    &lt;/handshake:filters&gt;
+&lt;/handshake:find-customers&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1247,7 +1252,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
   <div class="jd-tagdata jd-tagdescr"><p>Get all items for the connected account that match the filters
 
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-items /&gt;</pre></div>
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-items filters="#['category':'1']"/&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-items&gt;
+    &lt;handshake:filters&gt;
+        &lt;handshake:filter key="category"&gt;1&lt;/handshake:filter&gt;
+    &lt;/handshake:filters&gt;
+&lt;/handshake:find-items&gt;</pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
@@ -1349,7 +1358,13 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
       
   <div class="jd-tagdata jd-tagdescr"><p>Find all Sales Orders for the connected account that match the filters
 
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-orders /&gt;</pre></div></p></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-orders /&gt;</pre></div>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:find-orders&gt;
+    &lt;handshake:filters&gt;
+        &lt;handshake:filter key="ctime__gte"&gt;2011-10-12T22:39:04Z&lt;/handshake:filter&gt;
+        &lt;handshake:filter key="customerID"&gt;C1000&lt;/handshake:filter&gt;
+    &lt;/handshake:filters&gt;
+&lt;/handshake:find-orders&gt;   </pre></div></p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Attributes</h5>
 
