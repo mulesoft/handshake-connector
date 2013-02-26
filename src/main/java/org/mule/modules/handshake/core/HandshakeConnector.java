@@ -107,6 +107,7 @@ public class HandshakeConnector {
      * Find all Sales Orders for the connected account that match the filters
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-orders}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-orders-with-filters}
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * 

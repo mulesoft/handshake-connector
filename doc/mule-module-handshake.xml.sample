@@ -2,7 +2,11 @@
     <handshake:find-customers />
 <!-- END_INCLUDE(handshake:find-customers) -->
 <!-- BEGIN_INCLUDE(handshake:find-customers-with-filters) -->
-    <handshake:find-customers filters="#['customerGroup':'4']"/>
+    <handshake:find-customers>
+        <handshake:filters>
+            <handshake:filter key="customerGroup">4</handshake:filter>
+        </handshake:filters>
+    </handshake:find-customers>
 <!-- END_INCLUDE(handshake:find-customers-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
     <handshake:get-customer id="1" />
@@ -16,6 +20,14 @@
 <!-- BEGIN_INCLUDE(handshake:find-orders) -->
     <handshake:find-orders />
 <!-- END_INCLUDE(handshake:find-orders) -->
+<!-- BEGIN_INCLUDE(handshake:find-orders-with-filters) -->
+    <handshake:find-orders pepe="blah">
+        <handshake:filters>
+            <handshake:filter key="ctime__gte">2011-10-12T22:39:04Z</handshake:filter>
+            <handshake:filter key="customerID">C1000</handshake:filter>
+        </handshake:filters>
+    </handshake:find-orders>   
+<!-- END_INCLUDE(handshake:find-orders-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:get-order) -->
     <handshake:get-order resourceUri="/api/v2/orders/1" />
 <!-- END_INCLUDE(handshake:get-order) -->
@@ -23,7 +35,11 @@
     <handshake:find-items />
 <!-- END_INCLUDE(handshake:find-items) -->
 <!-- BEGIN_INCLUDE(handshake:find-items-with-filters) -->
-    <handshake:find-items filters="#['category':'1']"/>
+    <handshake:find-items>
+        <handshake:filters>
+            <handshake:filter key="category">1</handshake:filter>
+        </handshake:filters>
+    </handshake:find-items>
 <!-- END_INCLUDE(handshake:find-items-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:create-item) -->
     <handshake:create-item>
