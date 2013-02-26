@@ -471,12 +471,12 @@ Summary:
             
             
             
-            <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;</nobr>
+            Iterable&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
         
-        <div class="jd-descrdiv">Get all the the elements that match the given filters</div>
+        <div class="jd-descrdiv">Get all the elements that match the given filters</div>
   
   </td></tr>
 
@@ -519,6 +519,24 @@ Summary:
 
 	 
     <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            abstract
+            
+            
+            
+            
+            <a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt;</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#paginate(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)">paginate</a></span>(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</nobr>
+        
+        <div class="jd-descrdiv">Pagiante elements that match the given filters</div>
+  
+  </td></tr>
+
+
+	 
+    <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             abstract
             
@@ -628,7 +646,7 @@ Summary:
 </div>
 
 
-<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
+<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -638,10 +656,10 @@ Summary:
          
         abstract 
          
-        <a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeListing.html">HandshakeListing</a>&lt;T&gt;
+        Iterable&lt;T&gt;
       </span>
       <span class="sympad">getAll</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -653,7 +671,7 @@ Summary:
       </div>
     <div class="jd-details-descr">
       
-  <div class="jd-tagdata jd-tagdescr"><p>Get all the the elements that match the given filters</p></div>
+  <div class="jd-tagdata jd-tagdescr"><p>Get all the elements that match the given filters</p></div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
@@ -661,19 +679,11 @@ Summary:
           <th>filters</td>
           <td>To apply to the search</td>
         </tr>
-        <tr>
-          <th>limit</td>
-          <td>The maximum amount of items to be returned.</td>
-        </tr>
-        <tr>
-          <th>offset</td>
-          <td>Pagination offset</td>
-        </tr>
       </table>
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>all the Orders matching the given filters
+      <ul class="nolist"><li>an iterable for all the elements matching the filters
 </li></ul>
   </div>
 
@@ -779,6 +789,59 @@ Summary:
 </td>
         </tr>
       </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="paginate(java.util.Map<java.lang.String, java.lang.String>, java.lang.Integer, java.lang.Integer)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+        abstract 
+         
+        <a href="../../../../../../java/org/mule/modules/handshake/core/HandshakeAPIResponse.html">HandshakeAPIResponse</a>&lt;T&gt;
+      </span>
+      <span class="sympad">paginate</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, Integer limit, Integer offset)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Pagiante elements that match the given filters</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>filters</td>
+          <td>To apply to the search</td>
+        </tr>
+        <tr>
+          <th>limit</td>
+          <td>The maximum amount of items to be returned</td>
+        </tr>
+        <tr>
+          <th>offset</td>
+          <td>Pagination offset</td>
+        </tr>
+      </table>
+  </div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Returns</h5>
+      <ul class="nolist"><li>an object with elements matching the filters, and metadata to retrieve more in another call (using "next" as "offset")
+</li></ul>
   </div>
 
     </div>
