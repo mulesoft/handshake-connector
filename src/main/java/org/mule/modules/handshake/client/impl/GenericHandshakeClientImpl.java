@@ -11,13 +11,16 @@ package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
+import org.mule.modules.handshake.core.HandshakeAPIResponse;
 import org.mule.modules.handshake.core.HandshakeObject;
+import org.mule.modules.utils.pagination.PaginatedIterable;
 
 import com.sun.jersey.api.client.WebResource.Builder;
 
@@ -59,7 +62,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     }
 
     @Override
-    public HandshakeListing<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset) {
+    public HandshakeAPIResponse<T> paginate(final Map<String, String> filters, final Integer limit, final Integer offset) {
         final Map<String, String> params = new HashMap<String, String>();
         if (filters != null) {
             params.putAll(filters);
@@ -75,12 +78,38 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     }
 
     @Override
+    public Iterable<T> getAll(final Map<String, String> filters) {
+        final GenericHandshakeClientImpl<T> client = this;
+        return new PaginatedIterable<T, HandshakeAPIResponse<T>>() {
+            @Override
+            protected HandshakeAPIResponse<T> firstPage() {
+                return client.paginate(filters, null, null);
+            }
+
+            @Override
+            protected boolean hasNextPage(final HandshakeAPIResponse<T> currentPage) {
+                return currentPage.getMeta().getNextOffset() != null;
+            }
+
+            @Override
+            protected HandshakeAPIResponse<T> nextPage(final HandshakeAPIResponse<T> currentPage) {
+                return client.paginate(filters, currentPage.getMeta().getLimit(), currentPage.getMeta().getNextOffset());
+            }
+
+            @Override
+            protected Iterator<T> pageIterator(HandshakeAPIResponse<T> currentPage) {
+                return currentPage.getObjects().iterator();
+            }
+        };
+    }
+
+    @Override
     public T getById(final String id) {
         @SuppressWarnings("serial")
         final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
-        final HandshakeListing<T> response = this.get(builder, responseElementType);
-        if (!response.getResults().isEmpty()) {
-            return response.getResults().get(0);
+        final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
+        if (!response.getObjects().isEmpty()) {
+            return response.getObjects().get(0);
         } else {
             return null;
         }
@@ -110,4 +139,5 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     private String detailUrl(final String resourceUri) {
         return new StringBuilder(getBaseURL()).append("/").append(extractIdFromResourceUri(resourceUri)).toString();
     }
+
 }

@@ -56,9 +56,6 @@ public class HandshakeAPIResponse<T> {
         public void setTotal_count(int total_count) {
             this.total_count = total_count;
         }
-        public String getNext() {
-            return next;
-        }
         public void setNext(String next) {
             this.next = next;
         }
@@ -67,6 +64,12 @@ public class HandshakeAPIResponse<T> {
         }
         public void setPrevious(String previous) {
             this.previous = previous;
+        }
+        public Integer getNextOffset() {
+            if (this.next == null) {
+                return null;
+            }
+            return this.offset + this.limit;
         }
     }
 }

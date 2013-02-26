@@ -24,14 +24,12 @@ import org.mule.api.annotations.Processor;
 import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
-import org.mule.api.annotations.licensing.RequiresEnterpriseLicense;
 import org.mule.api.annotations.param.ConnectionKey;
 import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
-import org.mule.modules.handshake.client.impl.HandshakeListing;
 
 /**
  * Handshake Cloud Connector
@@ -107,21 +105,17 @@ public class HandshakeConnector {
     }
 
     /**
-     * Get Sales Orders for the connected account
+     * Find all Sales Orders for the connected account that match the filters
      *
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders}
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders-with-filters}
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-orders-with-filters-by-date}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-orders}
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
-     * @param limit the maximum amount of items to be returned.
-     * @param offset pagination offset
      * 
-     * @return The list of Sales Orders matching the filters
+     * @return an Iterable of all the Sales Orders matching the filters
      */
     @Processor
-    public HandshakeListing<Order> getOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional final Integer limit, @Optional final Integer offset) {
-        return getClientProvider().getOrdersClient().getAll(filters, limit, offset);
+    public Iterable<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+        return getClientProvider().getOrdersClient().getAll(filters);
     }
 
     /**
@@ -139,20 +133,18 @@ public class HandshakeConnector {
     }
 
     /**
-     * Get all customers for the connected account
+     * Find all customers for the connected account that match the filters
      *
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers}
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customers-with-filters}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-customers}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-customers-with-filters}
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
-     * @param limit the maximum amount of items to be returned.
-     * @param offset pagination offset
      * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
      * 
-     * @return The list of customers for the connected account
+     * @return an Iterable of all the Customers matching the filters
      */
     @Processor
-    public HandshakeListing<Customer> getCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Placement(group="Pagination") final Integer limit, @Optional @Placement(group="Pagination") final Integer offset) {
-        return getClientProvider().getCustomersClient().getAll(filters, limit, offset);
+    public Iterable<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+        return getClientProvider().getCustomersClient().getAll(filters);
     }
 
     /**
@@ -205,19 +197,17 @@ public class HandshakeConnector {
     }
 
     /**
-     * Get all items for the connected account
+     * Get all items for the connected account that match the filters
      *
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items}
-     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-items-with-filters}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-items}
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-items-with-filters}
      * @param filters to apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)
-     * @param limit the maximum amount of items to be returned.
-     * @param offset pagination offset
      *
-     * @return The list of items for the connected account that match the filters
+     * @return An iterable of items for the connected account that match the filters
      */
     @Processor
-    public HandshakeListing<Item> getItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Placement(group="Pagination") final Integer limit, @Optional @Placement(group="Pagination") final Integer offset) {
-        return getClientProvider().getItemsClient().getAll(filters, limit, offset);
+    public Iterable<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+        return getClientProvider().getItemsClient().getAll(filters);
     }
 
     /**

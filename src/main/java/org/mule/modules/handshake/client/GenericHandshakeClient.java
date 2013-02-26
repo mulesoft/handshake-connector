@@ -12,7 +12,7 @@ package org.mule.modules.handshake.client;
 import java.util.Map;
 
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
-import org.mule.modules.handshake.client.impl.HandshakeListing;
+import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 public interface GenericHandshakeClient<T> {
 
@@ -33,13 +33,20 @@ public interface GenericHandshakeClient<T> {
     T update(final String resourceUri, final T toUpdate);
 
     /**
-     * Get all the the elements that match the given filters
+     * Pagiante elements that match the given filters
      * @param filters to apply to the search
-     * @param limit the maximum amount of items to be returned.
+     * @param limit the maximum amount of items to be returned
      * @param offset pagination offset
-     * @return all the Orders matching the given filters
+     * @return an object with elements matching the filters, and metadata to retrieve more in another call (using "next" as "offset")
      */
-    HandshakeListing<T> getAll(final Map<String, String> filters, final Integer limit, final Integer offset);
+    HandshakeAPIResponse<T> paginate(final Map<String, String> filters, final Integer limit, final Integer offset);
+
+    /**
+     * Get all the elements that match the given filters
+     * @param filters to apply to the search
+     * @return an iterable for all the elements matching the filters
+     */
+    Iterable<T> getAll(final Map<String, String> filters);
 
     /**
      * Get one element, matching the given id. The id is the user-specified one for the given entity.

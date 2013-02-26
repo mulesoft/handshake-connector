@@ -9,10 +9,10 @@
         http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
         http://www.mulesoft.org/schema/mule/handshake http://www.mulesoft.org/schema/mule/handshake/1.0-SNAPSHOT/mule-handshake.xsd">
 
-    <handshake:config apiKey="xxx"/>
+    <handshake:config apiKey="xxx" securityToken="yyy"/>
 
     <flow name="customers">
-        <handshake:get-customers />
+        <handshake:find-customers />
     </flow>
 
 </mule>
