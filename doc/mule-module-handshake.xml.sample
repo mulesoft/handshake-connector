@@ -105,3 +105,6 @@
         <handshake:customer paymentTerms="New Payment Terms" />
     </handshake:update-customer>
 <!-- END_INCLUDE(handshake:update-customer) -->
+<!-- BEGIN_INCLUDE(handshake:get-address) -->
+    <handshake:get-address resourceUri="/api/v2/addresses/1" />
+<!-- END_INCLUDE(handshake:get-address) -->

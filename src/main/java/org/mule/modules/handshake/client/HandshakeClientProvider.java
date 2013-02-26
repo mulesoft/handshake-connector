@@ -29,4 +29,5 @@ public interface HandshakeClientProvider {
     GenericHandshakeClient<Category> getCategoriesClient();
     GenericHandshakeClient<CustomerGroup> getCustomerGroupsClient();
     GenericHandshakeClient<UserGroup> getUserGroupsClient();
+    <T> GenericHandshakeClient<T> getClient(final Class<T> type);
 }

@@ -9,10 +9,14 @@
 
 package org.mule.modules.handshake.client.impl;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.lang.StringUtils;
 import org.mule.api.transformer.TransformerException;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
+import org.mule.modules.handshake.core.Address;
 import org.mule.modules.handshake.core.Category;
 import org.mule.modules.handshake.core.Customer;
 import org.mule.modules.handshake.core.CustomerGroup;
@@ -26,19 +30,25 @@ import com.google.gson.reflect.TypeToken;
 
 public class HandshakeClientProviderImpl implements HandshakeClientProvider {
 
-    private final String apiKey;
-    private final String securityToken;
+    private final String apiKey; // TODO: Remove
+    private String securityToken; // TODO: Remove
+    private final Map<Class<?>, GenericHandshakeClient<?>> clients;
     private GenericHandshakeClient<Customer> customersClient;
     private GenericHandshakeClient<Order> ordersClient;
     private GenericHandshakeClient<Item> itemsClient;
     private GenericHandshakeClient<Category> categoriesClient;
     private GenericHandshakeClient<CustomerGroup> customerGroupsClient;
     private GenericHandshakeClient<UserGroup> userGroupsClient;
+    private GenericHandshakeClient<Address> addressesClient;
 
+    @SuppressWarnings("serial")
     public HandshakeClientProviderImpl(final String apiKey, final String securityToken) {
         this.apiKey = apiKey;
         try {
-            this.securityToken = StringUtils.isBlank(securityToken) ? "" : new Base64Encoder().doTransform(securityToken, "UTF-8").toString();
+            final String encodedSecurityToken = StringUtils.isBlank(securityToken) ? "" : new Base64Encoder().doTransform(securityToken, "UTF-8").toString();
+            this.clients = new HashMap<Class<?>, GenericHandshakeClient<?>>() {{
+                put(Address.class,new GenericHandshakeClientImpl<Address>(apiKey, encodedSecurityToken, "addresses", new TypeToken<Address>() {}.getType(), new TypeToken<HandshakeAPIResponse<Address>>() {}.getType()));
+            }};
         } catch (final TransformerException e) {
             throw new HandshakeAPIException("Couldn't base64-encode your security token");
         }
@@ -87,5 +97,11 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
             userGroupsClient = new GenericHandshakeClientImpl<UserGroup>(apiKey, securityToken, "user_groups", new TypeToken<UserGroup>() {}.getType(), new TypeToken<HandshakeAPIResponse<UserGroup>>() {}.getType());
         }
         return userGroupsClient;
+    }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public <T> GenericHandshakeClient<T> getClient(Class<T> type) {
+        return (GenericHandshakeClient<T>) this.clients.get(type);
     }
 }

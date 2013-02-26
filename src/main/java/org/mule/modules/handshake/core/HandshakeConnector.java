@@ -328,6 +328,20 @@ public class HandshakeConnector {
         return getClientProvider().getOrdersClient().create(order);
     }
 
+    /**
+     * Get a {@link org.mule.modules.handshake.core.Address}, given its id
+     * 
+     * @param resourceUri of the Address to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-address}
+     *
+     * @return the address with the given id or a {@link HandshakeAPIException}, if the Address doesn't exist
+     */
+    @Processor
+    public Address getAddress(final String resourceUri) {
+        return getClientProvider().getClient(Address.class).getByResourceUri(resourceUri);
+    }
+
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
             clientProvider = new HandshakeClientProviderImpl(apiKey, securityToken);
