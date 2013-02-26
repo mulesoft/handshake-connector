@@ -455,91 +455,11 @@ Summary:
             
             
             
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a>&gt;</nobr>
+            &lt;T&gt;
+            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getCategoriesClient()">getCategoriesClient</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getCustomerGroupsClient()">getCustomerGroupsClient</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getCustomersClient()">getCustomersClient</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getItemsClient()">getItemsClient</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getOrdersClient()">getOrdersClient</a></span>()</nobr>
-        
-  </td></tr>
-
-
-	 
-    <tr class=" api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            abstract
-            
-            
-            
-            
-            <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a>&gt;</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getUserGroupsClient()">getUserGroupsClient</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/HandshakeClientProvider.html#getClient(java.lang.Class<T>)">getClient</a></span>(Class&lt;T&gt; type)</nobr>
         
   </td></tr>
 
@@ -592,7 +512,7 @@ Summary:
 
 
 
-<A NAME="getCategoriesClient()"></A>
+<A NAME="getClient(java.lang.Class<T>)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -602,10 +522,10 @@ Summary:
          
         abstract 
          
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a>&gt;
+        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;T&gt;
       </span>
-      <span class="sympad">getCategoriesClient</span>
-      <span class="normal">()</span>
+      <span class="sympad">getClient</span>
+      <span class="normal">(Class&lt;T&gt; type)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -618,161 +538,15 @@ Summary:
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getCustomerGroupsClient()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a>&gt;
-      </span>
-      <span class="sympad">getCustomerGroupsClient</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getCustomersClient()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;
-      </span>
-      <span class="sympad">getCustomersClient</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getItemsClient()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
-      </span>
-      <span class="sympad">getItemsClient</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getOrdersClient()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;
-      </span>
-      <span class="sympad">getOrdersClient</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
-
-    </div>
-</div>
-
-
-<A NAME="getUserGroupsClient()"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-        abstract 
-         
-        <a href="../../../../../../java/org/mule/modules/handshake/client/GenericHandshakeClient.html">GenericHandshakeClient</a>&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/UserGroup.html">UserGroup</a>&gt;
-      </span>
-      <span class="sympad">getUserGroupsClient</span>
-      <span class="normal">()</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>type</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>
