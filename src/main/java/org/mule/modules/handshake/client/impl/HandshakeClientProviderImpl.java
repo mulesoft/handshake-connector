@@ -9,6 +9,7 @@
 
 package org.mule.modules.handshake.client.impl;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.api.transformer.TransformerException;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
@@ -37,7 +38,7 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
     public HandshakeClientProviderImpl(final String apiKey, final String securityToken) {
         this.apiKey = apiKey;
         try {
-            this.securityToken = new Base64Encoder().doTransform(securityToken, "UTF-8").toString();
+            this.securityToken = StringUtils.isBlank(securityToken) ? "" : new Base64Encoder().doTransform(securityToken, "UTF-8").toString();
         } catch (final TransformerException e) {
             throw new HandshakeAPIException("Couldn't base64-encode your security token");
         }

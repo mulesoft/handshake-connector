@@ -25,7 +25,6 @@ import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
-import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
@@ -74,7 +73,7 @@ public class HandshakeConnector {
      * @throws ConnectionException
      */
     @Connect
-    public void connect(@ConnectionKey String apiKey, @Optional @Default("") @Password String securityToken)
+    public void connect(@ConnectionKey String apiKey, @Optional @Password String securityToken)
         throws ConnectionException {
         this.apiKey = apiKey;
         this.securityToken = securityToken;
