@@ -29,6 +29,7 @@ public class Address extends HandshakeObject {
     private String phone;
     private String fax;
     private String multiLineStr;
+    private String stCustomer;
     @SerializedName("resource_uri")
     private String resourceUri;
 
@@ -97,6 +98,12 @@ public class Address extends HandshakeObject {
     }
     public void setMultiLineStr(String multiLineStr) {
         this.multiLineStr = multiLineStr;
+    }
+    public String getStCustomer() {
+        return stCustomer;
+    }
+    public void setStCustomer(String stCustomer) {
+        this.stCustomer = stCustomer;
     }
     public void setResourceUri(final String resourceUri) {
         this.resourceUri = resourceUri;
