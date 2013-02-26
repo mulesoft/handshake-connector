@@ -342,6 +342,20 @@ public class HandshakeConnector {
         return getClientProvider().getClient(Address.class).getByResourceUri(resourceUri);
     }
 
+    /**
+     * Creates a {@link org.mule.modules.handshake.core.Address} on Handshake
+     * 
+     * @param address to create
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:create-address}
+     *
+     * @return the created address
+     */
+    @Processor
+    public Address createAddress(final Address address) {
+        return getClientProvider().getClient(Address.class).create(address);
+    }
+
     public HandshakeClientProvider getClientProvider() {
         if (clientProvider == null) {
             clientProvider = new HandshakeClientProviderImpl(apiKey, securityToken);
