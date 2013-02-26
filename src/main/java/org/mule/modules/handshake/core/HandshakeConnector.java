@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.mule.api.ConnectionException;
 import org.mule.api.annotations.Connect;
 import org.mule.api.annotations.ConnectionIdentifier;
@@ -33,7 +32,6 @@ import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.client.impl.HandshakeClientProviderImpl;
 import org.mule.modules.handshake.client.impl.HandshakeListing;
-import org.mule.modules.handshake.client.impl.InvalidHandshakeObjectReferenceException;
 
 /**
  * Handshake Cloud Connector
