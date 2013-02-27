@@ -52,7 +52,7 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
 
     @SuppressWarnings("unchecked")
     @Override
-    public <T> GenericHandshakeClient<T> getClient(Class<T> type) {
+    public <T> GenericHandshakeClient<T> getClient(final Class<T> type) {
         return (GenericHandshakeClient<T>) this.clients.get(type);
     }
 }
