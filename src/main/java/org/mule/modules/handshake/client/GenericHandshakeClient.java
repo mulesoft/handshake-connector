@@ -11,7 +11,6 @@ package org.mule.modules.handshake.client;
 
 import java.util.Map;
 
-import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 public interface GenericHandshakeClient<T> {
