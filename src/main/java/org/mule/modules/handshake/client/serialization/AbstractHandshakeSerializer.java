@@ -32,16 +32,14 @@ public abstract class AbstractHandshakeSerializer<T> implements JsonSerializer<T
     public JsonElement serialize(final T src, final Type typeOfSrc, final JsonSerializationContext context) {
         try {
             @SuppressWarnings("unchecked")
-            Map<String, Object> mappedObject = BeanUtils.describe(src);
+            final Map<String, Object> mappedObject = BeanUtils.describe(src);
             mappedObject.remove("class");
             updateMapWithNestedObjects(mappedObject, src);
             return context.serialize(mappedObject);
+        } catch (final HandshakeAPIException e) {
+            throw e;
         } catch (final Exception e) {
-            if (e instanceof HandshakeAPIException) {
-                throw (HandshakeAPIException)e;
-            } else {
-                throw new RuntimeException("This won't happen, rigth?", e);
-            }
+            throw new RuntimeException("This won't happen, rigth?", e);
         }
     }
 
