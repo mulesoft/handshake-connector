@@ -31,7 +31,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     private final String resourcePath;
     private final Type elementType;
     private final Type responseElementType;
-    private static Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v2/.*/(\\d+)$");
+    private static final Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v2/.*/(\\d+)$");
 
     public GenericHandshakeClientImpl(final String apiKey, final String securityToken, final String resourcePath, final Type elementType, final Type responseElementType) {
         this.apiKey = apiKey;
@@ -128,7 +128,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
      * @return the id
      */
     protected static String extractIdFromResourceUri(final String resourceUri) {
-        Matcher matcher = RESOURCE_PATTERN.matcher(resourceUri);
+        final Matcher matcher = RESOURCE_PATTERN.matcher(resourceUri);
         if (matcher.matches()) {
             return matcher.group(1);
         } else {

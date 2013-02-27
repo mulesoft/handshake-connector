@@ -11,8 +11,6 @@ package org.mule.modules.handshake.core;
 
 import java.util.List;
 
-import com.google.gson.annotations.SerializedName;
-
 public class HandshakeAPIResponse<T> {
     private HandshakeAPIResponseMetadata meta;
     private List<T> objects;
