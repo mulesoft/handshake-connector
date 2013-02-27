@@ -32,49 +32,49 @@ public class CreditCard extends HandshakeObject {
     public String getType() {
         return type;
     }
-    public void setType(String type) {
+    public void setType(final String type) {
         this.type = type;
     }
     public String getLastFour() {
         return lastFour;
     }
-    public void setLastFour(String lastFour) {
+    public void setLastFour(final String lastFour) {
         this.lastFour = lastFour;
     }
     public String getMonth() {
         return month;
     }
-    public void setMonth(String month) {
+    public void setMonth(final String month) {
         this.month = month;
     }
     public String getYear() {
         return year;
     }
-    public void setYear(String year) {
+    public void setYear(final String year) {
         this.year = year;
     }
     public String getExpiry() {
         return expiry;
     }
-    public void setExpiry(String expiry) {
+    public void setExpiry(final String expiry) {
         this.expiry = expiry;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getNumber() {
         return number;
     }
-    public void setNumber(String number) {
+    public void setNumber(final String number) {
         this.number = number;
     }
     public String getCvv() {
         return cvv;
     }
-    public void setCvv(String cvv) {
+    public void setCvv(final String cvv) {
         this.cvv = cvv;
     }
     public void setResourceUri(final String resourceUri) {

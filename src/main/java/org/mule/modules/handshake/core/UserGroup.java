@@ -31,7 +31,7 @@ public class UserGroup extends HandshakeObject {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getId() {
@@ -43,19 +43,19 @@ public class UserGroup extends HandshakeObject {
     public boolean isMaster() {
         return isMaster;
     }
-    public void setMaster(boolean isMaster) {
+    public void setMaster(final boolean isMaster) {
         this.isMaster = isMaster;
     }
     public String getParent() {
         return parent;
     }
-    public void setParent(String parent) {
+    public void setParent(final String parent) {
         this.parent = parent;
     }
     public List<String> getCategories() {
         return categories;
     }
-    public void setCategories(List<String> categories) {
+    public void setCategories(final List<String> categories) {
         this.categories = categories;
     }
     public void setResourceUri(final String resourceUri) {

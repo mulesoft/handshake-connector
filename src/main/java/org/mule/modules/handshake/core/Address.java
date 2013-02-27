@@ -36,73 +36,73 @@ public class Address extends HandshakeObject {
     public String getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getStreet() {
         return street;
     }
-    public void setStreet(String street) {
+    public void setStreet(final String street) {
         this.street = street;
     }
     public String getStreet2() {
         return street2;
     }
-    public void setStreet2(String street2) {
+    public void setStreet2(final String street2) {
         this.street2 = street2;
     }
     public String getCity() {
         return city;
     }
-    public void setCity(String city) {
+    public void setCity(final String city) {
         this.city = city;
     }
     public String getState() {
         return state;
     }
-    public void setState(String state) {
+    public void setState(final String state) {
         this.state = state;
     }
     public String getPostcode() {
         return postcode;
     }
-    public void setPostcode(String postcode) {
+    public void setPostcode(final String postcode) {
         this.postcode = postcode;
     }
     public String getCountry() {
         return country;
     }
-    public void setCountry(String country) {
+    public void setCountry(final String country) {
         this.country = country;
     }
     public String getPhone() {
         return phone;
     }
-    public void setPhone(String phone) {
+    public void setPhone(final String phone) {
         this.phone = phone;
     }
     public String getFax() {
         return fax;
     }
-    public void setFax(String fax) {
+    public void setFax(final String fax) {
         this.fax = fax;
     }
     public String getMultiLineStr() {
         return multiLineStr;
     }
-    public void setMultiLineStr(String multiLineStr) {
+    public void setMultiLineStr(final String multiLineStr) {
         this.multiLineStr = multiLineStr;
     }
     public String getStCustomer() {
         return stCustomer;
     }
-    public void setStCustomer(String stCustomer) {
+    public void setStCustomer(final String stCustomer) {
         this.stCustomer = stCustomer;
     }
     public void setResourceUri(final String resourceUri) {

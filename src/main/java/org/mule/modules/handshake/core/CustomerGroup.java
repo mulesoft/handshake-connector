@@ -27,19 +27,19 @@ public class CustomerGroup extends HandshakeObject {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
     public String getCurrency() {
         return currency;
     }
-    public void setCurrency(String currency) {
+    public void setCurrency(final String currency) {
         this.currency = currency;
     }
     public void setResourceUri(final String resourceUri) {

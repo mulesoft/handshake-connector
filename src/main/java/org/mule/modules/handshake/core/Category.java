@@ -32,37 +32,37 @@ public class Category extends HandshakeObject {
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
     public int getCategoryPosition() {
         return categoryPosition;
     }
-    public void setCategoryPosition(int categoryPosition) {
+    public void setCategoryPosition(final int categoryPosition) {
         this.categoryPosition = categoryPosition;
     }
     public String getParent() {
         return parent;
     }
-    public void setParent(String parent) {
+    public void setParent(final String parent) {
         this.parent = parent;
     }
     public CategorySubType getSubType() {
         return subType;
     }
-    public void setSubType(CategorySubType subType) {
+    public void setSubType(final CategorySubType subType) {
         this.subType = subType;
     }
     public List<String> getSubcategories() {
         return subcategories;
     }
-    public void setSubcategories(List<String> subcategories) {
+    public void setSubcategories(final List<String> subcategories) {
         this.subcategories = subcategories;
     }
     public void setResourceUri(final String resourceUri) {

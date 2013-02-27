@@ -97,7 +97,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
             }
 
             @Override
-            protected Iterator<T> pageIterator(HandshakeAPIResponse<T> currentPage) {
+            protected Iterator<T> pageIterator(final HandshakeAPIResponse<T> currentPage) {
                 return currentPage.getObjects().iterator();
             }
         };

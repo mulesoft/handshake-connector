@@ -73,7 +73,7 @@ public class HandshakeConnector {
      * @throws ConnectionException
      */
     @Connect
-    public void connect(@ConnectionKey String apiKey, @Optional @Password String securityToken)
+    public void connect(@ConnectionKey final String apiKey, @Optional @Password final String securityToken)
         throws ConnectionException {
         this.apiKey = apiKey;
         this.securityToken = securityToken;

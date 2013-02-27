@@ -30,19 +30,19 @@ public class Variant extends HandshakeObject {
     public String getSku() {
         return sku;
     }
-    public void setSku(String sku) {
+    public void setSku(final String sku) {
         this.sku = sku;
     }
     public BigDecimal getUnitPrice() {
         return unitPrice;
     }
-    public void setUnitPrice(BigDecimal unitPrice) {
+    public void setUnitPrice(final BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
     public String getBarcode() {
         return barcode;
     }
-    public void setBarcode(String barcode) {
+    public void setBarcode(final String barcode) {
         this.barcode = barcode;
     }
     public void setResourceUri(final String resourceUri) {

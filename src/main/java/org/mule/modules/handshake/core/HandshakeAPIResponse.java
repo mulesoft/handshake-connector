@@ -11,6 +11,8 @@ package org.mule.modules.handshake.core;
 
 import java.util.List;
 
+import com.google.gson.annotations.SerializedName;
+
 public class HandshakeAPIResponse<T> {
     private HandshakeAPIResponseMetadata meta;
     private List<T> objects;
@@ -19,7 +21,7 @@ public class HandshakeAPIResponse<T> {
         return meta;
     }
 
-    public void setMeta(HandshakeAPIResponseMetadata meta) {
+    public void setMeta(final HandshakeAPIResponseMetadata meta) {
         this.meta = meta;
     }
 
@@ -27,7 +29,7 @@ public class HandshakeAPIResponse<T> {
         return objects;
     }
 
-    public void setObjects(List<T> objects) {
+    public void setObjects(final List<T> objects) {
         this.objects = objects;
     }
 
@@ -41,28 +43,28 @@ public class HandshakeAPIResponse<T> {
         public int getLimit() {
             return limit;
         }
-        public void setLimit(int limit) {
+        public void setLimit(final int limit) {
             this.limit = limit;
         }
         public int getOffset() {
             return offset;
         }
-        public void setOffset(int offset) {
+        public void setOffset(final int offset) {
             this.offset = offset;
         }
         public int getTotal_count() {
             return total_count;
         }
-        public void setTotal_count(int total_count) {
+        public void setTotal_count(final int total_count) {
             this.total_count = total_count;
         }
-        public void setNext(String next) {
+        public void setNext(final String next) {
             this.next = next;
         }
         public String getPrevious() {
             return previous;
         }
-        public void setPrevious(String previous) {
+        public void setPrevious(final String previous) {
             this.previous = previous;
         }
         public Integer getNextOffset() {

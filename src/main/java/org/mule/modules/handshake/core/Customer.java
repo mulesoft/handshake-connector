@@ -41,91 +41,91 @@ public class Customer extends HandshakeObject {
     public String getContact() {
         return contact;
     }
-    public void setContact(String contact) {
+    public void setContact(final String contact) {
         this.contact = contact;
     }
     public String getId() {
         return id;
     }
-    public void setId(String id) {
+    public void setId(final String id) {
         this.id = id;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
+    public void setEmail(final String email) {
         this.email = email;
     }
     public String getTaxId() {
         return taxId;
     }
-    public void setTaxId(String taxId) {
+    public void setTaxId(final String taxId) {
         this.taxId = taxId;
     }
     public Address getBillTo() {
         return billTo;
     }
-    public void setBillTo(Address billTo) {
+    public void setBillTo(final Address billTo) {
         this.billTo = billTo;
     }
     public List<Address> getShipTos() {
         return shipTos;
     }
-    public void setShipTos(List<Address> shipTos) {
+    public void setShipTos(final List<Address> shipTos) {
         this.shipTos = shipTos;
     }
     public String getDefaultShipTo() {
         return defaultShipTo;
     }
-    public void setDefaultShipTo(String defaultShipTo) {
+    public void setDefaultShipTo(final String defaultShipTo) {
         this.defaultShipTo = defaultShipTo;
     }
     public List<CreditCard> getCreditCards() {
         return creditCards;
     }
-    public void setCreditCards(List<CreditCard> creditCards) {
+    public void setCreditCards(final List<CreditCard> creditCards) {
         this.creditCards = creditCards;
     }
     public UserGroup getUserGroup() {
         return userGroup;
     }
-    public void setUserGroup(UserGroup userGroup) {
+    public void setUserGroup(final UserGroup userGroup) {
         this.userGroup = userGroup;
     }
     public CustomerGroup getCustomerGroup() {
         return customerGroup;
     }
-    public void setCustomerGroup(CustomerGroup customerGroup) {
+    public void setCustomerGroup(final CustomerGroup customerGroup) {
         this.customerGroup = customerGroup;
     }
     public String getShippingMethod() {
         return shippingMethod;
     }
-    public void setShippingMethod(String shippingMethod) {
+    public void setShippingMethod(final String shippingMethod) {
         this.shippingMethod = shippingMethod;
     }
     public String getPaymentTerms() {
         return paymentTerms;
     }
-    public void setPaymentTerms(String paymentTerms) {
+    public void setPaymentTerms(final String paymentTerms) {
         this.paymentTerms = paymentTerms;
     }
     public String getCurrency() {
         return currency;
     }
-    public void setCurrency(String currency) {
+    public void setCurrency(final String currency) {
         this.currency = currency;
     }
     public String getLocale() {
         return locale;
     }
-    public void setLocale(String locale) {
+    public void setLocale(final String locale) {
         this.locale = locale;
     }
     public void setResourceUri(final String resourceUri) {

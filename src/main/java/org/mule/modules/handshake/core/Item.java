@@ -42,91 +42,91 @@ public class Item extends HandshakeObject {
     public String getSku() {
         return sku;
     }
-    public void setSku(String sku) {
+    public void setSku(final String sku) {
         this.sku = sku;
     }
     public String getName() {
         return name;
     }
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
     public String getLongDesc() {
         return longDesc;
     }
-    public void setLongDesc(String longDesc) {
+    public void setLongDesc(final String longDesc) {
         this.longDesc = longDesc;
     }
     public String getBarcode() {
         return barcode;
     }
-    public void setBarcode(String barcode) {
+    public void setBarcode(final String barcode) {
         this.barcode = barcode;
     }
     public String getUnitPrice() {
         return unitPrice;
     }
-    public void setUnitPrice(String unitPrice) {
+    public void setUnitPrice(final String unitPrice) {
         this.unitPrice = unitPrice;
     }
     public int getMinQty() {
         return minQty;
     }
-    public void setMinQty(int minQty) {
+    public void setMinQty(final int minQty) {
         this.minQty = minQty;
     }
     public int getMultQty() {
         return multQty;
     }
-    public void setMultQty(int multQty) {
+    public void setMultQty(final int multQty) {
         this.multQty = multQty;
     }
     public Category getCategory() {
         return category;
     }
-    public void setCategory(Category category) {
+    public void setCategory(final Category category) {
         this.category = category;
     }
     public int getCategoryPosition() {
         return categoryPosition;
     }
-    public void setCategoryPosition(int categoryPosition) {
+    public void setCategoryPosition(final int categoryPosition) {
         this.categoryPosition = categoryPosition;
     }
     public List<Variant> getVariants() {
         return variants;
     }
-    public void setVariants(List<Variant> variants) {
+    public void setVariants(final List<Variant> variants) {
         this.variants = variants;
     }
     public Map<String, String> getAdditionalPrices() {
         return additionalPrices;
     }
-    public void setAdditionalPrices(Map<String, String> additionalPrices) {
+    public void setAdditionalPrices(final Map<String, String> additionalPrices) {
         this.additionalPrices = additionalPrices;
     }
     public String getManufacturer() {
         return manufacturer;
     }
-    public void setManufacturer(String manufacturer) {
+    public void setManufacturer(final String manufacturer) {
         this.manufacturer = manufacturer;
     }
     public List<String> getImageURLs() {
         return imageURLs;
     }
-    public void setImageURLs(List<String> imageURLs) {
+    public void setImageURLs(final List<String> imageURLs) {
         this.imageURLs = imageURLs;
     }
     public List<String> getThumbnailURLs() {
         return thumbnailURLs;
     }
-    public void setThumbnailURLs(List<String> thumbnailURLs) {
+    public void setThumbnailURLs(final List<String> thumbnailURLs) {
         this.thumbnailURLs = thumbnailURLs;
     }
     public String getThumbnailURL() {
         return thumbnailURL;
     }
-    public void setThumbnailURL(String thumbnailURL) {
+    public void setThumbnailURL(final String thumbnailURL) {
         this.thumbnailURL = thumbnailURL;
     }
     public void setResourceUri(final String resourceUri) {
