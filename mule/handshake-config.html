@@ -547,6 +547,39 @@ similar to the following:</p>
 &lt;/mule&gt;
 </pre>
 
+<p>This module is configured using the <i>config</i> element. This element must be placed outside of your flows and at
+the root of your Mule application. You can create as many configurations as you deem necessary as long as each carries
+its own name.</p>
+<p>Each message processor, message source or transformer carries a <i>config-ref</i> attribute that allows the invoker to
+specify which configuration to use.</p>
+<table id="lconfig" class="jd-sumtable">
+<tr><th colspan="12">Attributes</th></tr>
+<tr><th>Type</th><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+<td class="jd-typecol"><nobr>xs:string</nobr></td>
+<td class="jd-linkcol"><nobr>name</nobr></td>
+<td class="jd-descrcol"></td>
+<td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Give a name to this configuration so it can be later referenced.</td>
+<td/><td/><td/>
+
+    
+      <tr class=" api apilevel-" >
+          <td class="jd-typecol"><nobr>
+          xs:string</nobr></td>
+          <td class="jd-linkcol"><nobr>endpoint</nobr></td>
+          <td class="jd-descrcol">https://preview.handshake-app.com/api/v2/</td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Endpoint to which the Connector should connect and call API methods
+</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+      </tr>
+      
+    
+    
+    
+</table>
+
+
 
 
 
