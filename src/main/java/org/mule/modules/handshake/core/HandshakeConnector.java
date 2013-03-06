@@ -12,6 +12,7 @@
 package org.mule.modules.handshake.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -130,10 +131,10 @@ public class HandshakeConnector {
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * 
-     * @return an Iterable of all the Sales Orders matching the filters
+     * @return a Collection of all the Sales Orders matching the filters
      */
     @Processor
-    public Iterable<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+    public Collection<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
         return getClientProvider().getClient(Order.class).getAll(filters);
     }
 
@@ -159,10 +160,10 @@ public class HandshakeConnector {
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
      * 
-     * @return an Iterable of all the Customers matching the filters
+     * @return a Collection of all the Customers matching the filters
      */
     @Processor
-    public Iterable<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+    public Collection<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
         return getClientProvider().getClient(Customer.class).getAll(filters);
     }
 
@@ -222,10 +223,10 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-items-with-filters}
      * @param filters to apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)
      *
-     * @return An iterable of items for the connected account that match the filters
+     * @return A Collection of items for the connected account that match the filters
      */
     @Processor
-    public Iterable<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
+    public Collection<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
         return getClientProvider().getClient(Item.class).getAll(filters);
     }
 

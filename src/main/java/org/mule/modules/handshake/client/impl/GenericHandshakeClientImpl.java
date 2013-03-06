@@ -10,6 +10,7 @@
 package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -20,7 +21,6 @@ import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
 import org.mule.modules.handshake.core.HandshakeObject;
-import org.mule.modules.utils.pagination.PaginatedIterable;
 
 import com.sun.jersey.api.client.WebResource.Builder;
 
@@ -79,12 +79,17 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     }
 
     @Override
-    public Iterable<T> getAll(final Map<String, String> filters) {
+    public Collection<T> getAll(final Map<String, String> filters) {
         final GenericHandshakeClientImpl<T> client = this;
-        return new PaginatedIterable<T, HandshakeAPIResponse<T>>() {
+        return new PaginatedCollection<T, HandshakeAPIResponse<T>>() {
+            private HandshakeAPIResponse<T> first;
+
             @Override
-            protected HandshakeAPIResponse<T> firstPage() {
-                return client.paginate(filters, null, null);
+            protected synchronized HandshakeAPIResponse<T> firstPage() {
+                if (first == null) {
+                    first = client.paginate(filters, null, null);
+                }
+                return first;
             }
 
             @Override
@@ -100,6 +105,16 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
             @Override
             protected Iterator<T> pageIterator(final HandshakeAPIResponse<T> currentPage) {
                 return currentPage.getObjects().iterator();
+            }
+
+            @Override
+            public boolean isEmpty() {
+                return (this.size() == 0);
+            }
+
+            @Override
+            public int size() {
+                return this.firstPage().getMeta().getTotalCount();
             }
         };
     }

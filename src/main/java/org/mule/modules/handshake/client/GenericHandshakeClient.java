@@ -9,8 +9,10 @@
 
 package org.mule.modules.handshake.client;
 
+import java.util.Collection;
 import java.util.Map;
 
+import org.mule.modules.handshake.client.impl.HandshakeAPIException;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
 
 public interface GenericHandshakeClient<T> {
@@ -43,9 +45,9 @@ public interface GenericHandshakeClient<T> {
     /**
      * Get all the elements that match the given filters
      * @param filters to apply to the search
-     * @return an iterable for all the elements matching the filters
+     * @return a Collection of all the elements matching the filters
      */
-    Iterable<T> getAll(final Map<String, String> filters);
+    Collection<T> getAll(final Map<String, String> filters);
 
     /**
      * Get one element, matching the given id. The id is the user-specified one for the given entity.
