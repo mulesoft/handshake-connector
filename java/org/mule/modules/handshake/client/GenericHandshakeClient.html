@@ -471,7 +471,7 @@ Summary:
             
             
             
-            Iterable&lt;T&gt;</nobr>
+            Collection&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
@@ -656,7 +656,7 @@ Summary:
          
         abstract 
          
-        Iterable&lt;T&gt;
+        Collection&lt;T&gt;
       </span>
       <span class="sympad">getAll</span>
       <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
@@ -683,7 +683,7 @@ Summary:
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>an iterable for all the elements matching the filters
+      <ul class="nolist"><li>a Collection of all the elements matching the filters
 </li></ul>
   </div>
 
@@ -782,6 +782,11 @@ Summary:
         <tr>
             <th>IllegalArgumentException</td>
             <td>if the resourceUri is not well-formed</td>
+        </tr>  
+        <tr>
+            <th><a href="../../../../../../java/org/mule/modules/handshake/client/impl/HandshakeAPIException.html">HandshakeAPIException</a></td>
+            <td>if the element doesn't exist in Handshake
+</td>
         </tr>
       </table>
   </div>
