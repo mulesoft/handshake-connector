@@ -68,6 +68,9 @@ public class HandshakeConnector {
     private String securityToken;
     private HandshakeClientProvider clientProvider;
     
+    /**
+     * Endpoint to which the Connector should connect and call API methods
+     */
     @Configurable
     @Optional
     @Default("https://preview.handshake-app.com/api/v2/")
@@ -80,6 +83,7 @@ public class HandshakeConnector {
     public void setEndpoint(final String endpoint) {
         this.endpoint = endpoint;
     }
+
     /**
      * Connect
      *

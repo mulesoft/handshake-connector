@@ -23,6 +23,7 @@ public class HandshakeConnectorTest {
     @Before
     public void connect() throws ConnectionException {
         connector = new HandshakeConnector();
+        connector.setEndpoint("http://someendpoint.com");
         connector.connect("SOME_KEY", "SOME_TOKEN");
     }
 
