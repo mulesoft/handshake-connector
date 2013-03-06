@@ -38,8 +38,8 @@ public class Order extends HandshakeObject {
     private String notes;
     private String customerPO;
     private boolean emailSent;
-    private Date startShipDate;
-    private Date cancelDate;
+    private String startShipDate;
+    private String cancelDate;
     private boolean freeShipping;
     private boolean shipPartial;
     private String signatureURL;
@@ -149,16 +149,16 @@ public class Order extends HandshakeObject {
     public void setEmailSent(final boolean emailSent) {
         this.emailSent = emailSent;
     }
-    public Date getStartShipDate() {
+    public String getStartShipDate() {
         return startShipDate;
     }
-    public void setStartShipDate(final Date startShipDate) {
+    public void setStartShipDate(final String startShipDate) {
         this.startShipDate = startShipDate;
     }
-    public Date getCancelDate() {
+    public String getCancelDate() {
         return cancelDate;
     }
-    public void setCancelDate(final Date cancelDate) {
+    public void setCancelDate(final String cancelDate) {
         this.cancelDate = cancelDate;
     }
     public boolean isFreeShipping() {
