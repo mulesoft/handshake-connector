@@ -31,9 +31,10 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     private final String resourcePath;
     private final Type elementType;
     private final Type responseElementType;
-    private static final Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v2/.*/(\\d+)$");
+    private static final Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v.*/.*/(\\d+)$");
 
-    public GenericHandshakeClientImpl(final String apiKey, final String securityToken, final String resourcePath, final Type elementType, final Type responseElementType) {
+    public GenericHandshakeClientImpl(final String baseUrl, final String apiKey, final String securityToken, final String resourcePath, final Type elementType, final Type responseElementType) {
+        super(baseUrl);
         this.apiKey = apiKey;
         this.securityToken = securityToken;
         this.resourcePath = resourcePath;

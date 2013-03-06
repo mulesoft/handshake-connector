@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.mule.api.ConnectionException;
+import org.mule.api.annotations.Configurable;
 import org.mule.api.annotations.Connect;
 import org.mule.api.annotations.ConnectionIdentifier;
 import org.mule.api.annotations.Connector;
@@ -25,6 +27,7 @@ import org.mule.api.annotations.ValidateConnection;
 import org.mule.api.annotations.display.Password;
 import org.mule.api.annotations.display.Placement;
 import org.mule.api.annotations.param.ConnectionKey;
+import org.mule.api.annotations.param.Default;
 import org.mule.api.annotations.param.Optional;
 import org.mule.modules.handshake.client.HandshakeClientProvider;
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
@@ -64,7 +67,14 @@ public class HandshakeConnector {
     private String apiKey;
     private String securityToken;
     private HandshakeClientProvider clientProvider;
+    
+    @Configurable
+    @Default("https://preview.handshake-app.com/api/v2/")
+    private String endpoint;
 
+    public void setEndpoint(final String endpoint) {
+        this.endpoint = endpoint;
+    }
     /**
      * Connect
      *
@@ -372,8 +382,11 @@ public class HandshakeConnector {
     }
 
     public HandshakeClientProvider getClientProvider() {
+        if (StringUtils.isBlank(endpoint)) {
+            throw new IllegalArgumentException("The Handshake endpoint must not be left blank");
+        }
         if (clientProvider == null) {
-            clientProvider = new HandshakeClientProviderImpl(apiKey, securityToken);
+            clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, securityToken);
         }
         return clientProvider;
     }

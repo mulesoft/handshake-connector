@@ -19,7 +19,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.client.serialization.BigDecimalAsStringSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeCustomerSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeItemSerializer;
@@ -53,13 +52,12 @@ import com.sun.jersey.core.util.MultivaluedMapImpl;
  */
 public abstract class AbstractHandshakeClient {
 
-    private static final String DEFAULT_BASE_URL = "https://preview.handshake-app.com/api/v2/";
-
-    private String baseUrl = "";
+    private final String baseUrl;
 
     protected final Gson gson;
 
-    public AbstractHandshakeClient() {
+    public AbstractHandshakeClient(final String baseUrl) {
+        this.baseUrl = baseUrl;
         final GsonBuilder builder = new GsonBuilder();
         builder.registerTypeAdapter(Order.class, new HandshakeOrderSerializer());
         builder.registerTypeAdapter(Customer.class, new HandshakeCustomerSerializer());
@@ -68,25 +66,11 @@ public abstract class AbstractHandshakeClient {
         this.gson = builder.create();
     }
 
-    public void setBaseUrl(final String baseUrl) {
-        this.baseUrl = baseUrl;
-    }
-
     /**
-     * Builds the base URL for this service.
-     * 
-     * @return the base URL with no final "/".
+     * @return the base URL for the service, inclduing what is added by {@link AbstractHandshakeClient#extendGetBaseUrl(StringBuilder)}
      */
     protected String getBaseURL() {
-        final StringBuilder baseUrlBuilder = new StringBuilder();
-
-        if (StringUtils.isNotEmpty(baseUrl)) {
-            baseUrlBuilder.append(this.baseUrl);
-        } else {
-            baseUrlBuilder.append(DEFAULT_BASE_URL);
-        }
-
-        return extendGetBaseUrl(baseUrlBuilder).toString();
+        return this.extendGetBaseUrl(new StringBuilder(this.baseUrl)).toString();
     }
 
     /**
