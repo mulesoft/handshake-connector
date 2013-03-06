@@ -72,6 +72,10 @@ public class HandshakeConnector {
     @Default("https://preview.handshake-app.com/api/v2/")
     private String endpoint;
 
+    public String getEndpoint() {
+        return this.endpoint;
+    }
+
     public void setEndpoint(final String endpoint) {
         this.endpoint = endpoint;
     }
