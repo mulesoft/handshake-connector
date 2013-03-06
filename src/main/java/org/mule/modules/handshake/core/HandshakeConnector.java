@@ -69,6 +69,7 @@ public class HandshakeConnector {
     private HandshakeClientProvider clientProvider;
     
     @Configurable
+    @Optional
     @Default("https://preview.handshake-app.com/api/v2/")
     private String endpoint;
 
