@@ -679,7 +679,7 @@ Summary:
             Collection&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
         
         <div class="jd-descrdiv">Get all the elements that match the given filters</div>
   
@@ -1284,7 +1284,7 @@ From interface
             Collection&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
         
         <div class="jd-descrdiv">Get all the elements that match the given filters</div>
   
@@ -1710,7 +1710,7 @@ From interface
 </div>
 
 
-<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1723,7 +1723,7 @@ From interface
         Collection&lt;T&gt;
       </span>
       <span class="sympad">getAll</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1742,6 +1742,10 @@ From interface
         <tr>
           <th>filters</td>
           <td>To apply to the search</td>
+        </tr>
+        <tr>
+          <th>ignorePaging</td>
+          <td>If set to true, will try to fetch all the results, even if they are too much. WARNING: Could be slow and raise OutOfMemoryError</td>
         </tr>
       </table>
   </div>

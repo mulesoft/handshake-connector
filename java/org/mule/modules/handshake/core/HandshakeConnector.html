@@ -828,7 +828,7 @@ Summary:
             Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findCustomers(java.util.Map<java.lang.String, java.lang.String>)">findCustomers</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findCustomers(java.util.Map<java.lang.String, java.lang.String>, boolean)">findCustomers</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
         
         <div class="jd-descrdiv">Find all customers for the connected account that match the filters
 
@@ -849,7 +849,7 @@ Summary:
             Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findItems(java.util.Map<java.lang.String, java.lang.String>)">findItems</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findItems(java.util.Map<java.lang.String, java.lang.String>, boolean)">findItems</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
         
         <div class="jd-descrdiv">Get all items for the connected account that match the filters
 
@@ -870,7 +870,7 @@ Summary:
             Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findOrders(java.util.Map<java.lang.String, java.lang.String>)">findOrders</a></span>(Map&lt;String,&nbsp;String&gt; filters)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#findOrders(java.util.Map<java.lang.String, java.lang.String>, boolean)">findOrders</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
         
         <div class="jd-descrdiv">Find all Sales Orders for the connected account that match the filters
 
@@ -1939,7 +1939,7 @@ From class
 </div>
 
 
-<A NAME="findCustomers(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="findCustomers(java.util.Map<java.lang.String, java.lang.String>, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1952,7 +1952,7 @@ From class
         Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>&gt;
       </span>
       <span class="sympad">findCustomers</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1976,6 +1976,10 @@ From class
           <td>Allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
  NOTE: filter values refer to the user-defined IDs, and not to the HandShake id </td>
         </tr>
+        <tr>
+          <th>ignorePaging</td>
+          <td>Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long</td>
+        </tr>
       </table>
   </div>
   <div class="jd-tagdata">
@@ -1988,7 +1992,7 @@ From class
 </div>
 
 
-<A NAME="findItems(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="findItems(java.util.Map<java.lang.String, java.lang.String>, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2001,7 +2005,7 @@ From class
         Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Item.html">Item</a>&gt;
       </span>
       <span class="sympad">findItems</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2024,6 +2028,10 @@ From class
           <th>filters</td>
           <td>To apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)</td>
         </tr>
+        <tr>
+          <th>ignorePaging</td>
+          <td>Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long</td>
+        </tr>
       </table>
   </div>
   <div class="jd-tagdata">
@@ -2036,7 +2044,7 @@ From class
 </div>
 
 
-<A NAME="findOrders(java.util.Map<java.lang.String, java.lang.String>)"></A>
+<A NAME="findOrders(java.util.Map<java.lang.String, java.lang.String>, boolean)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2049,7 +2057,7 @@ From class
         Collection&lt;<a href="../../../../../../java/org/mule/modules/handshake/core/Order.html">Order</a>&gt;
       </span>
       <span class="sympad">findOrders</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2071,6 +2079,10 @@ From class
         <tr>
           <th>filters</td>
           <td>Allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)</td>
+        </tr>
+        <tr>
+          <th>ignorePaging</td>
+          <td>Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long</td>
         </tr>
       </table>
   </div>
