@@ -10,6 +10,7 @@
 package org.mule.modules.handshake.client.impl;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -17,6 +18,7 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.mule.modules.handshake.client.GenericHandshakeClient;
 import org.mule.modules.handshake.core.HandshakeAPIResponse;
@@ -79,9 +81,9 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     }
 
     @Override
-    public Collection<T> getAll(final Map<String, String> filters) {
+    public Collection<T> getAll(final Map<String, String> filters, final boolean ignorePaging) {
         final GenericHandshakeClientImpl<T> client = this;
-        return new PaginatedCollection<T, HandshakeAPIResponse<T>>() {
+        final Collection<T> pagedResult = new PaginatedCollection<T, HandshakeAPIResponse<T>>() {
             private HandshakeAPIResponse<T> first;
 
             @Override
@@ -117,6 +119,13 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
                 return this.firstPage().getMeta().getTotalCount();
             }
         };
+        if (ignorePaging) {
+            final Collection<T> result = new ArrayList<T>(pagedResult.size());
+            CollectionUtils.addAll(result, pagedResult.iterator());
+            return result;
+        } else {
+            return pagedResult;
+        }
     }
 
     @Override

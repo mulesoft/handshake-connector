@@ -130,12 +130,12 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-orders-with-filters}
      *
      * @param filters allowed values are: "customerID", "status", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
-     * 
+     * @param ignorePaging set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long
      * @return a Collection of all the Sales Orders matching the filters
      */
     @Processor
-    public Collection<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getClient(Order.class).getAll(filters);
+    public Collection<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean ignorePaging) {
+        return getClientProvider().getClient(Order.class).getAll(filters, ignorePaging);
     }
 
     /**
@@ -159,12 +159,13 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-customers-with-filters}
      * @param filters allowed values are: "customerGroup", "userGroup", "ctime" and "mtime" (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)
      * NOTE: filter values refer to the user-defined IDs, and not to the HandShake id 
+     * @param ignorePaging set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long
      * 
      * @return a Collection of all the Customers matching the filters
      */
     @Processor
-    public Collection<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getClient(Customer.class).getAll(filters);
+    public Collection<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean ignorePaging) {
+        return getClientProvider().getClient(Customer.class).getAll(filters, ignorePaging);
     }
 
     /**
@@ -222,12 +223,12 @@ public class HandshakeConnector {
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-items}
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:find-items-with-filters}
      * @param filters to apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)
-     *
+     * @param ignorePaging set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long
      * @return A Collection of items for the connected account that match the filters
      */
     @Processor
-    public Collection<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters) {
-        return getClientProvider().getClient(Item.class).getAll(filters);
+    public Collection<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean ignorePaging) {
+        return getClientProvider().getClient(Item.class).getAll(filters, ignorePaging);
     }
 
     /**
