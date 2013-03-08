@@ -10,7 +10,6 @@
 package org.mule.modules.handshake.client.impl;
 
 import java.util.Collection;
-import java.util.Iterator;
 
 import org.mule.modules.utils.pagination.PaginatedIterable;
 
@@ -21,50 +20,13 @@ import org.mule.modules.utils.pagination.PaginatedIterable;
  * @param <T>
  * @param <Page>
  */
-public abstract class PaginatedCollection<T, Page> implements Collection<T> {
-
-    protected abstract Page firstPage();
-    protected abstract boolean hasNextPage(final Page currentPage);
-    protected abstract Page nextPage(final Page currentPage);
-    protected abstract Iterator<T> pageIterator(final Page currentPage);
-
-    final PaginatedIterable<T, Page> baseIterable;
-
-    public PaginatedCollection() {
-        final PaginatedCollection<T, Page> self = this;
-        this.baseIterable = new PaginatedIterable<T, Page>() {
-            @Override
-            protected Page firstPage() {
-                return self.firstPage();
-            }
-
-            @Override
-            protected boolean hasNextPage(Page currentPage) {
-                return self.hasNextPage(currentPage);
-            }
-
-            @Override
-            protected Page nextPage(Page currentPage) {
-                return self.nextPage(currentPage);
-            }
-
-            @Override
-            protected Iterator<T> pageIterator(Page currentPage) {
-                return self.pageIterator(currentPage);
-            }
-        };
-    }
+public abstract class PaginatedCollection<T, Page> extends PaginatedIterable<T, Page> implements Collection<T> {
 
     @Override
     public abstract boolean isEmpty();
 
     @Override
     public abstract int size();
-
-    @Override
-    public Iterator<T> iterator() {
-        return this.baseIterable.iterator();
-    }
 
     @Override
     public boolean add(T e) {
