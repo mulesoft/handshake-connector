@@ -45,10 +45,10 @@ public interface GenericHandshakeClient<T> {
     /**
      * Get all the elements that match the given filters
      * @param filters to apply to the search
-     * @param ignorePaging if set to true, will try to fetch all the results, even if they are too much. WARNING: Could be slow and raise OutOfMemoryError
+     * @param fetchAllResults if set to true, will try to fetch all the results, even if they are too much. WARNING: Could be slow and raise OutOfMemoryError
      * @return a Collection of all the elements matching the filters
      */
-    Collection<T> getAll(final Map<String, String> filters, final boolean ignorePaging);
+    Collection<T> getAll(final Map<String, String> filters, final boolean fetchAllResults);
 
     /**
      * Get one element, matching the given id. The id is the user-specified one for the given entity.

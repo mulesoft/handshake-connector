@@ -81,7 +81,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     }
 
     @Override
-    public Collection<T> getAll(final Map<String, String> filters, final boolean ignorePaging) {
+    public Collection<T> getAll(final Map<String, String> filters, final boolean fetchAllResults) {
         final GenericHandshakeClientImpl<T> client = this;
         final Collection<T> pagedResult = new PaginatedCollection<T, HandshakeAPIResponse<T>>() {
             private HandshakeAPIResponse<T> first;
@@ -119,7 +119,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
                 return this.firstPage().getMeta().getTotalCount();
             }
         };
-        if (ignorePaging) {
+        if (fetchAllResults) {
             final Collection<T> result = new ArrayList<T>(pagedResult.size());
             CollectionUtils.addAll(result, pagedResult.iterator());
             return result;
