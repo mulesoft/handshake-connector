@@ -679,7 +679,7 @@ Summary:
             Collection&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/GenericHandshakeClientImpl.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean fetchAllResults)</nobr>
         
         <div class="jd-descrdiv">Get all the elements that match the given filters</div>
   
@@ -1284,7 +1284,7 @@ From interface
             Collection&lt;T&gt;</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/GenericHandshakeClient.html#getAll(java.util.Map<java.lang.String, java.lang.String>, boolean)">getAll</a></span>(Map&lt;String,&nbsp;String&gt; filters, boolean fetchAllResults)</nobr>
         
         <div class="jd-descrdiv">Get all the elements that match the given filters</div>
   
@@ -1723,7 +1723,7 @@ From interface
         Collection&lt;T&gt;
       </span>
       <span class="sympad">getAll</span>
-      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean ignorePaging)</span>
+      <span class="normal">(Map&lt;String,&nbsp;String&gt; filters, boolean fetchAllResults)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1744,7 +1744,7 @@ From interface
           <td>To apply to the search</td>
         </tr>
         <tr>
-          <th>ignorePaging</td>
+          <th>fetchAllResults</td>
           <td>If set to true, will try to fetch all the results, even if they are too much. WARNING: Could be slow and raise OutOfMemoryError</td>
         </tr>
       </table>

@@ -350,7 +350,7 @@ When you create a new object through the API, the returned value will always con
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;ignorePaging&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;fetchAllResults&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -443,7 +443,7 @@ When you create a new object through the API, the returned value will always con
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;ignorePaging&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;fetchAllResults&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
@@ -969,7 +969,7 @@ You can either let them be the default values for your account (by not specifyin
             &lt;xs:documentation&gt;Specify which configuration to use for this invocation.&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
-        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;ignorePaging&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
+        &lt;xs:attribute xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; name=&quot;fetchAllResults&quot; default=&quot;false&quot; use=&quot;optional&quot; type=&quot;booleanType&quot;&gt;
           &lt;xs:annotation&gt;
             &lt;xs:documentation&gt;set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
