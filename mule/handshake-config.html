@@ -1868,11 +1868,11 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
           
                 
                     <tr class=" api apilevel-" >
-                        <td class="jd-linkcol"><nobr>id</nobr></td>
+                        <td class="jd-linkcol"><nobr>resourceUri</nobr></td>
                         <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">Of the Customer to get. The id is the one specified on creation, and not Handshake's uid
+                        <td class="jd-descrcol">Of the Customer to get. The resourceUri is the one specified on creation, and not Handshake's uid
 
- <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-customer id="1" /&gt;</pre></div></td>
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-customer resourceUri="/api/v2/customers/1" /&gt;</pre></div></td>
                         <td class="jd-descrcol">String</td>
                         <td class="jd-descrcol">*/*</td>
                         <td class="jd-descrcol">UTF-8</td>
@@ -1918,7 +1918,7 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              </tr>
              <tr>
                 <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
-                <td class="jd-descrcol">the customer with the given id, or null if it doesn't exist
+                <td class="jd-descrcol">the customer with the given resourceUri, or null if it doesn't exist
 </td>
              </tr>
          </table>

@@ -943,7 +943,7 @@ Summary:
             <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomer(java.lang.String)">getCustomer</a></span>(String id)</nobr>
+        <span class="sympad"><a href="../../../../../../org/mule/modules/handshake/core/HandshakeConnector.html#getCustomer(java.lang.String)">getCustomer</a></span>(String resourceUri)</nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a></code>, given its id</div>
   
@@ -2234,7 +2234,7 @@ From class
         <a href="../../../../../../java/org/mule/modules/handshake/core/Customer.html">Customer</a>
       </span>
       <span class="sympad">getCustomer</span>
-      <span class="normal">(String id)</span>
+      <span class="normal">(String resourceUri)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -2251,8 +2251,8 @@ From class
       <h5 class="jd-tagtitle">Parameters</h5>
       <table class="jd-tagtable">
         <tr>
-          <th>id</td>
-          <td>Of the Customer to get. The id is the one specified on creation, and not Handshake's uid
+          <th>resourceUri</td>
+          <td>Of the Customer to get. The resourceUri is the one specified on creation, and not Handshake's uid
 
  </td>
         </tr>
@@ -2260,7 +2260,7 @@ From class
   </div>
   <div class="jd-tagdata">
       <h5 class="jd-tagtitle">Returns</h5>
-      <ul class="nolist"><li>the customer with the given id, or null if it doesn't exist
+      <ul class="nolist"><li>the customer with the given resourceUri, or null if it doesn't exist
 </li></ul>
   </div>
 
