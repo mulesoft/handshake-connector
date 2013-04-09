@@ -171,15 +171,15 @@ public class HandshakeConnector {
     /**
      * Get a {@link org.mule.modules.handshake.core.Customer}, given its id
      * 
-     * @param id of the Customer to get. The id is the one specified on creation, and not Handshake's uid
+     * @param resourceUri of the Customer to get. The resourceUri is the one specified on creation, and not Handshake's uid
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer}
      *
-     * @return the customer with the given id, or null if it doesn't exist
+     * @return the customer with the given resourceUri, or null if it doesn't exist
      */
     @Processor
-    public Customer getCustomer(final String id) {
-        return getClientProvider().getClient(Customer.class).getById(id);
+    public Customer getCustomer(final String resourceUri) {
+        return getClientProvider().getClient(Customer.class).getByResourceUri(resourceUri);
     }
 
     /**

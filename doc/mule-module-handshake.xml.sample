@@ -9,7 +9,7 @@
     </handshake:find-customers>
 <!-- END_INCLUDE(handshake:find-customers-with-filters) -->
 <!-- BEGIN_INCLUDE(handshake:get-customer) -->
-    <handshake:get-customer id="1" />
+    <handshake:get-customer resourceUri="/api/v2/customers/1" />
 <!-- END_INCLUDE(handshake:get-customer) -->
 <!-- BEGIN_INCLUDE(handshake:get-customer-group) -->
     <handshake:get-customer-group id="1" />
