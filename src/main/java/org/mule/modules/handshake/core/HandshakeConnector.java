@@ -139,7 +139,7 @@ public class HandshakeConnector {
     }
 
     /**
-     * Get a {@link org.mule.modules.handshake.core.Order}, given its id
+     * Get a {@link org.mule.modules.handshake.core.Order}, given its resourceUri
      * 
      * @param resourceUri of the Order to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
      *
@@ -169,9 +169,9 @@ public class HandshakeConnector {
     }
 
     /**
-     * Get a {@link org.mule.modules.handshake.core.Customer}, given its id
+     * Get a {@link org.mule.modules.handshake.core.Customer}, given its resourceUri
      * 
-     * @param resourceUri of the Customer to get. The resourceUri is the one specified on creation, and not Handshake's uid
+     * @param resourceUri of the Customer to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
      *
      * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-customer}
      *
