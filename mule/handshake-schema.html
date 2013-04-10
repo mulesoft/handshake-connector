@@ -370,7 +370,7 @@ When you create a new object through the API, the returned value will always con
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-order&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetOrderType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Get a , given its id&lt;/xs:documentation&gt;
+      &lt;xs:documentation&gt;Get a , given its resourceUri&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
   &lt;xs:complexType name=&quot;GetOrderType&quot;&gt;
@@ -463,7 +463,7 @@ When you create a new object through the API, the returned value will always con
   &lt;/xs:complexType&gt;
   &lt;xs:element xmlns=&quot;http://www.mulesoft.org/schema/mule/handshake&quot; xmlns:mule=&quot;http://www.mulesoft.org/schema/mule/core&quot; name=&quot;get-customer&quot; substitutionGroup=&quot;mule:abstract-message-processor&quot; type=&quot;GetCustomerType&quot;&gt;
     &lt;xs:annotation&gt;
-      &lt;xs:documentation&gt;Get a , given its id&lt;/xs:documentation&gt;
+      &lt;xs:documentation&gt;Get a , given its resourceUri&lt;/xs:documentation&gt;
     &lt;/xs:annotation&gt;
   &lt;/xs:element&gt;
   &lt;xs:complexType name=&quot;GetCustomerType&quot;&gt;
@@ -476,7 +476,7 @@ When you create a new object through the API, the returned value will always con
         &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;resourceUri&quot; use=&quot;required&quot; type=&quot;xs:string&quot;&gt;
           &lt;xs:annotation&gt;
-            &lt;xs:documentation&gt;of the Customer to get. The resourceUri is the one specified on creation, and not Handshake's uid&lt;/xs:documentation&gt;
+            &lt;xs:documentation&gt;of the Customer to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&amp;amp;lt;resource&amp;amp;gt;/&amp;amp;lt;id&amp;amp;gt;')&lt;/xs:documentation&gt;
           &lt;/xs:annotation&gt;
         &lt;/xs:attribute&gt;
         &lt;xs:attribute name=&quot;apiKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
