@@ -3,19 +3,19 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.mule.modules</groupId>
 	<artifactId>mule-module-handshake</artifactId>
-	<version>0.4.1-SNAPSHOT</version>
+	<version>0.4.2-SNAPSHOT</version>
 	<packaging>mule-module</packaging>
 	<name>Mule Handshake Connector</name>
 
 	<parent>
 		<groupId>org.mule.tools.devkit</groupId>
 		<artifactId>mule-devkit-parent</artifactId>
-		<version>3.3.2</version>
+		<version>3.4.0</version>
 	</parent>
 
 	<properties>
-        <mule.version>3.3.0</mule.version>
-        <mule.devkit.version>3.3.2</mule.devkit.version>
+        <mule.version>3.4.0</mule.version>
+        <mule.devkit.version>3.4.0</mule.devkit.version>
 		<junit.version>4.9</junit.version>
         <jersey.version>1.16</jersey.version>
 		<jdk.version>1.6</jdk.version>
