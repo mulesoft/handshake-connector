@@ -2,11 +2,17 @@ org.mule.modules.handshake.client
 org.mule.modules.handshake.client.impl
 org.mule.modules.handshake.client.serialization
 org.mule.modules.handshake.core
+org.mule.modules.handshake.core.adapter
 org.mule.modules.handshake.core.adapters
 org.mule.modules.handshake.core.agents
+org.mule.modules.handshake.core.basic
+org.mule.modules.handshake.core.callback
 org.mule.modules.handshake.core.config
+org.mule.modules.handshake.core.connection
 org.mule.modules.handshake.core.connectivity
+org.mule.modules.handshake.core.devkit
 org.mule.modules.handshake.core.holders
+org.mule.modules.handshake.core.oauth
 org.mule.modules.handshake.core.process
 org.mule.modules.handshake.core.processors
 org.mule.modules.handshake.core.transformers

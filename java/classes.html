@@ -211,15 +211,27 @@
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/package-summary.html">org.mule.modules.handshake.core</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/adapter/package-summary.html">org.mule.modules.handshake.core.adapter</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/adapters/package-summary.html">org.mule.modules.handshake.core.adapters</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/agents/package-summary.html">org.mule.modules.handshake.core.agents</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/basic/package-summary.html">org.mule.modules.handshake.core.basic</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/callback/package-summary.html">org.mule.modules.handshake.core.callback</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/config/package-summary.html">org.mule.modules.handshake.core.config</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/connection/package-summary.html">org.mule.modules.handshake.core.connection</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/connectivity/package-summary.html">org.mule.modules.handshake.core.connectivity</a></li>
     <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/devkit/package-summary.html">org.mule.modules.handshake.core.devkit</a></li>
+    <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/holders/package-summary.html">org.mule.modules.handshake.core.holders</a></li>
+    <li class="api apilevel-">
+  <a href="../java/org/mule/modules/handshake/core/oauth/package-summary.html">org.mule.modules.handshake.core.oauth</a></li>
     <li class="api apilevel-">
   <a href="../java/org/mule/modules/handshake/core/process/package-summary.html">org.mule.modules.handshake.core.process</a></li>
     <li class="api apilevel-">
@@ -386,6 +398,18 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/basic/Capabilities.html">Capabilities</a></td>
+            <td class="jd-descrcol" width="100%">This interface is implemented for every org.mule.api.annotations.Module annotated class, to dynamically query what its capabilities are.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/basic/Capability.html">Capability</a></td>
+            <td class="jd-descrcol" width="100%">Enumeration of possible capabilities of Mule modules.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/Category.html">Category</a></td>
             <td class="jd-descrcol" width="100%">Representation of a Category resource in Handshake
  http://www.handshake-app.com/help/kb/api/category-resource&nbsp;</td>
@@ -413,6 +437,18 @@
         <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/transformers/CategorySubTypeEnumTransformer.html">CategorySubTypeEnumTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/connection/Connection.html">Connection</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/connection/ConnectionManager.html">ConnectionManager</a>&lt;K,&nbsp;C&nbsp;extends&nbsp;<a href="../java/org/mule/modules/handshake/core/connection/Connection.html">Connection</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Wrapper around org.mule.api.annotations.Connector annotated class that will infuse it with connection management capabilities.&nbsp;</td>
         </tr>
     
     
@@ -760,7 +796,7 @@
     
         <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/adapters/HandshakeConnectorConnectionIdentifierAdapter.html">HandshakeConnectorConnectionIdentifierAdapter</a></td>
-            <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that implements org.mule.api.Connection interface.&nbsp;</td>
+            <td class="jd-descrcol" width="100%">A <code>HandshakeConnectorConnectionIdentifierAdapter</code> is a wrapper around <code><a href="../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code> that implements org.mule.devkit.dynamic.api.helper.Connection interface.&nbsp;</td>
         </tr>
     
     
@@ -826,6 +862,18 @@
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/callback/HttpCallback.html">HttpCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/adapter/HttpCallbackAdapter.html">HttpCallbackAdapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
 </table>
 
 
@@ -877,6 +925,12 @@
         </tr>
     
     
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/basic/MetadataAware.html">MetadataAware</a></td>
+            <td class="jd-descrcol" width="100%">This interface is implemented for every org.mule.api.annotations.Module and org.mule.api.annotations.Connector annotated class and its purpose is to define a contract to query the annotated class about its metadata.&nbsp;</td>
+        </tr>
+    
+    
 </table>
 
 
@@ -890,11 +944,42 @@
         </tr>
     
     
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/NotAuthorizedException.html">NotAuthorizedException</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
 </table>
 
 
 <h2 id="letter_O">O</h2>
 <table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/OAuth1Adapter.html">OAuth1Adapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/OAuth2Adapter.html">OAuth2Adapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/OAuthAdapter.html">OAuthAdapter</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/OAuthManager.html">OAuthManager</a>&lt;C&nbsp;extends&nbsp;<a href="../java/org/mule/modules/handshake/core/oauth/OAuthAdapter.html">OAuthAdapter</a>&gt;</td>
+            <td class="jd-descrcol" width="100%">Wrapper around org.mule.api.annotations.oauth.OAuth annotated class that will infuse it with
+ access token management capabilities.&nbsp;</td>
+        </tr>
     
     
         <tr class="alt-color api apilevel-" >
@@ -930,8 +1015,38 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/adapter/PoolManager.html">PoolManager</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/ProcessAdapter.html">ProcessAdapter</a>&lt;O&gt;</td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/ProcessCallback.html">ProcessCallback</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">Callback with logic to execute within a controlled environment provided by <code><a href="../java/org/mule/modules/handshake/core/process/ProcessTemplate.html">ProcessTemplate</a></code>&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/ProcessCallbackProcessInterceptor.html">ProcessCallbackProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/ProcessInterceptor.html">ProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/ProcessTemplate.html">ProcessTemplate</a>&lt;T,&nbsp;O&gt;</td>
+            <td class="jd-descrcol" width="100%">ProcessTemplate provides a processing context for message processing.&nbsp;</td>
         </tr>
     
     
@@ -943,6 +1058,12 @@
     
     
         <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/RestoreAccessTokenCallback.html">RestoreAccessTokenCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/process/RetryProcessInterceptor.html">RetryProcessInterceptor</a>&lt;T,&nbsp;O&gt;</td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -975,6 +1096,32 @@
     
     
         <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/SaveAccessTokenCallback.html">SaveAccessTokenCallback</a></td>
+            <td class="jd-descrcol" width="100%">&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/callback/SourceCallback.html">SourceCallback</a></td>
+            <td class="jd-descrcol" width="100%">Callback interface used by org.mule.api.annotations.Source annotated methods to dispatch messages.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/devkit/SplashScreenAgent.html">SplashScreenAgent</a></td>
+            <td class="jd-descrcol" width="100%">Marks DevKit org.mule.api.agent.Agent implementations to take care of logging information at Mule app level mainly for troubleshooting purposes.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/callback/StopSourceCallback.html">StopSourceCallback</a></td>
+            <td class="jd-descrcol" width="100%">Callback returned by methods that are annotated with @Source
+ <p/>
+ It will be executed when the MessageSource is being stopped.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
             <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/transformers/StringToBigDecimalTransformer.html">StringToBigDecimalTransformer</a></td>
             <td class="jd-descrcol" width="100%">&nbsp;</td>
         </tr>
@@ -991,6 +1138,36 @@
 
 <h2 id="letter_U">U</h2>
 <table class="jd-sumtable">
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/UnableToAcquireAccessTokenException.html">UnableToAcquireAccessTokenException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the access token needed for accessing a protected resource cannot be acquired
+ 
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/connection/UnableToAcquireConnectionException.html">UnableToAcquireConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the connection needed for executing an
+  operation is null.&nbsp;</td>
+        </tr>
+    
+    
+        <tr class="alt-color api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/oauth/UnableToAcquireRequestTokenException.html">UnableToAcquireRequestTokenException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the request token needed for building the authorization URL cannot be acquired
+ 
+&nbsp;</td>
+        </tr>
+    
+    
+        <tr class=" api apilevel-" >
+            <td class="jd-linkcol"><a href="../java/org/mule/modules/handshake/core/connection/UnableToReleaseConnectionException.html">UnableToReleaseConnectionException</a></td>
+            <td class="jd-descrcol" width="100%">Exception thrown when the release connection operation of the
+  connection manager fails.&nbsp;</td>
+        </tr>
     
     
         <tr class="alt-color api apilevel-" >
