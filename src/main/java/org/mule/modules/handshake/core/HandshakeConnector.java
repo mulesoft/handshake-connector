@@ -74,7 +74,7 @@ public class HandshakeConnector {
      */
     @Configurable
     @Optional
-    @Default("https://preview.handshake-app.com/api/v2/")
+    @Default("https://app.handshake-app.com/api/v2/")
     private String endpoint;
 
     public String getEndpoint() {
