@@ -93,10 +93,10 @@ public class HandshakeConnector {
      * @throws ConnectionException
      */
     @Connect
-    public void connect(@ConnectionKey final String apiKey, @Optional @Password final String securityToken)
-        throws ConnectionException {
+    public void connect(@ConnectionKey final String apiKey, @Optional @Password final String securityToken) throws ConnectionException {
         this.apiKey = apiKey;
         this.securityToken = securityToken;
+        this.getClientProvider();
     }
 
     /**
@@ -104,7 +104,9 @@ public class HandshakeConnector {
      */
     @Disconnect
     public void disconnect() {
-        // Nothing to do here
+        this.clientProvider = null;
+        this.apiKey = null;
+        this.securityToken = null;
     }
 
     /**
@@ -135,7 +137,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Collection<Order> findOrders(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean fetchAllResults) {
-        return getClientProvider().getClient(Order.class).getAll(filters, fetchAllResults);
+        return this.clientProvider.getClient(Order.class).getAll(filters, fetchAllResults);
     }
 
     /**
@@ -149,7 +151,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Order getOrder(final String resourceUri) {
-        return getClientProvider().getClient(Order.class).getByResourceUri(resourceUri);
+        return this.clientProvider.getClient(Order.class).getByResourceUri(resourceUri);
     }
 
     /**
@@ -165,7 +167,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Collection<Customer> findCustomers(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean fetchAllResults) {
-        return getClientProvider().getClient(Customer.class).getAll(filters, fetchAllResults);
+        return this.clientProvider.getClient(Customer.class).getAll(filters, fetchAllResults);
     }
 
     /**
@@ -179,7 +181,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer getCustomer(final String resourceUri) {
-        return getClientProvider().getClient(Customer.class).getByResourceUri(resourceUri);
+        return this.clientProvider.getClient(Customer.class).getByResourceUri(resourceUri);
     }
 
     /**
@@ -196,7 +198,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer createCustomer(final Customer customer) {
-        return getClientProvider().getClient(Customer.class).create(customer);
+        return this.clientProvider.getClient(Customer.class).create(customer);
     }
 
     /**
@@ -214,7 +216,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Customer updateCustomer(@Optional final String resourceUri, final Customer customer) {
-        return getClientProvider().getClient(Customer.class).update(resourceUri, customer);
+        return this.clientProvider.getClient(Customer.class).update(resourceUri, customer);
     }
 
     /**
@@ -228,7 +230,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Collection<Item> findItems(@Optional @Placement(group="Filters") final Map<String, String> filters, @Optional @Default("false") final boolean fetchAllResults) {
-        return getClientProvider().getClient(Item.class).getAll(filters, fetchAllResults);
+        return this.clientProvider.getClient(Item.class).getAll(filters, fetchAllResults);
     }
 
     /**
@@ -242,7 +244,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Item createItem(final Item item) {
-        return getClientProvider().getClient(Item.class).create(item);
+        return this.clientProvider.getClient(Item.class).create(item);
     }
 
     /**
@@ -275,7 +277,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Item updateItem(@Optional final String resourceUri, final Item item) {
-        return getClientProvider().getClient(Item.class).update(resourceUri, item);
+        return this.clientProvider.getClient(Item.class).update(resourceUri, item);
     }
 
     /**
@@ -289,7 +291,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Category createCategory(final Category category) {
-        return getClientProvider().getClient(Category.class).create(category);
+        return this.clientProvider.getClient(Category.class).create(category);
     }
 
     /**
@@ -303,7 +305,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Category getCategory(final String id) {
-        return getClientProvider().getClient(Category.class).getById(id);
+        return this.clientProvider.getClient(Category.class).getById(id);
     }
 
     /**
@@ -317,7 +319,7 @@ public class HandshakeConnector {
      */
     @Processor
     public CustomerGroup getCustomerGroup(final String id) {
-        return getClientProvider().getClient(CustomerGroup.class).getById(id);
+        return this.clientProvider.getClient(CustomerGroup.class).getById(id);
     }
 
     /**
@@ -331,7 +333,7 @@ public class HandshakeConnector {
      */
     @Processor
     public UserGroup getUserGroup(final String id) {
-        return getClientProvider().getClient(UserGroup.class).getById(id);
+        return this.clientProvider.getClient(UserGroup.class).getById(id);
     }
 
     /**
@@ -346,7 +348,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Order createOrder(final Order order) {
-        return getClientProvider().getClient(Order.class).create(order);
+        return this.clientProvider.getClient(Order.class).create(order);
     }
 
     /**
@@ -360,7 +362,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Address getAddress(final String resourceUri) {
-        return getClientProvider().getClient(Address.class).getByResourceUri(resourceUri);
+        return this.clientProvider.getClient(Address.class).getByResourceUri(resourceUri);
     }
 
     /**
@@ -374,7 +376,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Address createAddress(final Address address) {
-        return getClientProvider().getClient(Address.class).create(address);
+        return this.clientProvider.getClient(Address.class).create(address);
     }
 
     /**
@@ -389,7 +391,7 @@ public class HandshakeConnector {
      */
     @Processor
     public Address updateAddress(@Optional final String resourceUri, final Address address) {
-        return getClientProvider().getClient(Address.class).update(resourceUri, address);
+        return this.clientProvider.getClient(Address.class).update(resourceUri, address);
     }
 
     public HandshakeClientProvider getClientProvider() {
