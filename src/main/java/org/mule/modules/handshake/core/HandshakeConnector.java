@@ -101,9 +101,7 @@ public class HandshakeConnector {
             throw new IllegalArgumentException("The Handshake endpoint must not be left blank");
         }
         
-        if (clientProvider == null) {
-            clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, this.securityToken);
-        }
+        this.clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, this.securityToken);
     }
 
     /**
