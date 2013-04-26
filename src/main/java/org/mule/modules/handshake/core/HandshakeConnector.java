@@ -94,9 +94,16 @@ public class HandshakeConnector {
      */
     @Connect
     public void connect(@ConnectionKey final String apiKey, @Optional @Password final String securityToken) throws ConnectionException {
-        this.apiKey = apiKey;
-        this.securityToken = securityToken;
-        this.getClientProvider();
+    	this.apiKey = apiKey;
+    	this.securityToken = securityToken;
+
+    	if (StringUtils.isBlank(endpoint)) {
+            throw new IllegalArgumentException("The Handshake endpoint must not be left blank");
+        }
+        
+        if (clientProvider == null) {
+            clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, this.securityToken);
+        }
     }
 
     /**
@@ -392,15 +399,5 @@ public class HandshakeConnector {
     @Processor
     public Address updateAddress(@Optional final String resourceUri, final Address address) {
         return this.clientProvider.getClient(Address.class).update(resourceUri, address);
-    }
-
-    public HandshakeClientProvider getClientProvider() {
-        if (StringUtils.isBlank(endpoint)) {
-            throw new IllegalArgumentException("The Handshake endpoint must not be left blank");
-        }
-        if (clientProvider == null) {
-            clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, securityToken);
-        }
-        return clientProvider;
     }
 }
