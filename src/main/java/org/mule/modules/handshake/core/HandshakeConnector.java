@@ -220,7 +220,7 @@ public class HandshakeConnector {
      * @return the updated customer
      */
     @Processor
-    public Customer updateCustomer(@Optional final String resourceUri, final Customer customer) {
+    public Customer updateCustomer(@Optional final String resourceUri, @Optional @Default("#[payload]") final Customer customer) {
         return this.clientProvider.getClient(Customer.class).update(resourceUri, customer);
     }
 
