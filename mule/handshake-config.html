@@ -2363,8 +2363,8 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
                 
                     <tr class="alt-color api apilevel-" >
                         <td class="jd-linkcol"><nobr>customer</nobr></td>
-                        <td class="jd-descrcol"></td>
-                        <td class="jd-descrcol">With the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
+                        <td class="jd-descrcol">#[payload]</td>
+                        <td class="jd-descrcol"><i>Optional.&nbsp;</i>With the changes to update. You should only include those fields that you want to update, specially if referencing existing nested objects (e.g. try not to include billing address information if it hasn't changed) 
 
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:update-customer resourceUri="/api/v2/customers/1"&gt;
     &lt;handshake:customer paymentTerms="New Payment Terms" /&gt;
