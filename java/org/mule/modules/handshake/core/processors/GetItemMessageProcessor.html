@@ -74,7 +74,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="../../../../../../../favicon.ico" />
 <title>
 
-  CreateCategoryMessageProcessor
+  GetItemMessageProcessor
 
 
 | Mule Handshake Connector
@@ -252,7 +252,7 @@
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/AbstractListeningMessageProcessor.html">AbstractListeningMessageProcessor</a>&lt;O&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/AbstractMessageProcessor.html">AbstractMessageProcessor</a>&lt;O&gt;</li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateAddressMessageProcessor.html">CreateAddressMessageProcessor</a></li>
-          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html">CreateCategoryMessageProcessor</a></li>
+          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html">CreateCategoryMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateCustomerMessageProcessor.html">CreateCustomerMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateItemMessageProcessor.html">CreateItemMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/CreateItemsMessageProcessor.html">CreateItemsMessageProcessor</a></li>
@@ -264,7 +264,7 @@
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCategoryMessageProcessor.html">GetCategoryMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomerGroupMessageProcessor.html">GetCustomerGroupMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetCustomerMessageProcessor.html">GetCustomerMessageProcessor</a></li>
-          <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html">GetItemMessageProcessor</a></li>
+          <li class="selected api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html">GetItemMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetOrderMessageProcessor.html">GetOrderMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/GetUserGroupMessageProcessor.html">GetUserGroupMessageProcessor</a></li>
           <li class="api apilevel-"><a href="../../../../../../../java/org/mule/modules/handshake/core/processors/UpdateAddressMessageProcessor.html">UpdateAddressMessageProcessor</a></li>
@@ -459,7 +459,7 @@ Summary:
      
     
     class
-<h1>CreateCategoryMessageProcessor</h1>
+<h1>GetItemMessageProcessor</h1>
 
 
 
@@ -553,7 +553,7 @@ Summary:
         
             <td class="jd-inheritance-space">&nbsp;&nbsp;&nbsp;&#x21b3;</td>
         
-        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.processors.CreateCategoryMessageProcessor</td>
+        <td colspan="1" class="jd-inheritance-class-cell">org.mule.modules.handshake.core.processors.GetItemMessageProcessor</td>
     </tr>
     
 
@@ -569,7 +569,7 @@ Summary:
 
 
 <h2>Class Overview</h2>
-<p>CreateCategoryMessageProcessor invokes the <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html#createCategory(org.mule.modules.handshake.core.Category)">createCategory(org.mule.modules.handshake.core.Category)</a></code> method in <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
+<p>GetItemMessageProcessor invokes the <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html#getItem(java.lang.String)">getItem(java.lang.String)</a></code> method in <code><a href="../../../../../../../java/org/mule/modules/handshake/core/HandshakeConnector.html">HandshakeConnector</a></code>. For each argument there is a field in this processor to match it.  Before invoking the actual method the processor will evaluate and transform where possible to the expected argument type.
  
 </p>
 
@@ -772,8 +772,8 @@ org.mule.api.lifecycle.Stoppable
           protected
           
           
-          <a href="../../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a></nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#_categoryType">_categoryType</a></td>
+          String</nobr></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#_resourceUriType">_resourceUriType</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -784,7 +784,7 @@ org.mule.api.lifecycle.Stoppable
           
           
           Object</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#category">category</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#resourceUri">resourceUri</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -971,7 +971,7 @@ org.mule.api.lifecycle.Stoppable
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#CreateCategoryMessageProcessor()">CreateCategoryMessageProcessor</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#GetItemMessageProcessor()">GetItemMessageProcessor</a></span>()</nobr>
         
   </td></tr>
 
@@ -1000,7 +1000,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#dispose()">dispose</a></span>()</nobr>
         
   </td></tr>
 
@@ -1016,7 +1016,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#initialise()">initialise</a></span>()</nobr>
         
         <div class="jd-descrdiv">Obtains the expression manager from the Mule context and initialises the connector.</div>
   
@@ -1034,7 +1034,7 @@ org.mule.api.lifecycle.Stoppable
             MuleEvent</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#process(org.mule.api.MuleEvent)">process</a></span>(MuleEvent event)</nobr>
         
         <div class="jd-descrdiv">Invokes the MessageProcessor.</div>
   
@@ -1052,25 +1052,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#setCategory(java.lang.Object)">setCategory</a></span>(Object value)</nobr>
-        
-        <div class="jd-descrdiv">Sets category</div>
-  
-  </td></tr>
-
-
-	 
-    <tr class="alt-color api apilevel-" >
-        <td class="jd-typecol"><nobr>
-            
-            
-            
-            
-            
-            void</nobr>
-        </td>
-        <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#setFlowConstruct(org.mule.api.construct.FlowConstruct)">setFlowConstruct</a></span>(FlowConstruct flowConstruct)</nobr>
         
         <div class="jd-descrdiv">Sets flow construct</div>
   
@@ -1078,6 +1060,24 @@ org.mule.api.lifecycle.Stoppable
 
 
 	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-typecol"><nobr>
+            
+            
+            
+            
+            
+            void</nobr>
+        </td>
+        <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        
+        <div class="jd-descrdiv">Set the Mule context</div>
+  
+  </td></tr>
+
+
+	 
     <tr class=" api apilevel-" >
         <td class="jd-typecol"><nobr>
             
@@ -1088,9 +1088,9 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#setMuleContext(org.mule.api.MuleContext)">setMuleContext</a></span>(MuleContext context)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#setResourceUri(java.lang.Object)">setResourceUri</a></span>(Object value)</nobr>
         
-        <div class="jd-descrdiv">Set the Mule context</div>
+        <div class="jd-descrdiv">Sets resourceUri</div>
   
   </td></tr>
 
@@ -1106,7 +1106,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#start()">start</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#start()">start</a></span>()</nobr>
         
   </td></tr>
 
@@ -1122,7 +1122,7 @@ org.mule.api.lifecycle.Stoppable
             void</nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/CreateCategoryMessageProcessor.html#stop()">stop</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/core/processors/GetItemMessageProcessor.html#stop()">stop</a></span>()</nobr>
         
   </td></tr>
 
@@ -2153,7 +2153,7 @@ From interface
 
 
 
-<A NAME="_categoryType"></A>
+<A NAME="_resourceUriType"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2161,9 +2161,9 @@ From interface
         protected 
          
          
-        <a href="../../../../../../../java/org/mule/modules/handshake/core/Category.html">Category</a>
+        String
       </span>
-        _categoryType
+        _resourceUriType
     </h4>
       <div class="api-level">
         
@@ -2183,7 +2183,7 @@ From interface
 
 
 
-<A NAME="category"></A>
+<A NAME="resourceUri"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2193,7 +2193,7 @@ From interface
          
         Object
       </span>
-        category
+        resourceUri
     </h4>
       <div class="api-level">
         
@@ -2222,7 +2222,7 @@ From interface
 
 
 
-<A NAME="CreateCategoryMessageProcessor()"></A>
+<A NAME="GetItemMessageProcessor()"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -2234,7 +2234,7 @@ From interface
          
         
       </span>
-      <span class="sympad">CreateCategoryMessageProcessor</span>
+      <span class="sympad">GetItemMessageProcessor</span>
       <span class="normal">()</span>
     </h4>
       <div class="api-level">
@@ -2388,47 +2388,6 @@ From interface
 </div>
 
 
-<A NAME="setCategory(java.lang.Object)"></A>
-
-<div class="jd-details api apilevel-"> 
-    <h4 class="jd-details-title">
-      <span class="normal">
-        public 
-         
-         
-         
-         
-        void
-      </span>
-      <span class="sympad">setCategory</span>
-      <span class="normal">(Object value)</span>
-    </h4>
-      <div class="api-level">
-        <div>
-
-</div>
-        
-  
-
-      </div>
-    <div class="jd-details-descr">
-      
-  <div class="jd-tagdata jd-tagdescr"><p>Sets category</p></div>
-  <div class="jd-tagdata">
-      <h5 class="jd-tagtitle">Parameters</h5>
-      <table class="jd-tagtable">
-        <tr>
-          <th>value</td>
-          <td>Value to set
-</td>
-        </tr>
-      </table>
-  </div>
-
-    </div>
-</div>
-
-
 <A NAME="setFlowConstruct(org.mule.api.construct.FlowConstruct)"></A>
 
 <div class="jd-details api apilevel-"> 
@@ -2502,6 +2461,47 @@ From interface
         <tr>
           <th>context</td>
           <td>Mule context to set
+</td>
+        </tr>
+      </table>
+  </div>
+
+    </div>
+</div>
+
+
+<A NAME="setResourceUri(java.lang.Object)"></A>
+
+<div class="jd-details api apilevel-"> 
+    <h4 class="jd-details-title">
+      <span class="normal">
+        public 
+         
+         
+         
+         
+        void
+      </span>
+      <span class="sympad">setResourceUri</span>
+      <span class="normal">(Object value)</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+        
+  
+
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Sets resourceUri</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>value</td>
+          <td>Value to set
 </td>
         </tr>
       </table>

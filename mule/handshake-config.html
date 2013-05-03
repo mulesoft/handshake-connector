@@ -458,6 +458,16 @@ Summary:
 	 
     <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
+        <span class="sympad"><a href="../mule/handshake-config.html#get-item">&lt;handshake:get-item&gt;</a></nobr>
+        
+        <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></code>, given its resourceUri</div>
+        
+  </td></tr>
+
+
+	 
+    <tr class="alt-color api apilevel-" >
+        <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-order">&lt;handshake:get-order&gt;</a></nobr>
         
         <div class="jd-descrdiv">Get a <code><a href="../java/org/mule/modules/handshake/core/Order.html">Order</a></code>, given its resourceUri</div>
@@ -466,7 +476,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#get-user-group">&lt;handshake:get-user-group&gt;</a></nobr>
         
@@ -476,7 +486,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#update-address">&lt;handshake:update-address&gt;</a></nobr>
         
@@ -486,7 +496,7 @@ Summary:
 
 
 	 
-    <tr class="alt-color api apilevel-" >
+    <tr class=" api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#update-customer">&lt;handshake:update-customer&gt;</a></nobr>
         
@@ -499,7 +509,7 @@ Summary:
 
 
 	 
-    <tr class=" api apilevel-" >
+    <tr class="alt-color api apilevel-" >
         <td class="jd-linkcol" width="100%"><nobr>
         <span class="sympad"><a href="../mule/handshake-config.html#update-item">&lt;handshake:update-item&gt;</a></nobr>
         
@@ -2012,6 +2022,99 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
              <tr>
                 <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/CustomerGroup.html">CustomerGroup</a></td>
                 <td class="jd-descrcol">the customer group with the given id, or null if it doesn't exist
+</td>
+             </tr>
+         </table>
+  </div>
+    
+  
+
+    </div>
+</div>
+
+
+<A NAME="get-item"></A>
+
+<div class="jd-details api apilevel-">
+    <h4 class="jd-details-title">
+      <span class="sympad">&lt;handshake:get-item&gt;</span>
+    </h4>
+      <div class="api-level">
+        <div>
+
+</div>
+      </div>
+    <div class="jd-details-descr">
+      
+  <div class="jd-tagdata jd-tagdescr"><p>Get a <code><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></code>, given its resourceUri</p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Attributes</h5>
+
+        <table id="lconfig" class="jd-sumtable">
+        <tr><th>Name</th><th>Default Value</th><th>Description</th><th>Java Type</th><th>MIME Type</th><th>Encoding</th></tr>
+        <tr>
+          <td class="jd-linkcol"><nobr>config-ref</nobr></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Specify which configuration to use.</td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+          <td class="jd-descrcol"></td>
+        </tr>
+          
+          
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>resourceUri</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol">Of the Item to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
+
+ <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:get-customer resourceUri="/api/v2/items/1" /&gt;</pre></div></td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                
+                
+          
+          
+              <tr><th colspan="12">Connection Parameters<br/><span style="font-weight: 200;">This are only required if you didn't specified them at the configuration element. They are also useful for overriding the values of the configurations or even if you need to extract them from the Mule message since they support expression evaluation.</span></th></tr>
+                
+                    <tr class="alt-color api apilevel-" >
+                        <td class="jd-linkcol"><nobr>apiKey</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>The API key for the user</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+                    <tr class=" api apilevel-" >
+                        <td class="jd-linkcol"><nobr>securityToken</nobr></td>
+                        <td class="jd-descrcol"></td>
+                        <td class="jd-descrcol" width="100%"><i>Optional.&nbsp;</i>Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication</td>
+                        <td class="jd-descrcol">String</td>
+                        <td class="jd-descrcol">*/*</td>
+                        <td class="jd-descrcol">UTF-8</td>
+                    </tr>
+                    
+                
+          
+          
+        </table>
+  </div>
+  
+  
+      <div class="jd-tagdata">
+         <h5 class="jd-tagtitle">Returns</h5>
+         <table id="lconfig" class="jd-sumtable">
+             <tr>
+                <th>Return Type</th>
+                <th>Description</th>
+             </tr>
+             <tr>
+                <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Item.html">Item</a></td>
+                <td class="jd-descrcol">the item with the given resourceUri, or null if it doesn't exist
 </td>
              </tr>
          </table>
