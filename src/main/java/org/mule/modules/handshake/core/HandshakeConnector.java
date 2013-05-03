@@ -271,6 +271,21 @@ public class HandshakeConnector {
     }
 
     /**
+     * Get a {@link org.mule.modules.handshake.core.Item}, given its resourceUri
+     * 
+     * @param resourceUri of the Item to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&lt;resource&gt;/&lt;id&gt;')
+     *
+     * {@sample.xml ../../../doc/mule-module-handshake.xml.sample handshake:get-item}
+     *
+     * @return the item with the given resourceUri, or null if it doesn't exist
+     */
+    @Processor
+    public Item getItem(final String resourceUri) {
+        return this.clientProvider.getClient(Item.class).getByResourceUri(resourceUri);
+    }
+
+    
+    /**
      * Updates a {@link org.mule.modules.handshake.core.Item} on Handshake, given its resourceUri
      * 
      * @param resourceUri of the Item to edit (if you skip this, you should include the resourceUri attribute in the item)

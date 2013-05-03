@@ -54,6 +54,9 @@
         </handshake:items>
     </handshake:create-items>
 <!-- END_INCLUDE(handshake:create-items) -->
+<!-- BEGIN_INCLUDE(handshake:get-item) -->
+    <handshake:get-customer resourceUri="/api/v2/items/1" />
+<!-- END_INCLUDE(handshake:get-item) -->
 <!-- BEGIN_INCLUDE(handshake:update-item) -->
     <handshake:update-item resourceUri="/api/v2/items/1">
         <handshake:item barcode="UPDATED" />

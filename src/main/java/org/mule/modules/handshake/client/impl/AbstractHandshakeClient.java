@@ -140,11 +140,15 @@ public abstract class AbstractHandshakeClient {
     /**
      * @param clientResponse returned by the invocation
      * @param responseType of the expected response
-     * @return the response, or an Exception if something bad happened
+     * @return the response, null if not found, or an Exception if something bad happened
      */
     private <T> T processResponse(final ClientResponse clientResponse, final Type responseType) {
         final String response = readResponseFromClientResponse(clientResponse);
-        if (clientResponse.getStatus() >= 400) {
+        
+        if (clientResponse.getStatus() == 404) {
+        	return null;
+        }
+        else if (clientResponse.getStatus() >= 400) {
             throw new HandshakeAPIException(response);
         }
 
