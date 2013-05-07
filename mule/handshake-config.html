@@ -921,6 +921,10 @@ attempts to reconnect only during business hours. Such a setting can prove usefu
  <div class="jd-tagdata"><h5 class="jd-tagtitle">XML Sample</h5><pre>&lt;handshake:create-customer&gt;
     &lt;handshake:customer id="EXAMPLE_ID" name="Some Customer"&gt;
         &lt;handshake:bill-to city="Springfield" street="742 Evergreen Terrace"/&gt;
+        &lt;handshake:ship-tos&gt;
+        	&lt;handshake:ship-to street="123 Street" city="San Mateo"/&gt;
+        	&lt;handshake:ship-to street="ABC Road" city="Foster City"/&gt;
+        &lt;/handshake:ship-tos&gt;
     &lt;/handshake:customer&gt;
 &lt;/handshake:create-customer&gt;</pre></div></td>
                         <td class="jd-descrcol"><a href="../java/org/mule/modules/handshake/core/Customer.html">Customer</a></td>
