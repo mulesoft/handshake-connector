@@ -28,11 +28,20 @@ public class Address extends HandshakeObject {
     private String country;
     private String phone;
     private String fax;
+    private Boolean isDefaultShipTo;
     private String multiLineStr;
     private String stCustomer;
     @SerializedName("resource_uri")
     private String resourceUri;
 
+    public Boolean getIsDefaultShipTo() {
+    	return isDefaultShipTo;
+    }
+    
+    public void setIsDefaultShipTo(final Boolean isDefaultShipTo) {
+    	this.isDefaultShipTo = isDefaultShipTo;
+    }
+    
     public String getId() {
         return id;
     }
