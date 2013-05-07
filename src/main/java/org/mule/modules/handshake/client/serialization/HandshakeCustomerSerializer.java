@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.mule.modules.handshake.client.impl.HandshakeAPIException;
+import org.mule.modules.handshake.core.Address;
 import org.mule.modules.handshake.core.CreditCard;
 import org.mule.modules.handshake.core.Customer;
 
@@ -37,6 +38,13 @@ public class HandshakeCustomerSerializer extends AbstractHandshakeSerializer<Cus
             } else {
                 throw new HandshakeAPIException("You can not create a new UserGroup via a Customer, you must do it first and then use a reference to it");
             }
+        }
+        if (src.getShipTos() != null) {
+            final List<Object> addresses = new ArrayList<Object>(src.getShipTos().size());
+            for (final Address address : src.getShipTos()) {
+                addresses.add(address.getResourceUri() != null ? address.getResourceUri() : address);
+            }
+            mappedCustomer.put("shipTos", addresses);
         }
         if (src.getCreditCards() != null) {
             final List<Object> cards = new ArrayList<Object>(src.getCreditCards().size());
