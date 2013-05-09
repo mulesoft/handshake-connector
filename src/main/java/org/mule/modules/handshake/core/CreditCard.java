@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class CreditCard extends HandshakeObject {
+public class CreditCard extends HandshakeObjectLightOwner {
     private String type;
     private String lastFour;
     private String month;
