@@ -14,6 +14,8 @@ import java.util.Date;
 public abstract class HandshakeObject {
     private Date mtime;
     private Date ctime;
+    private String owner;
+    private String ownerName;
 
     public Date getMtime() {
         return mtime;
@@ -21,6 +23,12 @@ public abstract class HandshakeObject {
     public Date getCtime() {
         return ctime;
     }
+	public String getOwner() {
+		return owner;
+	}
+	public String getOwnerName() {
+		return ownerName;
+	}
     // FIXME: This could be implemented here, but the samples wouldn't parse it: http://www.mulesoft.org/jira/browse/DEVKIT-317
     public abstract String getResourceUri();
 }

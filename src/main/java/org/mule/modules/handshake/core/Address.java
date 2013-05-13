@@ -17,7 +17,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class Address extends HandshakeObjectLightOwner {
+public class Address extends HandshakeObject {
     private String id;
     private String name;
     private String street;

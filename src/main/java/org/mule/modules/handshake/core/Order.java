@@ -45,7 +45,6 @@ public class Order extends HandshakeObject {
     private boolean shipPartial;
     private String signatureURL;
     private List<String> photoURLs;
-    private Owner owner;
     @SerializedName("resource_uri")
     private String resourceUri;
 
@@ -186,12 +185,6 @@ public class Order extends HandshakeObject {
     }
     public void setPhotoURLs(final List<String> photoURLs) {
         this.photoURLs = photoURLs;
-    }
-    public Owner getOwner() {
-    	return this.owner;
-    }
-    public void setOwner(final Owner owner) {
-    	this.owner = owner;
     }
     public void setResourceUri(final String resourceUri) {
         this.resourceUri = resourceUri;

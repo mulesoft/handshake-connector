@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class Variant extends HandshakeObjectLightOwner {
+public class Variant extends HandshakeObject {
 
     private String sku;
     private BigDecimal unitPrice;

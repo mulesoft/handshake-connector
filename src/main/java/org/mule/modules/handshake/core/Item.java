@@ -20,7 +20,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class Item extends HandshakeObjectLightOwner {
+public class Item extends HandshakeObject {
     private String sku;
     private String name;
     private String longDesc;

@@ -19,7 +19,7 @@ import com.google.gson.annotations.SerializedName;
  * 
  * @author marianosimone
  */
-public class UserGroup extends HandshakeObjectLightOwner {
+public class UserGroup extends HandshakeObject {
     private String name;
     private String id;
     private boolean isMaster;
