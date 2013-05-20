@@ -33,7 +33,7 @@ public class HandshakeClientProviderImpl implements HandshakeClientProvider {
     private final Map<Class<?>, GenericHandshakeClient<?>> clients;
 
     @SuppressWarnings("serial")
-    public HandshakeClientProviderImpl(final String baseUrl, final String apiKey, final String antiThrottleKey, final String securityToken) {
+    public HandshakeClientProviderImpl(final String baseUrl, final String apiKey, final String securityToken, final String antiThrottleKey) {
         try {
             final String encodedSecurityToken = StringUtils.isBlank(securityToken) ? "" : new Base64Encoder().doTransform(securityToken, "UTF-8").toString();
             this.clients = new HashMap<Class<?>, GenericHandshakeClient<?>>() {{
