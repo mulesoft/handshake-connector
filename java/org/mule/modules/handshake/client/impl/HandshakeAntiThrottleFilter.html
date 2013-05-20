@@ -502,10 +502,10 @@ Summary:
       <tr class=" api apilevel-" >
           <td class="jd-typecol"><nobr>
           private
-          static
           
+          final
           String</nobr></td>
-          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeAntiThrottleFilter.html#ANTI_THROTTLE_KEY">ANTI_THROTTLE_KEY</a></td>
+          <td class="jd-linkcol"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeAntiThrottleFilter.html#antiThrottleKey">antiThrottleKey</a></td>
           <td class="jd-descrcol" width="100%"></td>
       </tr>
       
@@ -582,7 +582,7 @@ com.sun.jersey.api.client.filter.ClientFilter
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeAntiThrottleFilter.html#HandshakeAntiThrottleFilter()">HandshakeAntiThrottleFilter</a></span>()</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeAntiThrottleFilter.html#HandshakeAntiThrottleFilter(java.lang.String)">HandshakeAntiThrottleFilter</a></span>(String antiThrottleKey)</nobr>
         
   </td></tr>
 
@@ -994,17 +994,17 @@ From interface
 
 
 
-<A NAME="ANTI_THROTTLE_KEY"></A>
+<A NAME="antiThrottleKey"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
       <span class="normal">
         private 
-        static 
          
+        final 
         String
       </span>
-        ANTI_THROTTLE_KEY
+        antiThrottleKey
     </h4>
       <div class="api-level">
         
@@ -1033,7 +1033,7 @@ From interface
 
 
 
-<A NAME="HandshakeAntiThrottleFilter()"></A>
+<A NAME="HandshakeAntiThrottleFilter(java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -1046,7 +1046,7 @@ From interface
         
       </span>
       <span class="sympad">HandshakeAntiThrottleFilter</span>
-      <span class="normal">()</span>
+      <span class="normal">(String antiThrottleKey)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -1059,6 +1059,15 @@ From interface
     <div class="jd-details-descr">
       
   <div class="jd-tagdata jd-tagdescr"><p></p></div>
+  <div class="jd-tagdata">
+      <h5 class="jd-tagtitle">Parameters</h5>
+      <table class="jd-tagtable">
+        <tr>
+          <th>antiThrottleKey</td>
+          <td></td>
+        </tr>
+      </table>
+  </div>
 
     </div>
 </div>

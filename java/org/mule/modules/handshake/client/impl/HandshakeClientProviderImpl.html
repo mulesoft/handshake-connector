@@ -503,7 +503,7 @@ Summary:
             </nobr>
         </td>
         <td class="jd-linkcol" width="100%"><nobr>
-        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html#HandshakeClientProviderImpl(java.lang.String, java.lang.String, java.lang.String)">HandshakeClientProviderImpl</a></span>(String baseUrl, String apiKey, String securityToken)</nobr>
+        <span class="sympad"><a href="../../../../../../../org/mule/modules/handshake/client/impl/HandshakeClientProviderImpl.html#HandshakeClientProviderImpl(java.lang.String, java.lang.String, java.lang.String, java.lang.String)">HandshakeClientProviderImpl</a></span>(String baseUrl, String apiKey, String antiThrottleKey, String securityToken)</nobr>
         
   </td></tr>
 
@@ -866,7 +866,7 @@ From interface
 
 
 
-<A NAME="HandshakeClientProviderImpl(java.lang.String, java.lang.String, java.lang.String)"></A>
+<A NAME="HandshakeClientProviderImpl(java.lang.String, java.lang.String, java.lang.String, java.lang.String)"></A>
 
 <div class="jd-details api apilevel-"> 
     <h4 class="jd-details-title">
@@ -879,7 +879,7 @@ From interface
         
       </span>
       <span class="sympad">HandshakeClientProviderImpl</span>
-      <span class="normal">(String baseUrl, String apiKey, String securityToken)</span>
+      <span class="normal">(String baseUrl, String apiKey, String antiThrottleKey, String securityToken)</span>
     </h4>
       <div class="api-level">
         <div>
@@ -901,6 +901,10 @@ From interface
         </tr>
         <tr>
           <th>apiKey</td>
+          <td></td>
+        </tr>
+        <tr>
+          <th>antiThrottleKey</td>
           <td></td>
         </tr>
         <tr>

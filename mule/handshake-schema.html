@@ -292,6 +292,11 @@ When you create a new object through the API, the returned value will always con
               &lt;xs:documentation&gt;Endpoint to which the Connector should connect and call API methods&lt;/xs:documentation&gt;
             &lt;/xs:annotation&gt;
           &lt;/xs:attribute&gt;
+          &lt;xs:attribute name=&quot;antiThrottleKey&quot; default=&quot;&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
+            &lt;xs:annotation&gt;
+              &lt;xs:documentation&gt;Secret key provided by Handshake to by-pass throttling checks. If you hit API-call limits, contact Handshake to require one&lt;/xs:documentation&gt;
+            &lt;/xs:annotation&gt;
+          &lt;/xs:attribute&gt;
           &lt;xs:attribute name=&quot;apiKey&quot; use=&quot;optional&quot; type=&quot;xs:string&quot;&gt;
             &lt;xs:annotation&gt;
               &lt;xs:documentation&gt;the API key for the user&lt;/xs:documentation&gt;
