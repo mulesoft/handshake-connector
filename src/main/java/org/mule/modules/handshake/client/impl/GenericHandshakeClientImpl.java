@@ -30,15 +30,17 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
 
     private final String apiKey;
     private final String securityToken;
+    private final String antiThrottleKey;
     private final String resourcePath;
     private final Type elementType;
     private final Type responseElementType;
     private static final Pattern RESOURCE_PATTERN = Pattern.compile("^/api/v.*/.*/(\\d+)$");
 
-    public GenericHandshakeClientImpl(final String baseUrl, final String apiKey, final String securityToken, final String resourcePath, final Type elementType, final Type responseElementType) {
+    public GenericHandshakeClientImpl(final String baseUrl, final String apiKey, final String securityToken, final String antiThrottleKey, final String resourcePath, final Type elementType, final Type responseElementType) {
         super(baseUrl);
         this.apiKey = apiKey;
         this.securityToken = securityToken;
+        this.antiThrottleKey = antiThrottleKey;
         this.resourcePath = resourcePath;
         this.elementType = elementType;
         this.responseElementType = responseElementType;
@@ -51,7 +53,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
 
     @Override
     public T create(final T t) {
-        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), null);
+        final Builder builder = getBuilder(apiKey, securityToken, antiThrottleKey, getBaseURL(), null);
         return this.post(builder, elementType, elementType, t);
     }
 
@@ -60,7 +62,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
         if (StringUtils.isBlank(resourceUri) && StringUtils.isBlank(edited.getResourceUri())) {
             throw new InvalidHandshakeObjectReferenceException("You have to either pass the resourceUri or set it to the element to edit");
         }
-        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(StringUtils.isBlank(resourceUri) ? edited.getResourceUri() : resourceUri), null);
+        final Builder builder = getBuilder(apiKey, securityToken, antiThrottleKey, this.detailUrl(StringUtils.isBlank(resourceUri) ? edited.getResourceUri() : resourceUri), null);
         return this.update(builder, elementType, edited);
     }
 
@@ -76,7 +78,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
         if (offset != null) {
             params.put("offset", offset.toString());
         }
-        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), params);
+        final Builder builder = getBuilder(apiKey, securityToken, antiThrottleKey, getBaseURL(), params);
         return this.get(builder, responseElementType);
     }
 
@@ -131,7 +133,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
     @Override
     public T getById(final String id) {
         @SuppressWarnings("serial")
-        final Builder builder = getBuilder(apiKey, securityToken, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
+        final Builder builder = getBuilder(apiKey, securityToken, antiThrottleKey, getBaseURL(), new HashMap<String, String>() {{put("id", id);}});
         final HandshakeAPIResponse<T> response = this.get(builder, responseElementType);
         if (!response.getObjects().isEmpty()) {
             return response.getObjects().get(0);
@@ -142,7 +144,7 @@ public class GenericHandshakeClientImpl<T extends HandshakeObject> extends Abstr
 
     @Override
     public T getByResourceUri(final String resourceUri) {
-        final Builder builder = getBuilder(apiKey, securityToken, this.detailUrl(resourceUri), null);
+        final Builder builder = getBuilder(apiKey, securityToken, antiThrottleKey, this.detailUrl(resourceUri), null);
         return this.singleGet(builder, elementType);
     }
 

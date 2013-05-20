@@ -86,6 +86,21 @@ public class HandshakeConnector {
     }
 
     /**
+     * Secret key provided by Handshake to by-pass throttling checks. If you hit API-call limits, contact Handshake to require one
+     */
+    @Configurable
+    @Optional
+    @Default("")
+    private String antiThrottleKey;
+
+    public String getAntiThrottleKey() {
+        return this.antiThrottleKey;
+    }
+    public void setAntiThrottleKey(final String antiThrottleKey) {
+        this.antiThrottleKey = antiThrottleKey;
+    }
+
+    /**
      * Connect
      *
      * @param apiKey the API key for the user
@@ -101,7 +116,7 @@ public class HandshakeConnector {
             throw new IllegalArgumentException("The Handshake endpoint must not be left blank");
         }
         
-        this.clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, this.securityToken);
+        this.clientProvider = new HandshakeClientProviderImpl(endpoint, apiKey, this.securityToken, this.antiThrottleKey);
     }
 
     /**

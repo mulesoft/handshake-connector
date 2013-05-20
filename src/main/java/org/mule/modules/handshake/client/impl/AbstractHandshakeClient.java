@@ -19,6 +19,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
+
 import org.mule.modules.handshake.client.serialization.BigDecimalAsStringSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeCustomerSerializer;
 import org.mule.modules.handshake.client.serialization.HandshakeItemSerializer;
@@ -91,7 +93,7 @@ public abstract class AbstractHandshakeClient {
      * @param queryParameters a map containing all the query parameters
      * @return the builder.
      */
-    protected WebResource.Builder getBuilder(final String user, final String password, final String url, final Map<String, String> queryParameters) {
+    protected WebResource.Builder getBuilder(final String user, final String password, final String antiThrottleKey, final String url, final Map<String, String> queryParameters) {
 
         final ClientConfig clientConfig = getJerseyClientConfiguration();
 
@@ -103,7 +105,9 @@ public abstract class AbstractHandshakeClient {
         }
 
         client.addFilter(getBasicAuthenticationFilter(user, password));
-        client.addFilter(new HandshakeAntiThrottleFilter());
+        if (StringUtils.isNotBlank(antiThrottleKey)) {
+            client.addFilter(new HandshakeAntiThrottleFilter(antiThrottleKey));
+        }
         client.addFilter(new LoggingFilter());
 
         final WebResource wr = client.resource(url);
