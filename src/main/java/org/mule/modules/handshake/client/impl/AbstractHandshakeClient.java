@@ -103,6 +103,7 @@ public abstract class AbstractHandshakeClient {
         }
 
         client.addFilter(getBasicAuthenticationFilter(user, password));
+        client.addFilter(new HandshakeAntiThrottleFilter());
         client.addFilter(new LoggingFilter());
 
         final WebResource wr = client.resource(url);
