@@ -16,7 +16,7 @@ import com.sun.jersey.api.client.filter.ClientFilter;
 
 public class HandshakeAntiThrottleFilter extends ClientFilter {
 
-    private static String ANTI_THROTTLE_HEADER_NAME = "HTTP_X_THROTTLE_SECRET";
+    private static String ANTI_THROTTLE_HEADER_NAME = "X-throttle-secret";
     private final String antiThrottleKey;
     
     public HandshakeAntiThrottleFilter(final String antiThrottleKey) {
