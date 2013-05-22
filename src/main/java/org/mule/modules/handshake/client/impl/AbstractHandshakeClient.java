@@ -104,11 +104,11 @@ public abstract class AbstractHandshakeClient {
             client = Client.create(clientConfig);
         }
 
+        client.addFilter(new LoggingFilter());
         client.addFilter(getBasicAuthenticationFilter(user, password));
         if (StringUtils.isNotBlank(antiThrottleKey)) {
             client.addFilter(new HandshakeAntiThrottleFilter(antiThrottleKey));
         }
-        client.addFilter(new LoggingFilter());
 
         final WebResource wr = client.resource(url);
         final MultivaluedMap<String, String> actualQueryParameters = mapToMultivaluedMap(queryParameters);
