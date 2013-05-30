@@ -16,6 +16,7 @@ public abstract class HandshakeObject {
     private Date ctime;
     private String owner;
     private String ownerName;
+    private String objID;
 
     public Date getMtime() {
         return mtime;
@@ -28,6 +29,12 @@ public abstract class HandshakeObject {
 	}
 	public String getOwnerName() {
 		return ownerName;
+	}
+	public String getObjID() {
+		return objID;
+	}
+	public void setObjID(final String objID) {
+		this.objID = objID;
 	}
     // FIXME: This could be implemented here, but the samples wouldn't parse it: http://www.mulesoft.org/jira/browse/DEVKIT-317
     public abstract String getResourceUri();
