@@ -47,6 +47,22 @@ public class Order extends HandshakeObject {
     private List<String> photoURLs;
     @SerializedName("resource_uri")
     private String resourceUri;
+    private String totalOffDiscount;
+    private String percentDiscount;
+    
+    
+    public String getTotalOffDiscount() {
+		return totalOffDiscount;
+	}
+	public void setTotalOffDiscount(String totalOffDiscount) {
+		this.totalOffDiscount = totalOffDiscount;
+	}
+	public String getPercentDiscount() {
+		return percentDiscount;
+	}
+	public void setPercentDiscount(String percentDiscount) {
+		this.percentDiscount = percentDiscount;
+	}
 
     public String getId() {
         return id;
