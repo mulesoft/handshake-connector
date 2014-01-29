@@ -22,7 +22,7 @@ import com.google.gson.annotations.SerializedName;
 public class Category extends HandshakeObject {
     private String name;
     private String id;
-    private int categoryPosition;
+    private Integer categoryPosition;
     private String parent;
     private CategorySubType subType;
     private List<String> subcategories;
@@ -41,10 +41,10 @@ public class Category extends HandshakeObject {
     public void setId(final String id) {
         this.id = id;
     }
-    public int getCategoryPosition() {
+    public Integer getCategoryPosition() {
         return categoryPosition;
     }
-    public void setCategoryPosition(final int categoryPosition) {
+    public void setCategoryPosition(final Integer categoryPosition) {
         this.categoryPosition = categoryPosition;
     }
     public String getParent() {

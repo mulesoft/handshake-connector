@@ -25,7 +25,7 @@ public class SalesOrderLine extends HandshakeObject {
     private String barcode;
     private String item;
     private String description;
-    private int qty;
+    private Integer qty;
     private BigDecimal unitPrice = BigDecimal.ZERO;
     private String notes;
     private String listPrice;
@@ -68,10 +68,10 @@ public class SalesOrderLine extends HandshakeObject {
     public void setDescription(final String description) {
         this.description = description;
     }
-    public int getQty() {
+    public Integer getQty() {
         return qty;
     }
-    public void setQty(final int qty) {
+    public void setQty(final Integer qty) {
         this.qty = qty;
     }
     public BigDecimal getUnitPrice() {
