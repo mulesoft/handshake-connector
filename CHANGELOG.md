@@ -4,7 +4,7 @@
 * Date: 17-October-2013
 * Supported API Version: V2 (handshake-app.com/api/v2/)
 * Supported Mule Runtime Versions: 3.4.0
-* New Features and Functionality
+* Changes in this release: 
 
 Added *totalOffDiscount* and *percentDiscount* fields on Order
 
@@ -13,7 +13,7 @@ Added *totalOffDiscount* and *percentDiscount* fields on Order
 * Date: 8-July-2013
 * Supported API Version: V2 (handshake-app.com/api/v2/)
 * Supported Mule Runtime Versions: 3.4.0
-* Closed Issues in this release
+* Changes in this release:
 
 Fix on filtering (Ordering).
 
@@ -27,7 +27,7 @@ Added *ObjId* parameter (needed).
 * Date: 21-May-2013
 * Supported API Version: V2 (handshake-app.com/api/v2/)
 * Supported Mule Runtime Versions: 3.4.0
-* New Features and Functionality:
+* Changes in this release:
 
 First release of connector supporting V2 Handshake API. Docs: https://help.handshake-app.com/customer/portal/topics/464290-api-documentation/articles
 
