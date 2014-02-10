@@ -1,5 +1,5 @@
 # Handshake Connector Release Notes
-===================================
+
 ## mule-module-handshake-1.0.2 
 * Date: 17-October-2013
 * Supported API Version: V2 (handshake-app.com/api/v2/)
