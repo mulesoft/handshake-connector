@@ -1,5 +1,14 @@
 # Handshake Connector Release Notes
 
+## mule-module-handshake-1.0.3 
+* Date: 13-February-2014
+* Supported API Version: V2 (handshake-app.com/api/v2/)
+* Supported Mule Runtime Versions: 3.4.0
+* Changes in this release: 
+
+Correcting bug about some fields being wrongly set with a 0 value instead of null.
+This change affected Category, Item and SalesOrderLine objects.
+
 ## mule-module-handshake-1.0.2 
 * Date: 17-October-2013
 * Supported API Version: V2 (handshake-app.com/api/v2/)
