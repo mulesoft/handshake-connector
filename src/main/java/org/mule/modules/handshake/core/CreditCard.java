@@ -84,4 +84,77 @@ public class CreditCard extends HandshakeObject {
     public String getResourceUri() {
         return this.resourceUri;
     }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((cvv == null) ? 0 : cvv.hashCode());
+		result = prime * result + ((expiry == null) ? 0 : expiry.hashCode());
+		result = prime * result + ((lastFour == null) ? 0 : lastFour.hashCode());
+		result = prime * result + ((month == null) ? 0 : month.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((number == null) ? 0 : number.hashCode());
+		result = prime * result + ((resourceUri == null) ? 0 : resourceUri.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((year == null) ? 0 : year.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CreditCard other = (CreditCard) obj;
+		if (cvv == null) {
+			if (other.cvv != null)
+				return false;
+		} else if (!cvv.equals(other.cvv))
+			return false;
+		if (expiry == null) {
+			if (other.expiry != null)
+				return false;
+		} else if (!expiry.equals(other.expiry))
+			return false;
+		if (lastFour == null) {
+			if (other.lastFour != null)
+				return false;
+		} else if (!lastFour.equals(other.lastFour))
+			return false;
+		if (month == null) {
+			if (other.month != null)
+				return false;
+		} else if (!month.equals(other.month))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (number == null) {
+			if (other.number != null)
+				return false;
+		} else if (!number.equals(other.number))
+			return false;
+		if (resourceUri == null) {
+			if (other.resourceUri != null)
+				return false;
+		} else if (!resourceUri.equals(other.resourceUri))
+			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
+		if (year == null) {
+			if (other.year != null)
+				return false;
+		} else if (!year.equals(other.year))
+			return false;
+		return true;
+	}
+    
+    
 }

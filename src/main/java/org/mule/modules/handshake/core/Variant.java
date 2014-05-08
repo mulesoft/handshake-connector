@@ -52,4 +52,46 @@ public class Variant extends HandshakeObject {
     public String getResourceUri() {
         return this.resourceUri;
     }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((barcode == null) ? 0 : barcode.hashCode());
+		result = prime * result + ((resourceUri == null) ? 0 : resourceUri.hashCode());
+		result = prime * result + ((sku == null) ? 0 : sku.hashCode());
+		result = prime * result + ((unitPrice == null) ? 0 : unitPrice.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Variant other = (Variant) obj;
+		if (barcode == null) {
+			if (other.barcode != null)
+				return false;
+		} else if (!barcode.equals(other.barcode))
+			return false;
+		if (resourceUri == null) {
+			if (other.resourceUri != null)
+				return false;
+		} else if (!resourceUri.equals(other.resourceUri))
+			return false;
+		if (sku == null) {
+			if (other.sku != null)
+				return false;
+		} else if (!sku.equals(other.sku))
+			return false;
+		if (unitPrice == null) {
+			if (other.unitPrice != null)
+				return false;
+		} else if (!unitPrice.equals(other.unitPrice))
+			return false;
+		return true;
+	}
+    
 }

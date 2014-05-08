@@ -72,4 +72,62 @@ public class Category extends HandshakeObject {
     public String getResourceUri() {
         return this.resourceUri;
     }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((categoryPosition == null) ? 0 : categoryPosition.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((parent == null) ? 0 : parent.hashCode());
+		result = prime * result + ((resourceUri == null) ? 0 : resourceUri.hashCode());
+		result = prime * result + ((subType == null) ? 0 : subType.hashCode());
+		result = prime * result + ((subcategories == null) ? 0 : subcategories.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		if (categoryPosition == null) {
+			if (other.categoryPosition != null)
+				return false;
+		} else if (!categoryPosition.equals(other.categoryPosition))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (parent == null) {
+			if (other.parent != null)
+				return false;
+		} else if (!parent.equals(other.parent))
+			return false;
+		if (resourceUri == null) {
+			if (other.resourceUri != null)
+				return false;
+		} else if (!resourceUri.equals(other.resourceUri))
+			return false;
+		if (subType != other.subType)
+			return false;
+		if (subcategories == null) {
+			if (other.subcategories != null)
+				return false;
+		} else if (!subcategories.equals(other.subcategories))
+			return false;
+		return true;
+	}
+    
+    
 }

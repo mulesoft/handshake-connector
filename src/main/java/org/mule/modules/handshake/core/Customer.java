@@ -135,4 +135,119 @@ public class Customer extends HandshakeObject {
     public String getResourceUri() {
         return this.resourceUri;
     }
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((billTo == null) ? 0 : billTo.hashCode());
+		result = prime * result + ((contact == null) ? 0 : contact.hashCode());
+		result = prime * result + ((creditCards == null) ? 0 : creditCards.hashCode());
+		result = prime * result + ((currency == null) ? 0 : currency.hashCode());
+		result = prime * result + ((customerGroup == null) ? 0 : customerGroup.hashCode());
+		result = prime * result + ((defaultShipTo == null) ? 0 : defaultShipTo.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((locale == null) ? 0 : locale.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((paymentTerms == null) ? 0 : paymentTerms.hashCode());
+		result = prime * result + ((resourceUri == null) ? 0 : resourceUri.hashCode());
+		result = prime * result + ((shipTos == null) ? 0 : shipTos.hashCode());
+		result = prime * result + ((shippingMethod == null) ? 0 : shippingMethod.hashCode());
+		result = prime * result + ((taxId == null) ? 0 : taxId.hashCode());
+		result = prime * result + ((userGroup == null) ? 0 : userGroup.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Customer other = (Customer) obj;
+		if (billTo == null) {
+			if (other.billTo != null)
+				return false;
+		} else if (!billTo.equals(other.billTo))
+			return false;
+		if (contact == null) {
+			if (other.contact != null)
+				return false;
+		} else if (!contact.equals(other.contact))
+			return false;
+		if (creditCards == null) {
+			if (other.creditCards != null)
+				return false;
+		} else if (!creditCards.equals(other.creditCards))
+			return false;
+		if (currency == null) {
+			if (other.currency != null)
+				return false;
+		} else if (!currency.equals(other.currency))
+			return false;
+		if (customerGroup == null) {
+			if (other.customerGroup != null)
+				return false;
+		} else if (!customerGroup.equals(other.customerGroup))
+			return false;
+		if (defaultShipTo == null) {
+			if (other.defaultShipTo != null)
+				return false;
+		} else if (!defaultShipTo.equals(other.defaultShipTo))
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (locale == null) {
+			if (other.locale != null)
+				return false;
+		} else if (!locale.equals(other.locale))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (paymentTerms == null) {
+			if (other.paymentTerms != null)
+				return false;
+		} else if (!paymentTerms.equals(other.paymentTerms))
+			return false;
+		if (resourceUri == null) {
+			if (other.resourceUri != null)
+				return false;
+		} else if (!resourceUri.equals(other.resourceUri))
+			return false;
+		if (shipTos == null) {
+			if (other.shipTos != null)
+				return false;
+		} else if (!shipTos.equals(other.shipTos))
+			return false;
+		if (shippingMethod == null) {
+			if (other.shippingMethod != null)
+				return false;
+		} else if (!shippingMethod.equals(other.shippingMethod))
+			return false;
+		if (taxId == null) {
+			if (other.taxId != null)
+				return false;
+		} else if (!taxId.equals(other.taxId))
+			return false;
+		if (userGroup == null) {
+			if (other.userGroup != null)
+				return false;
+		} else if (!userGroup.equals(other.userGroup))
+			return false;
+		return true;
+	}
+    
+    
 }
