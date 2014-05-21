@@ -12,18 +12,25 @@ package org.mule.modules.handshake.core;
 import java.util.Date;
 
 public abstract class HandshakeObject {
-    private Date mtime;
+    
+	private Date mtime;
     private Date ctime;
     private String owner;
     private String ownerName;
     private String objID;
 
     public Date getMtime() {
-        return mtime;
-    }
-    public Date getCtime() {
-        return ctime;
-    }
+		return mtime;
+	}
+	public void setMtime(Date mtime) {
+		this.mtime = mtime;
+	}
+	public Date getCtime() {
+		return ctime;
+	}
+	public void setCtime(Date ctime) {
+		this.ctime = ctime;
+	}
 	public String getOwner() {
 		return owner;
 	}
@@ -36,9 +43,11 @@ public abstract class HandshakeObject {
 	public void setObjID(final String objID) {
 		this.objID = objID;
 	}
-    // FIXME: This could be implemented here, but the samples wouldn't parse it: http://www.mulesoft.org/jira/browse/DEVKIT-317
+   
+	// FIXME: This could be implemented here, but the samples wouldn't parse it: http://www.mulesoft.org/jira/browse/DEVKIT-317
     public abstract String getResourceUri();
-	@Override
+	
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
