@@ -1,5 +1,13 @@
 # Handshake Connector Release Notes
 
+## mule-module-handshake-1.0.4 
+* Date: 03-June-2014
+* Supported API Version: V2 (handshake-app.com/api/v2/)
+* Supported Mule Runtime Versions: 3.4.0
+* Changes in this release: 
+
+Improved object comparison for the Handshake Data Model Classes.
+
 ## mule-module-handshake-1.0.3 
 * Date: 13-February-2014
 * Supported API Version: V2 (handshake-app.com/api/v2/)
