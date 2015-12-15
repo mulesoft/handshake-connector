@@ -2,7 +2,9 @@
 Handshake
 =========================
 
-Connector for handshake, a product presentation and catalog, order entry and customer list and info app at https://www.handshake-app.com
+Handshake provides the B2B Commerce platform for manufacturers and distributors that powers standout ordering 
+experiences both in-person and online. Companies using Handshake transform their sales effectiveness and drive 
+operational efficiency, delighting customers and growing lasting relationships.
 
 Installation and Usage
 ----------------------
@@ -37,3 +39,8 @@ Reporting Issues
 ----------------
 
 We use GitHub:Issues for tracking issues with this connector. You can report new issues at this link https://github.com/mulesoft/handshake-connector/issues
+
+
+Find something you don't like?
+-----------------------------
+Want to add your own magic to the connector? Go to [Contributing to Anypoint Community Connectors](http://mulesoft.github.io/connector-certification-docs/contr/index.html) and learn how you can also be a part of it.

@@ -1,9 +1,8 @@
 /**
- * (c) 2003-2014 MuleSoft, Inc. The software in this package is published under
- * the terms of the CPAL v1.0 license, a copy of which has been included with this
- * distribution in the LICENSE.md file.
+ * (c) 2003-2015 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
-
 package org.mule.modules.handshake.core;
 
 import java.util.List;
@@ -13,8 +12,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Representation of a Customer resource in Handshake
  * http://www.handshake-app.com/help/kb/api/customer-resource
- * 
- * @author marianosimone
  */
 public class Customer extends HandshakeObject {
     private String contact;

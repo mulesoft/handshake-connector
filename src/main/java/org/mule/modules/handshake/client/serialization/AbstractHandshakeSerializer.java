@@ -1,9 +1,8 @@
 /**
- * (c) 2003-2014 MuleSoft, Inc. The software in this package is published under
- * the terms of the CPAL v1.0 license, a copy of which has been included with this
- * distribution in the LICENSE.md file.
+ * (c) 2003-2015 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
-
 package org.mule.modules.handshake.client.serialization;
 
 import java.lang.reflect.Type;
@@ -21,11 +20,9 @@ import com.google.gson.JsonSerializer;
  * object instead of the full object to be created.
  * 
  * Child classes must implement class-specific replacements for the Map that will be jsonified
- * @author marianosimone
  */
 public abstract class AbstractHandshakeSerializer<T> implements JsonSerializer<T> {
 
-    @Override
     public JsonElement serialize(final T src, final Type typeOfSrc, final JsonSerializationContext context) {
         try {
             @SuppressWarnings("unchecked")

@@ -1,9 +1,8 @@
 /**
- * (c) 2003-2014 MuleSoft, Inc. The software in this package is published under
- * the terms of the CPAL v1.0 license, a copy of which has been included with this
- * distribution in the LICENSE.md file.
+ * (c) 2003-2015 MuleSoft, Inc. The software in this package is
+ * published under the terms of the CPAL v1.0 license, a copy of which
+ * has been included with this distribution in the LICENSE.md file.
  */
-
 package org.mule.modules.handshake.client;
 
 import java.util.Collection;
@@ -16,7 +15,7 @@ public interface GenericHandshakeClient<T> {
 
     /**
      * Create the given element on Handshake for the connected account
-     * @param element to be created
+     * @param t to be created
      * @return the created element
      */
     T create(final T t);
@@ -57,7 +56,7 @@ public interface GenericHandshakeClient<T> {
     
     /**
      * Get one element, matching the given Handshake Id (resourceUri)
-     * @param id of the element to get
+     * @param resourceUri of the element to get
      * @return the element with the given id
      * @throws IllegalArgumentException if the resourceUri is not well-formed
      * @throws HandshakeAPIException if the element doesn't exist in Handshake
