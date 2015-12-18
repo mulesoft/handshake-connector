@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<namespace xmlns="http://www.mulesoft.org/schema/mule/tooling.attributes" xmlns:mule="http://www.mulesoft.org/schema/mule/core" url="http://www.mulesoft.org/schema/mule/handshake" prefix="handshake">
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Handshake" description="" icon="" localId="parentConfig" image="" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric"></global-cloud-connector>
+  <nested caption="" description="" localId="connection-pooling-profile" abstract="true">
+    <radioBoolean name="defaultPoolingProfile" caption="Use default connection pool configuration" description="Use default connection pool configuration." fillLine="true"></radioBoolean>
+    <radioBoolean name="customPoolingProfile" caption="Define connection pool configuration" description="Define connection pool configuration." fillLine="true"></radioBoolean>
+    <integer defaultValue="5" min="-1" step="0" name="maxActive" caption="Max active" description="Controls the maximum number of connections that can be borrowed from the pool at one time. When set to a negative value, there is no limit to the number of connections that may be active at one time. When maxActive is exceeded, the pool is said to be exhausted." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="5" min="-1" step="0" name="maxIdle" caption="Max idle" description="Controls the maximum number of connections that can sit idle in the pool at any time. When set to a negative value, there is no limit to the number of connections that may be idle at one time." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <enum defaultValue="INITIALISE_ONE" name="initialisationPolicy" caption="Initialisation policy" description="Determines how connections in a pool should be initialized. The possible values are: INITIALISE_NONE (will not load any connection into the pool on startup), INITIALISE_ONE (will load one initial connection into the pool on startup), or INITIALISE_ALL (will load all connections in the pool on startup)" alwaysFill="true" controlled="customPoolingProfile" indented="true">
+      <option value="INITIALISE_NONE"></option>
+      <option value="INITIALISE_ONE"></option>
+      <option value="INITIALISE_ALL"></option>
+    </enum>
+    <enum defaultValue="WHEN_EXHAUSTED_GROW" name="exhaustedAction" caption="Exhausted action" description="Specifies the behavior of the connection pool when the pool is exhausted. Possible values are: &quot;WHEN_EXHAUSTED_FAIL&quot;, which will throw a NoSuchElementException, &quot;WHEN_EXHAUSTED_WAIT&quot;, which will block by invoking Object.wait(long) until a new or idle object is available, or WHEN_EXHAUSTED_GROW, which will create a new connection and return it, essentially making maxActive meaningless. If a positive maxWait value is supplied, it will block for at most that many milliseconds, after which a NoSuchElementException will be thrown. If maxThreadWait is a negative value, it will block indefinitely." alwaysFill="true" controlled="customPoolingProfile" indented="true">
+      <option value="WHEN_EXHAUSTED_WAIT"></option>
+      <option value="WHEN_EXHAUSTED_FAIL"></option>
+      <option value="WHEN_EXHAUSTED_GROW"></option>
+    </enum>
+    <integer defaultValue="5" min="-1" step="0" name="maxWait" caption="Max wait" description="When exhausted action is Wait (or block) this is the amount of time in milliseconds that the pool will wait before failing. Setting a negative value will block indefinitely until an idle instance becomes available." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="1800000" min="-1" step="0" name="minEvictionMillis" caption="Min eviction (ms)" description="Determines the minimum amount of time a connection may sit idle in the pool before it is eligible for eviction. When non-positive, no connections will be evicted from the pool due to idle time alone." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+    <integer defaultValue="-1" min="-1" step="0" name="evictionCheckIntervalMillis" caption="Eviction check interval (ms)" description="Specifies the number of milliseconds between runs of the connection evictor. When non-positive, no connection evictor is executed." controlled="customPoolingProfile" indented="true" fillLine="true"></integer>
+  </nested>
+  <nested caption="" description="" localId="reconnectionStrategyElement" abstract="true">
+    <label name="connectionLabel" caption="Define how mule should attempt to handle a connection failure" description=""></label>
+    <radioBoolean name="noReconnection" caption="Do not use a Reconnection strategy" description="Disable reconection strategy" fillLine="true"></radioBoolean>
+    <radioBoolean name="standardReconnection" caption="Standard Reconnection" description="A reconnection strategy that allows the user to configure how many times a reconnection should be attempted and how long to wait between attempts." fillLine="true"></radioBoolean>
+    <integer defaultValue="2000" min="1" max="2147483647" step="1" name="reconnectionFrequency" caption="Frequency (ms)" description="How often (in ms) to reconnect" controlled="standardReconnection" indented="true"></integer>
+    <integer defaultValue="2" min="1" max="2147483647" step="1" name="reconnectionAttemps" caption="Reconnection Attempts" description="How many reconnection attempts to make" controlled="standardReconnection,!reconnectForever" indented="true"></integer>
+    <boolean name="reconnectForever" caption="Reconnect Forever" description="A reconnection strategy that retries an infinite number of times at the specified frequency." controlled="standardReconnection" indented="true"></boolean>
+    <radioBoolean name="customReconnection" caption="Custom Reconnection" description="A user-defined reconnection strategy." fillLine="true"></radioBoolean>
+    <classname name="class" caption="Class" description="A class that implements the RetryPolicyTemplate interface." controlled="customReconnection" indented="true"></classname>
+    <childElement allowMultiple="true" name="http://www.springframework.org/schema/beans/property" caption="Properties" description="Property elements." controlled="customReconnection"></childElement>
+  </nested>
+  <global-cloud-connector versions="[3.5.0,8.0.0]" caption="Handshake" description="Global Handshake configuration information." icon="icons/small/handshake-connector-24x16.png" localId="config" image="icons/large/handshake-connector-48x32.png" abstract="false" extends="http://www.mulesoft.org/schema/mule/handshake/parentConfig" connectivityTesting="on" metaData="static">
+    <attribute-category caption="General" description="Handshake configuration properties.">
+      <group id="handshakeGenericProperties" caption="Basic Settings">
+        <name name="name" caption="Name" description="Give a name to this configuration so it can be later referenced by config-ref." required="true"></name>
+      </group>
+      <group id="connection" caption="Connection">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+      <group id="general" caption="General">
+        <string defaultValue="" name="antiThrottleKey" caption="Anti Throttle Key" description="Secret key provided by Handshake to by-pass throttling checks. If you hit API-call limits, contact Handshake to require one." required="false" javaType="java.lang.String"></string>
+        <string defaultValue="https://app.handshake-app.com/api/v2/" name="endpoint" caption="Endpoint" description="Endpoint to which the Connector should connect and call API methods." required="false" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Pooling Profile" description="Pooling profile options.">
+      <group id="poolingProfile" caption="Pooling Profile">
+        <childElement inplace="true" name="http://www.mulesoft.org/schema/mule/handshake/connection-pooling-profile" caption="" description="" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.PoolingProfileValuePersistence"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Reconnection" description="Reconnection options.">
+      <group id="reconnectionStrategies" caption="Strategies">
+        <childElement inplace="true" name="http://www.mulesoft.org/schema/mule/core/reconnectionStrategyElement" caption="" description="" valuePersistence="org.mule.tooling.ui.modules.core.widgets.meta.HTTPTransactionValuePersistence"></childElement>
+        <childElement allowSubTypes="true" allowedSubTypes="http://www.mulesoft.org/schema/mule/core/reconnect,http://www.mulesoft.org/schema/mule/core/reconnect-custom-strategy,http://www.mulesoft.org/schema/mule/core/reconnect-forever" name="http://www.mulesoft.org/schema/mule/core/abstractReconnectionStrategy" caption="" description="" visibleInDialog="false"></childElement>
+      </group>
+    </attribute-category>
+  </global-cloud-connector>
+  <cloud-connector caption="Abstracthandshakeconnectorgeneric" description="Interact with Handshake." icon="icons/small/handshake-connector-24x16.png" localId="abstractHandshakeConnectorGeneric" image="icons/large/handshake-connector-48x32.png" abstract="true">
+    <attribute-category caption="General" description="General.">
+      <group id="abstractHandshakeConnectorGeneric" caption="Basic Settings">
+        <globalRef requiredType="http://www.mulesoft.org/schema/mule/handshake/config" name="config-ref" caption="Connector Configuration" description="Specify which configuration to use for this invocation." required="true"></globalRef>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector versions="[3.5.0,8.0.0]" aliasId="org.mule.tooling.ui.modules.core.pattern.handshake" caption="Handshake" description="Handshake provides the B2B Commerce platform for manufacturers and distributors that powers standout ordering
+experiences both in-person and online. Companies using Handshake transform their sales effectiveness and drive
+operational efficiency, delighting customers and growing lasting relationships." icon="icons/small/handshake-connector-24x16.png" localId="handshake-connector" image="icons/large/handshake-connector-48x32.png" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric">
+    <attribute-category caption="General" description="General.">
+      <group id="handshakeConnectorGeneric" caption="Basic Settings">
+        <modeSwitch alwaysCombo="true" name="Handshake operations to execute" caption="Operation" description="Operation.">
+          <no-operation abstractElement="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" versions="[3.5.0,8.0.0]" connector-name="processor"></no-operation>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-address" modeLabel="Create address"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-category" modeLabel="Create category"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-customer" modeLabel="Create customer"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-item" modeLabel="Create item"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-items" modeLabel="Create items"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/create-order" modeLabel="Create order"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/find-customers" modeLabel="Find customers"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/find-items" modeLabel="Find items"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/find-orders" modeLabel="Find orders"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-address" modeLabel="Get address"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-category" modeLabel="Get category"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-customer" modeLabel="Get customer"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-customer-group" modeLabel="Get customer group"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-item" modeLabel="Get item"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-order" modeLabel="Get order"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/get-user-group" modeLabel="Get user group"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/update-address" modeLabel="Update address"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/update-customer" modeLabel="Update customer"></mode>
+          <mode modeId="http://www.mulesoft.org/schema/mule/handshake/update-item" modeLabel="Update item"></mode>
+        </modeSwitch>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Address" caption="Create Address" icon="icons/small/handshake-connector-24x16.png" localId="create-address" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/address" caption="Address Reference" required="true" javaType="org.mule.modules.handshake.core.Address"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Category" caption="Create Category" icon="icons/small/handshake-connector-24x16.png" localId="create-category" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/category" caption="Category Reference" required="true" javaType="org.mule.modules.handshake.core.Category"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Customer" caption="Create Customer" icon="icons/small/handshake-connector-24x16.png" localId="create-customer" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/customer" caption="Customer Reference" required="true" javaType="org.mule.modules.handshake.core.Customer"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Item" caption="Create Item" icon="icons/small/handshake-connector-24x16.png" localId="create-item" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/item" caption="Item Reference" required="true" javaType="org.mule.modules.handshake.core.Item"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.util.List&lt;org.mule.modules.handshake.core.Item&gt;" caption="Create Items" icon="icons/small/handshake-connector-24x16.png" localId="create-items" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <element-controller-listOfPojo listName="items" localName="create-items-items" itemName="item" caption="Items" description="To create." javaType="java.util.List&lt;org.mule.modules.handshake.core.Item&gt;"></element-controller-listOfPojo>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Order" caption="Create Order" icon="icons/small/handshake-connector-24x16.png" localId="create-order" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/order" caption="Order Reference" required="true" javaType="org.mule.modules.handshake.core.Order"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.util.Collection&lt;org.mule.modules.handshake.core.Customer&gt;" caption="Find Customers" icon="icons/small/handshake-connector-24x16.png" localId="find-customers" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="filters" caption="Filters">
+        <element-controller-map mapName="filters" localName="find-customers-filters" itemName="filter" caption="Filters" description="Allowed values are: &quot;customerGroup&quot;, &quot;userGroup&quot;, &quot;ctime&quot; and &quot;mtime&quot; (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview) NOTE: filter values refer to the user-defined IDs, and not to the HandShake id." required="false" javaType="java.util.Map&lt;java.lang.String,java.lang.String&gt;"></element-controller-map>
+      </group>
+      <group id="general" caption="General">
+        <boolean defaultValue="false" name="fetchAllResults" caption="Fetch All Results" description="Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long." supportsExpressions="true" required="false" javaType="boolean"></boolean>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.util.Collection&lt;org.mule.modules.handshake.core.Item&gt;" caption="Find Items" icon="icons/small/handshake-connector-24x16.png" localId="find-items" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="filters" caption="Filters">
+        <element-controller-map mapName="filters" localName="find-items-filters" itemName="filter" caption="Filters" description="To apply. Allowed filters are category (by Handshake id), manufacturer (by Handshake id), order (to get items from a specific Order), search (only items with a sku or name that match will be returned), sku (you'll get either 1 or 0 results)." required="false" javaType="java.util.Map&lt;java.lang.String,java.lang.String&gt;"></element-controller-map>
+      </group>
+      <group id="general" caption="General">
+        <boolean defaultValue="false" name="fetchAllResults" caption="Fetch All Results" description="Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long." supportsExpressions="true" required="false" javaType="boolean"></boolean>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="java.util.Collection&lt;org.mule.modules.handshake.core.Order&gt;" caption="Find Orders" icon="icons/small/handshake-connector-24x16.png" localId="find-orders" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="filters" caption="Filters">
+        <element-controller-map mapName="filters" localName="find-orders-filters" itemName="filter" caption="Filters" description="Allowed values are: &quot;customerID&quot;, &quot;status&quot;, &quot;ctime&quot; and &quot;mtime&quot; (for creation and modification times, check operators in http://www.handshake-app.com/help/kb/api/web-services-resources-overview)." required="false" javaType="java.util.Map&lt;java.lang.String,java.lang.String&gt;"></element-controller-map>
+      </group>
+      <group id="general" caption="General">
+        <boolean defaultValue="false" name="fetchAllResults" caption="Fetch All Results" description="Set to true if you want to get the full result instead of a paged one. WARNING: This could be slow and raise OutOfMemoryError if the result is too long." supportsExpressions="true" required="false" javaType="boolean"></boolean>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Address" caption="Get Address" icon="icons/small/handshake-connector-24x16.png" localId="get-address" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Address to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&amp;lt;resource&amp;gt;/&amp;lt;id&amp;gt;')." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Category" caption="Get Category" icon="icons/small/handshake-connector-24x16.png" localId="get-category" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="id" caption="Id" description="Of the Category to get. The id is the one specified on creation, and not Handshake's uid." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Customer" caption="Get Customer" icon="icons/small/handshake-connector-24x16.png" localId="get-customer" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Customer to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&amp;lt;resource&amp;gt;/&amp;lt;id&amp;gt;')." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.CustomerGroup" caption="Get Customer Group" icon="icons/small/handshake-connector-24x16.png" localId="get-customer-group" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="id" caption="Id" description="Of the CustomerGroup to get. The id is the one specified on creation, and not Handshake's uid." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Item" caption="Get Item" icon="icons/small/handshake-connector-24x16.png" localId="get-item" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Item to get. The resourceUri is Handshake's uid, as returned by the creation method (like '/api/v2/&amp;lt;resource&amp;gt;/&amp;lt;id&amp;gt;')." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Order" caption="Get Order" icon="icons/small/handshake-connector-24x16.png" localId="get-order" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Order to get. The uri is Handshake's uid, as returned by the creation method (like '/api/v2/&amp;lt;resource&amp;gt;/&amp;lt;id&amp;gt;')." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.UserGroup" caption="Get User Group" icon="icons/small/handshake-connector-24x16.png" localId="get-user-group" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="id" caption="Id" description="Of the UserGroup to get. The id is the one specified on creation, and not Handshake's uid." required="true" javaType="java.lang.String"></string>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Address" caption="Update Address" icon="icons/small/handshake-connector-24x16.png" localId="update-address" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Address to edit (if you skip this, you should include the resourceUri attribute in the address)." required="false" javaType="java.lang.String"></string>
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/address" caption="Address Reference" required="true" javaType="org.mule.modules.handshake.core.Address"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Customer" caption="Update Customer" icon="icons/small/handshake-connector-24x16.png" localId="update-customer" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Customer to update (if you skip this, you should include the resourceUri attribute in the customer)." required="false" javaType="java.lang.String"></string>
+        <childElement inplace="true" allowMultiple="false" defaultValue="#[payload]" name="http://www.mulesoft.org/schema/mule/handshake/customer" caption="Customer Reference" required="false" javaType="org.mule.modules.handshake.core.Customer"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <cloud-connector returnType="org.mule.modules.handshake.core.Item" caption="Update Item" icon="icons/small/handshake-connector-24x16.png" localId="update-item" image="icons/large/handshake-connector-48x32.png" abstract="true" extends="http://www.mulesoft.org/schema/mule/handshake/abstractHandshakeConnectorGeneric" metaData="static">
+    <attribute-category caption="General" description="General.">
+      <group id="general" caption="General">
+        <string name="resourceUri" caption="Resource Uri" description="Of the Item to edit (if you skip this, you should include the resourceUri attribute in the item)." required="false" javaType="java.lang.String"></string>
+        <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/item" caption="Item Reference" required="true" javaType="org.mule.modules.handshake.core.Item"></childElement>
+      </group>
+    </attribute-category>
+    <attribute-category caption="Advanced" description="Advanced.">
+      <group id="connector Configuration Overrides" caption="Connector Configuration Overrides">
+        <string name="apiKey" caption="Api Key" description="The API key for the user." required="false" javaType="java.lang.String"></string>
+        <password name="securityToken" caption="Security Token" description="Used for sensitive data encryption. Please refer to http://www.handshake-app.com/help/kb/api/api-authentication." required="false" javaType="java.lang.String"></password>
+      </group>
+    </attribute-category>
+  </cloud-connector>
+  <nested xmlname="address" caption="" description="" localId="address" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Address Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street" caption="Street" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street2" caption="Street2" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="city" caption="City" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="state" caption="State" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="postcode" caption="Postcode" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="country" caption="Country" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="phone" caption="Phone" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="fax" caption="Fax" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="isDefaultShipTo" caption="Is Default Ship To" description="" supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="multiLineStr" caption="Multi Line Str" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="stCustomer" caption="St Customer" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="bill-to" caption="" description="" localId="bill-to" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Bill To Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street" caption="Street" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street2" caption="Street2" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="city" caption="City" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="state" caption="State" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="postcode" caption="Postcode" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="country" caption="Country" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="phone" caption="Phone" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="fax" caption="Fax" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="isDefaultShipTo" caption="Is Default Ship To" description="" supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="multiLineStr" caption="Multi Line Str" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="stCustomer" caption="St Customer" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="category" caption="" description="" localId="category" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Category Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <integer min="0" step="1" name="categoryPosition" caption="Category Position" description="" required="false" controlled="complex" javaType="java.lang.Integer"></integer>
+    <string name="parent" caption="Parent" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <enum allowsCustom="true" name="subType" caption="Sub Type" description="" supportsExpressions="true" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.CategorySubType">
+      <option value="Item"></option>
+      <option value="SalesOrder"></option>
+    </enum>
+    <element-controller-list listName="subcategories" localName="configurable-subcategories" itemName="subcategory" caption="Subcategories" description="" required="false" controlled="complex" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="credit-card" caption="" description="" localId="credit-card" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Credit Card Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="type" caption="Type" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="lastFour" caption="Last Four" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="month" caption="Month" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="year" caption="Year" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="expiry" caption="Expiry" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="number" caption="Number" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="cvv" caption="Cvv" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="customer" caption="" description="" localId="customer" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Customer Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="contact" caption="Contact" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="email" caption="Email" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="taxId" caption="Tax Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/bill-to" caption="Bill To Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.Address"></childElement>
+    <element-controller-listOfPojo listName="ship-tos" localName="configurable-ship-tos" itemName="ship-to" caption="Ship Tos" description="" required="false" controlled="complex" javaType="java.util.List&lt;org.mule.modules.handshake.core.Address&gt;"></element-controller-listOfPojo>
+    <string name="defaultShipTo" caption="Default Ship To" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <element-controller-listOfPojo listName="credit-cards" localName="configurable-credit-cards" itemName="credit-card" caption="Credit Cards" description="" required="false" controlled="complex" javaType="java.util.List&lt;org.mule.modules.handshake.core.CreditCard&gt;"></element-controller-listOfPojo>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/user-group" caption="User Group Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.UserGroup"></childElement>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/customer-group" caption="Customer Group Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.CustomerGroup"></childElement>
+    <string name="shippingMethod" caption="Shipping Method" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="paymentTerms" caption="Payment Terms" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="currency" caption="Currency" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="locale" caption="Locale" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="customer-group" caption="" description="" localId="customer-group" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Customer Group Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="currency" caption="Currency" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="item" caption="" description="" localId="item" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Item Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="sku" caption="Sku" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="longDesc" caption="Long Desc" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="barcode" caption="Barcode" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="unitPrice" caption="Unit Price" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <integer min="0" step="1" name="minQty" caption="Min Qty" description="" required="false" controlled="complex" javaType="java.lang.Integer"></integer>
+    <integer min="0" step="1" name="multQty" caption="Mult Qty" description="" required="false" controlled="complex" javaType="java.lang.Integer"></integer>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/category" caption="Category Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.Category"></childElement>
+    <integer min="0" step="1" name="categoryPosition" caption="Category Position" description="" required="false" controlled="complex" javaType="java.lang.Integer"></integer>
+    <element-controller-listOfPojo listName="variants" localName="configurable-variants" itemName="variant" caption="Variants" description="" required="false" controlled="complex" javaType="java.util.List&lt;org.mule.modules.handshake.core.Variant&gt;"></element-controller-listOfPojo>
+    <element-controller-map mapName="additional-prices" localName="configurable-additional-prices" itemName="additional-price" caption="Additional Prices" description="" required="false" controlled="complex" javaType="java.util.Map&lt;java.lang.String,java.lang.String&gt;"></element-controller-map>
+    <string name="manufacturer" caption="Manufacturer" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <element-controller-list listName="image-u-r-ls" localName="configurable-image-u-r-ls" itemName="image-u-r-l" caption="Image U R Ls" description="" required="false" controlled="complex" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+    <element-controller-list listName="thumbnail-u-r-ls" localName="configurable-thumbnail-u-r-ls" itemName="thumbnail-u-r-l" caption="Thumbnail U R Ls" description="" required="false" controlled="complex" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+    <string name="thumbnailURL" caption="Thumbnail U R L" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="order" caption="" description="" localId="order" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Order Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/customer" caption="Customer Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.Customer"></childElement>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/bill-to" caption="Bill To Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.Address"></childElement>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/ship-to" caption="Ship To Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.Address"></childElement>
+    <childElement inplace="true" allowMultiple="false" name="http://www.mulesoft.org/schema/mule/handshake/credit-card" caption="Credit Card Reference" required="false" controlled="complex" javaType="org.mule.modules.handshake.core.CreditCard"></childElement>
+    <string name="userGroup" caption="User Group" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="category" caption="Category" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <element-controller-listOfPojo listName="lines" localName="configurable-lines" itemName="line" caption="Lines" description="" required="false" controlled="complex" javaType="java.util.List&lt;org.mule.modules.handshake.core.SalesOrderLine&gt;"></element-controller-listOfPojo>
+    <string name="lastEdited" caption="Last Edited" description="" required="false" controlled="complex" javaType="java.util.Date"></string>
+    <string name="manufacturerIds" caption="Manufacturer Ids" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="manufacturerNames" caption="Manufacturer Names" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="status" caption="Status" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="shippingMethod" caption="Shipping Method" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="paymentTerms" caption="Payment Terms" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="notes" caption="Notes" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="customerPO" caption="Customer P O" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="emailSent" caption="Email Sent" description="" supportsExpressions="true" required="false" controlled="complex" javaType="boolean"></boolean>
+    <string name="startShipDate" caption="Start Ship Date" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="cancelDate" caption="Cancel Date" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="freeShipping" caption="Free Shipping" description="" supportsExpressions="true" required="false" controlled="complex" javaType="boolean"></boolean>
+    <boolean name="shipPartial" caption="Ship Partial" description="" supportsExpressions="true" required="false" controlled="complex" javaType="boolean"></boolean>
+    <string name="signatureURL" caption="Signature U R L" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <element-controller-list listName="photo-u-r-ls" localName="configurable-photo-u-r-ls" itemName="photo-u-r-l" caption="Photo U R Ls" description="" required="false" controlled="complex" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="totalOffDiscount" caption="Total Off Discount" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="percentDiscount" caption="Percent Discount" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="ship-to" caption="" description="" localId="ship-to" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="Ship To Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street" caption="Street" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="street2" caption="Street2" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="city" caption="City" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="state" caption="State" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="postcode" caption="Postcode" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="country" caption="Country" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="phone" caption="Phone" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="fax" caption="Fax" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <boolean name="isDefaultShipTo" caption="Is Default Ship To" description="" supportsExpressions="true" required="false" controlled="complex" javaType="java.lang.Boolean"></boolean>
+    <string name="multiLineStr" caption="Multi Line Str" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="stCustomer" caption="St Customer" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+  <nested xmlname="user-group" caption="" description="" localId="user-group" abstract="false">
+    <radioBoolean name="useReference" caption="Reference or expression" description="Provide a reference to a bean or use an expression" fillLine="true"></radioBoolean>
+    <string name="ref" caption="User Group Reference" description="" controlled="useReference"></string>
+    <radioBoolean name="complex" caption="Define attributes" description="Define this element's attributes" fillLine="true"></radioBoolean>
+    <string name="name" caption="Name" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="id" caption="Id" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <string name="parent" caption="Parent" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+    <element-controller-list listName="categories" localName="configurable-categories" itemName="category" caption="Categories" description="" required="false" controlled="complex" javaType="java.util.List&lt;java.lang.String&gt;"></element-controller-list>
+    <string name="resourceUri" caption="Resource Uri" description="" required="false" controlled="complex" javaType="java.lang.String"></string>
+  </nested>
+</namespace>
